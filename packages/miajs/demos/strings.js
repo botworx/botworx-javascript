@@ -1,0 +1,24 @@
+mia = require('miascript');
+Term = mia.Term;
+Context = mia.Context;
+Belief = mia.Belief;
+Achieve = mia.Achieve;
+Assert = mia.Assert;
+Retract = mia.Retract;
+Attempt = mia.Attempt;
+$$_ = mia.$$_;
+$$ = mia.$$;
+$$self = mia.$$self;
+$$module = mia.$$module;
+Message = mia.Message;
+Expert = mia.Expert;
+Rule = mia.Rule;
+Trigger = mia.Trigger;
+Runner = mia.Runner;
+__I = $$.intern('I');
+__like = $$.intern('like');
+__NIL = $$.intern('NIL');
+module.exports = $$module(function(){
+  this.assert(new Belief(__I, __like, "Turtles"));
+});
+if(require.main === module) $$self.run(module.exports);

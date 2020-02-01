@@ -1,0 +1,12 @@
+def Bob ^Person
+  likes Cheese
+
+Bob ^Dude ::
+  likes Fish
+
+stack Block1 on: Block2 time: Now
+
+stack Block1, on Block2, time Now
+
+where
+  $x likes $y

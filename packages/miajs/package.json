@@ -1,0 +1,27 @@
+{
+  "name": "@botworx/miajs",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "mocha ./test/src --recursive --reporter mochawesome --reporter-options reportDir=./test/report"
+  },
+  "main": "./src",
+  "directories": {
+    "lib": "src"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "debug": "^4.1.1",
+    "glob": "^7.1.6",
+    "js-yaml": "^3.13.1",
+    "json-stringify-safe": "^5.0.1",
+    "minimatch": "^3.0.4",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "mocha": "^7.0.1",
+    "mochawesome": "^4.1.0"
+  }
+}

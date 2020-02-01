@@ -1,0 +1,17 @@
+Bob ::
+  likes Fish
+
+def (say $t)
+  | console.log($t);
+
+where
+  $x likes Fish
+-->
+  say $x
+;
+
+where
+  $x likes Cheese
+-->
+  say $x
+;

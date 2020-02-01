@@ -1,0 +1,1128 @@
+{
+  "stats": {
+    "suites": 34,
+    "tests": 21,
+    "passes": 21,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-02-01T08:58:25.843Z",
+    "end": "2020-02-01T08:58:25.945Z",
+    "duration": 102,
+    "testsRegistered": 21,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f625a1fa-557a-473d-a775-127fabc35c19",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a20f28a4-723d-44a2-ba8e-95bdb9944064",
+          "title": "Analyzer",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/analyzer.js",
+          "file": "/test/src/analyzer.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "229eb3d6-6bee-4c08-8a96-a7938df017bd",
+              "title": "@analyze",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/analyzer.js",
+              "file": "/test/src/analyzer.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Analyzer @analyze should work",
+                  "timedOut": false,
+                  "duration": 6,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const ast = analyze(data);\nreturn $$._($$.stringify(ast, null, 2));",
+                  "err": {},
+                  "uuid": "f813fd00-3a9c-4d1c-89a5-408764069891",
+                  "parentUUID": "229eb3d6-6bee-4c08-8a96-a7938df017bd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f813fd00-3a9c-4d1c-89a5-408764069891"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6c07e754-28ba-4e78-9ffd-d32ddc5fbed1",
+          "title": "Array",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/array.js",
+          "file": "/test/src/array.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "ce6cb494-b959-4b1b-8dc9-f82457865ace",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/array.js",
+              "file": "/test/src/array.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Array @evaluate should work",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//$$._ lex data\n//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((analyze(data)), null, 2));\n//$$._ transpile data\n$$._(compile(data));\nreturn evaluate(data);",
+                  "err": {},
+                  "uuid": "5ee2f61d-4c15-4aae-96b3-5c75429383cd",
+                  "parentUUID": "ce6cb494-b959-4b1b-8dc9-f82457865ace",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5ee2f61d-4c15-4aae-96b3-5c75429383cd"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f17f2660-3603-4291-acba-aeafb99b7aec",
+          "title": "Assert",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/assert.js",
+          "file": "/test/src/assert.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "db806c39-5396-41ec-9dad-0da811d82f11",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/assert.js",
+              "file": "/test/src/assert.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Assert @evaluate should work",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//$$._ lex data\n//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((analyze(data)), null, 2));\n//$$._ transpile data\n$$._(compile(data));\nreturn evaluate(data);",
+                  "err": {},
+                  "uuid": "7459327f-4e6a-417b-acf5-c88754145c4a",
+                  "parentUUID": "db806c39-5396-41ec-9dad-0da811d82f11",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7459327f-4e6a-417b-acf5-c88754145c4a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "d2a3fc8c-68a0-4506-9ca9-01175b7dd741",
+          "title": "AST",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/ast.js",
+          "file": "/test/src/ast.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "d05f8e8d-8d20-4c5d-8e4f-45faa5af104a",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/ast.js",
+              "file": "/test/src/ast.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "AST @evaluate should work",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const ast = parse(data);\nreturn $$._($$.stringify(ast, null, 2));",
+                  "err": {},
+                  "uuid": "9940e63d-2449-42a9-90da-d15e5c6a2b5e",
+                  "parentUUID": "d05f8e8d-8d20-4c5d-8e4f-45faa5af104a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9940e63d-2449-42a9-90da-d15e5c6a2b5e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4bb56173-400d-4950-8b60-8b4acd224433",
+          "title": "Blox",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/blox.js",
+          "file": "/test/src/blox.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "Blox should work",
+              "timedOut": false,
+              "duration": 14,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//$$._ lex data\n//$$._ JSON.stringify (parse data), null, 2\n//$$._ JSON.stringify (transform data), null, 2\n//$$._ JSON.stringify (analyze data), null, 2\n$$._(transpile(data));\n//$$._ compile data\nreturn evaluate(data);",
+              "err": {},
+              "uuid": "79518383-fe69-4978-970d-091dbf02b3b8",
+              "parentUUID": "4bb56173-400d-4950-8b60-8b4acd224433",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "79518383-fe69-4978-970d-091dbf02b3b8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "b0506ff5-7bcc-4145-a234-aaabe100fb51",
+          "title": "BoundClause",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/boundclause.js",
+          "file": "/test/src/boundclause.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "BoundClause should work",
+              "timedOut": false,
+              "duration": 3,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//$$._ lex data\n$$._(JSON.stringify((parse(data)), null, 2));\n//$$._ JSON.stringify (transform data), null, 2\n//$$._ JSON.stringify (analyze data), null, 2\n//$$._ transpile data\n//$$._ compile data\nreturn evaluate(data);",
+              "err": {},
+              "uuid": "d9280f8c-1d6b-4531-aaf7-0924c5ce1601",
+              "parentUUID": "b0506ff5-7bcc-4145-a234-aaabe100fb51",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9280f8c-1d6b-4531-aaf7-0924c5ce1601"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4a9478bd-cc6a-449e-9b7f-9bc95be30798",
+          "title": "Clause",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/clause.js",
+          "file": "/test/src/clause.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a12fbb5d-3732-4f53-abd0-11bc017bcd81",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/clause.js",
+              "file": "/test/src/clause.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Clause @evaluate should work",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((analyze(data)), null, 2));\n$$._(transpile(data));\nreturn $$._(compile(data));",
+                  "err": {},
+                  "uuid": "d10869e1-333d-41c3-b20b-feaafd494074",
+                  "parentUUID": "a12fbb5d-3732-4f53-abd0-11bc017bcd81",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d10869e1-333d-41c3-b20b-feaafd494074"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "cd39b26e-f537-4b36-8cb2-ced3e2992ea2",
+          "title": "DefParser",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/defparser.js",
+          "file": "/test/src/defparser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "cbab8ace-3d86-4ad9-82f5-34000adb34d7",
+              "title": "@parse",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/defparser.js",
+              "file": "/test/src/defparser.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "DefParser @parse should work",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let tok;\nlet ast;\n$$.h2('Data');\nconst data = \"say $t\";\n$$._(data);\n$$.h2('Lex');\nconst terminals = grammar.parser.terminals_;\nconst lexer = new MiaLexer();\nlexer.setInput(data);\nwhile ((tok = lexer.lex()) !== lexer.EOF) {\n  $$._(terminals[tok]);\n}\n$$.h2('Parse');\nconst parser = new MiaParser(lexer, yy);\ntry {\n  ast = parser.parse(data);\n} catch (err) {\n  $$._(err.message);\n  $$._(err.hash);\n}\n$$.h2('AST');\nreturn $$._(JSON.stringify(ast, null, 2));",
+                  "err": {},
+                  "uuid": "49b6dc1d-5f03-48bf-ac1d-a7122a234bd2",
+                  "parentUUID": "cbab8ace-3d86-4ad9-82f5-34000adb34d7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "49b6dc1d-5f03-48bf-ac1d-a7122a234bd2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ca0fe6eb-7ebf-44e8-9d63-10eaeeef193f",
+          "title": "Assert",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/iassert.js",
+          "file": "/test/src/iassert.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "5c5756a5-191a-4ff1-bb03-b0dd10371579",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/iassert.js",
+              "file": "/test/src/iassert.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Assert @evaluate should work",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "$$._(lex(data));\n//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((analyze(data)), null, 2));\n$$._(transpile(data));\nreturn $$._(compile(data));",
+                  "err": {},
+                  "uuid": "15081468-8863-4d91-a5a9-1cd64859e3f8",
+                  "parentUUID": "5c5756a5-191a-4ff1-bb03-b0dd10371579",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "15081468-8863-4d91-a5a9-1cd64859e3f8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "0b626a83-dc6b-4490-9da2-28cf16820129",
+          "title": "Impasse",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/impasse.js",
+          "file": "/test/src/impasse.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "Impasse should work",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//$$._ lex data\n//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((transform(data)), null, 2));\n//$$._ JSON.stringify (analyze data), null, 2\n$$._(transpile(data));\n//$$._ compile data\nreturn evaluate(data);",
+              "err": {},
+              "uuid": "c7a1d7ea-1551-456e-b82c-be99bb0c7b7b",
+              "parentUUID": "0b626a83-dc6b-4490-9da2-28cf16820129",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7a1d7ea-1551-456e-b82c-be99bb0c7b7b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "7c989777-8842-4c10-84c8-d9d617dd72f4",
+          "title": "MiaCompiler",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miacompiler.js",
+          "file": "/test/src/miacompiler.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "df2bfde7-25aa-4dff-a789-1fbc5d648be0",
+              "title": "@compile",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miacompiler.js",
+              "file": "/test/src/miacompiler.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaCompiler @compile should work",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let tok;\nlet ast;\nconst terminals = grammar.parser.terminals_;\nconst lexer = new MiaLexer();\nconst data =\n`\\\ndef (hello)\n\ndef (say $t)\n| $t\n\nsay \"Hello World\"\nsay \"Goodbye World\"\n\nhello\\\n`;\n$$.h2('Data Begin');\n$$._(data);\n$$.h2('Data End');\n$$.h2('Lex Begin');\nlexer.setInput(data);\nwhile ((tok = lexer.lex()) !== lexer.EOF) {\n  $$._(terminals[tok]);\n}\n$$.h2('Lex End');\n/*\nParser\n*/\nconst parser = new MiaParser(lexer, yy);\n$$.h2('Parse Begin');\ntry {\n  ast = parser.parse(data);\n} catch (err) {\n  $$._(err.message);\n  $$._(err.hash);\n}\n$$.h2('Parse End');\n$$.h2('AST Begin');\n$$._(JSON.stringify(ast, null, 2));\n$$.h2('AST End');\n$$.h2('Compiler Begin');\n//\nconst out = process.stdout;\n//\ncompiler = new MiaCompiler(out);\nreturn compiler.compile(ast);",
+                  "err": {},
+                  "uuid": "2bfe01fb-9c0a-4400-a22c-6b8ee048d735",
+                  "parentUUID": "df2bfde7-25aa-4dff-a789-1fbc5d648be0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2bfe01fb-9c0a-4400-a22c-6b8ee048d735"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "76d7dd3e-7e11-4eb5-9a36-6e450d8cd4ee",
+          "title": "MiaLexer",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/mialexer.js",
+          "file": "/test/src/mialexer.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "fe18f74a-4250-4832-b6b1-3b0490ee2996",
+              "title": "@lex",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/mialexer.js",
+              "file": "/test/src/mialexer.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaLexer @lex should work",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const terminals = grammar.parser.terminals_;\nconst lexer = new MiaLexer();\nconst data =\n`\\\ndef (hello)\n\ndef (say $t)\n| $$._($t);\n\nsay \"Hello World\"\nsay \"Goodbye World\"\n\nhello\\\n`;\n$$.h2('Data');\n$$._(data);\n$$.h2('Tokens');\nlexer.setInput(data);\nreturn (() => {\n  let tok;\n  const result = [];\n  while ((tok = lexer.lex()) !== lexer.EOF) {\n    result.push($$._(terminals[tok]));\n  }\n  return result;\n})();",
+                  "err": {},
+                  "uuid": "80f1ac54-4548-4de4-b8c6-2b7595c4cf0c",
+                  "parentUUID": "fe18f74a-4250-4832-b6b1-3b0490ee2996",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "80f1ac54-4548-4de4-b8c6-2b7595c4cf0c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "dc3b9414-fe63-454e-8be0-1c25ee43d511",
+          "title": "MiaParser",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miaparser.js",
+          "file": "/test/src/miaparser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "1943e2c2-438b-4119-a375-1589e8846bdf",
+              "title": "@parse",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miaparser.js",
+              "file": "/test/src/miaparser.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaParser @parse should work",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let tok;\nlet ast;\nconst terminals = grammar.parser.terminals_;\nconst lexer = new MiaLexer();\n$$.h2('Data');\nconst data =\n`\\\ndef (hello)\n\ndef (say $t)\n| $t\n\nsay \"Hello World\"\nsay \"Goodbye World\"\n\nhello\\\n`;\n$$._(data);\n$$.h2('Lex');\nlexer.setInput(data);\nwhile ((tok = lexer.lex()) !== lexer.EOF) {\n  $$._(terminals[tok]);\n}\n/*\nParser\n*/\nconst parser = new MiaParser(lexer, yy);\n$$.h2('Parse');\ntry {\n  ast = parser.parse(data);\n} catch (err) {\n  $$._(err.message);\n  $$._(err.hash);\n}\n$$.h2('AST');\nreturn $$._(JSON.stringify(ast, null, 2));",
+                  "err": {},
+                  "uuid": "a2b30df1-48ca-4e2b-95a3-a841296248f2",
+                  "parentUUID": "1943e2c2-438b-4119-a375-1589e8846bdf",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a2b30df1-48ca-4e2b-95a3-a841296248f2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "680e39d0-0169-4cab-9331-23ff3253eff3",
+          "title": "MiaScript",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miascript.js",
+          "file": "/test/src/miascript.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "0392a685-43ec-41a1-8579-16dfc226d0fc",
+              "title": "@parse",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miascript.js",
+              "file": "/test/src/miascript.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaScript @parse should work",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "$$.h2('Parse');\nreturn $$._(JSON.stringify((parse(data)), null, 2));",
+                  "err": {},
+                  "uuid": "4d656db1-5314-4878-a4a4-8d5e9ced795d",
+                  "parentUUID": "0392a685-43ec-41a1-8579-16dfc226d0fc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4d656db1-5314-4878-a4a4-8d5e9ced795d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4b221c3b-2681-4231-9094-396333a46cfc",
+              "title": "@transform",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miascript.js",
+              "file": "/test/src/miascript.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaScript @transform should work",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "$$.h2('Transform');\nreturn $$._(JSON.stringify((transform(data)), null, 2));",
+                  "err": {},
+                  "uuid": "a42a8483-0159-47c5-b997-95c7aea7cf1e",
+                  "parentUUID": "4b221c3b-2681-4231-9094-396333a46cfc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a42a8483-0159-47c5-b997-95c7aea7cf1e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "91312d92-24ac-4ae4-8809-2b0672675193",
+              "title": "@compile",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miascript.js",
+              "file": "/test/src/miascript.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaScript @compile should work",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "$$.h2('Code');\nconst code = compile(data);\nreturn $$._(code);",
+                  "err": {},
+                  "uuid": "3f8e9251-058c-49f9-85dd-3a5fd3580581",
+                  "parentUUID": "91312d92-24ac-4ae4-8809-2b0672675193",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3f8e9251-058c-49f9-85dd-3a5fd3580581"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "c454276c-a955-42e3-a11d-d71ef53b9498",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/miascript.js",
+              "file": "/test/src/miascript.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "MiaScript @evaluate should work",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "$$.h2('Evaluation');\nreturn evaluate(data);",
+                  "err": {},
+                  "uuid": "5e3fb12c-6af3-47fa-bafd-8ecd9c9ddef9",
+                  "parentUUID": "c454276c-a955-42e3-a11d-d71ef53b9498",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5e3fb12c-6af3-47fa-bafd-8ecd9c9ddef9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8385031a-ecdd-452c-949e-659380dbdd85",
+          "title": "Query",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/qnegclause.js",
+          "file": "/test/src/qnegclause.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "Query should work",
+              "timedOut": false,
+              "duration": 8,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//evaluate data\n//compile data\n$$._(JSON.stringify((parse(data)), null, 2));\n//$$._ JSON.stringify (lex data), null, 2\n//$$._ transpile data\nconst code = compile(data);\n$$._(code);\nreturn evaluate(data);",
+              "err": {},
+              "uuid": "8ed7abf1-2fcf-41e0-85fa-4c8f7b93ac64",
+              "parentUUID": "8385031a-ecdd-452c-949e-659380dbdd85",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8ed7abf1-2fcf-41e0-85fa-4c8f7b93ac64"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "2b7a76e1-940a-4a4e-b180-10c9538233c2",
+          "title": "Query",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/query.js",
+          "file": "/test/src/query.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "Query should work",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//evaluate data\n//compile data\n$$._(JSON.stringify((parse(data)), null, 2));\n//$$._ JSON.stringify (lex data), null, 2\n//$$._ transpile data\nconst code = compile(data);\n$$._(code);\nreturn evaluate(data);",
+              "err": {},
+              "uuid": "249f6be7-a630-44c1-821f-d20fa1d2990e",
+              "parentUUID": "2b7a76e1-940a-4a4e-b180-10c9538233c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "249f6be7-a630-44c1-821f-d20fa1d2990e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "96d2882c-f2b2-434a-ad26-d34f5af515df",
+          "title": "Typed",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/typed.js",
+          "file": "/test/src/typed.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "cd61fe44-1f79-455a-86af-27c91e5517fe",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/typed.js",
+              "file": "/test/src/typed.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Typed @evaluate should work",
+                  "timedOut": false,
+                  "duration": 13,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//$$._ JSON.stringify (parse data), null, 2\n$$._(JSON.stringify((transform(data)), null, 2));\n$$._(transpile(data));\n$$._(compile(data));\nreturn evaluate(data);",
+                  "err": {},
+                  "uuid": "6278eb00-4e59-42c0-9fad-971cbf03d31c",
+                  "parentUUID": "cd61fe44-1f79-455a-86af-27c91e5517fe",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6278eb00-4e59-42c0-9fad-971cbf03d31c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 13,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "fe24d7af-858a-4b89-9ae4-78545be57261",
+          "title": "Xtra",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/xtra.js",
+          "file": "/test/src/xtra.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "75b4ba60-2cfa-4c75-a04c-55780b2a33a4",
+              "title": "@evaluate",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miascript/test/src/xtra.js",
+              "file": "/test/src/xtra.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Xtra @evaluate should work",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//evaluate data\n//compile data\n$$._(JSON.stringify((parse(data)), null, 2));\n$$._(transpile(data));\nconst code = compile(data);\n$$._(code);\nreturn evaluate(data);",
+                  "err": {},
+                  "uuid": "3b1446cc-bff3-40cc-95ac-b3b8da782c5b",
+                  "parentUUID": "75b4ba60-2cfa-4c75-a04c-55780b2a33a4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3b1446cc-bff3-40cc-95ac-b3b8da782c5b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./test/report"
+      },
+      "version": "4.1.0"
+    }
+  }
+}

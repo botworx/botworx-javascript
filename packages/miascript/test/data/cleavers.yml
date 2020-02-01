@@ -1,0 +1,11 @@
+Beaver:
+  dad: Ward
+  likes:
+    - PeanutButter
+    - Jelly
+
+Wally:
+  dad: Ward
+
+Ward:
+  wife: June

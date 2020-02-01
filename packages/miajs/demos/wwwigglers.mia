@@ -1,0 +1,16 @@
+def main
+  propose
+    eat
+    play
+
+def proposeEat(sees Food: $f)
+  * eat $f
+
+def proposePlay(sees Toy: $t)
+  * play $t
+  
+def eat
+
+def play
+
+def

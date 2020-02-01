@@ -1,0 +1,12 @@
+defaults: &defaults
+  contact_email: "email@myapp.com"
+  DEBUG: "miajs"
+  
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

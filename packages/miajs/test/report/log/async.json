@@ -1,0 +1,25 @@
+{"level":"info","message":"\u001b[31mBaba\u001b[39m","timestamp":"2017-06-27T17:08:57.649Z"}
+{"level":"info","message":"\u001b[31mYaga\u001b[39m","timestamp":"2017-06-27T17:08:59.659Z"}
+{"level":"info","message":"\u001b[31mBaba\u001b[39m","timestamp":"2017-06-29T04:32:35.751Z"}
+{"level":"info","message":"Hello World","timestamp":"2017-06-29T04:32:35.764Z"}
+{"level":"info","message":"Goodbye World","timestamp":"2017-06-29T04:32:35.765Z"}
+{"level":"info","message":"\u001b[31mYaga\u001b[39m","timestamp":"2017-06-29T04:32:35.768Z"}
+{"level":"info","message":"\u001b[31mBaba\u001b[39m","timestamp":"2018-04-05T18:21:47.503Z"}
+{"level":"info","message":"Hello World","timestamp":"2018-04-05T18:21:47.528Z"}
+{"level":"info","message":"\u001b[31mYaga\u001b[39m","timestamp":"2018-04-05T18:21:47.536Z"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"Hello World","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"Hello World","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"Hello World","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}
+{"message":"\u001b[31mBaba\u001b[39m","level":"info"}
+{"message":"Hello World","level":"info"}
+{"message":"\u001b[31mYaga\u001b[39m","level":"info"}

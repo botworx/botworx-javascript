@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var fs, lib, path;
+
+path = require('path');
+fs = require('fs');
+
+require('../src/command').run();
