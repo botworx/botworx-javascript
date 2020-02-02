@@ -1,7 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS001: Remove Babel/TypeScript constructor workaround
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
@@ -24,12 +22,12 @@ class Project extends Runner {
       const v = cfg[k];
       switch (k) {
         case 'tasks':
-          for (let t of Array.from(v)) {
+          for (let t of v) {
             this.add(t);
           }
           break;
         case 'rules':
-          for (let r of Array.from(v)) {
+          for (let r of v) {
             this.addRule(r);
           }
           break;
@@ -42,7 +40,7 @@ class Project extends Runner {
 
   init() {
     super.init();
-    for (let child of Array.from(this.tasks)) {
+    for (let child of this.tasks) {
       this.schedule(child);
     }
     return this.status;
@@ -81,7 +79,7 @@ class Sourcer extends Task {
     const options = {};
     const pattern = this.rnr.files;
     return glob(pattern, options, (er, sources) => {
-      return Array.from(sources).map((src) =>
+      return sources.map((src) =>
         this.fn(src));
     });
   }
@@ -109,7 +107,7 @@ const buildProject = function(builders, cfg) {
 
 const buildTasks = function(builders, arr) {
   const product = [];
-  for (let v of Array.from(arr)) {
+  for (let v of arr) {
     if (v instanceof Task) {
       product.push(v);
     } else {

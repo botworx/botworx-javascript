@@ -1,12 +1,9 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
-const {
-  assert
-} = require('chai');
+const { assert } = require('chai');
 const {unit_, runtime} = require('./common');
 const $$ = unit_(module);
 const {Term, Context, Assert, Retract, Believe, Attempt, Achieve} = runtime;
@@ -21,7 +18,7 @@ describe('Rule', () => describe('@fire', () => it('should work', function() {
   ctx.add(c2);
 
   $$.$("All Clauses");
-  for (let c of Array.from(ctx.clauses)) {
+  for (let c of ctx.clauses) {
     $$._(c.toString());
   }
 

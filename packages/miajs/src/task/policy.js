@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -17,7 +16,7 @@ class Policy {
 
   find(msg) {
     let result = [];
-    for (let r of Array.from(this.rules)) {
+    for (let r of this.rules) {
       if (r.match(msg)) {
         result.push(r);
       }
@@ -32,21 +31,17 @@ class Policy {
   }
 
   *match(msg) {
-    for (let r of Array.from(this.rules)) {
+    for (let r of this.rules) {
       var m;
       if (m = r.match(msg)) {
         yield m;
       }
     }
     let policy = this.parent;
-    return yield* (function*() {
-      const result = [];
-      while (policy) {
-        yield* policy.match(msg);
-        result.push(policy = policy.parent);
-      }
-      return result;
-    }).call(this);
+    while (policy) {
+      yield* policy.match(msg);
+      policy = policy.parent;
+    }
   }
 }
 

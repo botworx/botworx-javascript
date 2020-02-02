@@ -65,11 +65,7 @@ describe('TNode', () => it('should work', function() {
 
   $$._(n2);
   $$.$('nodes');
-  return (() => {
-    const result = [];
-    for (node of n2) {
-      result.push($$._(node));
-    }
-    return result;
-  })();
+  for (node of n2) {
+    $$._(node);
+  }
 }));

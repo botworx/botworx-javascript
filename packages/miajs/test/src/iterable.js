@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS206: Consider reworking classes to avoid initClass
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -30,6 +29,7 @@ describe('TIterable', () => it('should work', function() {
   B.initClass();
 
   const b = new B();
-  return Array.from(b).map((l) =>
-    $$._(l));
+  for (l of b) {
+    $$._(l)
+  }
 }));

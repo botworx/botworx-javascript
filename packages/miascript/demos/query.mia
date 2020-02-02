@@ -1,0 +1,18 @@
++ Bob likes Fish
++ Joe likes Fish
+
+def (hello)
+  | this.rnr.ctx
+  where
+    $x likes $y
+    $z likes $y
+    $x != $z
+  -->
+    | _
+    + $x likes $z
+
+def (goodbye)
+  | String(this.rnr.ctx)
+
+hello
+goodbye

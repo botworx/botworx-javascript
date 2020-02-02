@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * DS206: Consider reworking classes to avoid initClass
@@ -27,7 +26,7 @@ class Context {
       const v = cfg[k];
       switch (k) {
         case 'clauses':
-          for (let c of Array.from(v)) {
+          for (let c of v) {
             this.add(c);
           }
           break;
@@ -60,7 +59,7 @@ class Context {
   }
 
   exists(t, s, v, o, x) {
-    for (let c of Array.from(this.clauses)) {
+    for (let c of this.clauses) {
       if (c.match(t, s, v, o, x)) {
         return true;
       }
@@ -77,17 +76,11 @@ class Context {
   }
 
   *match(t, s, v, o, x) {
-    return yield* (function*() {
-      const result = [];
-      for (let c of Array.from(this.clauses)) {
-        if (c.match(t, s, v, o, x)) {
-          result.push(yield c);
-        } else {
-          result.push(undefined);
-        }
+    for (let c of this.clauses) {
+      if (c.match(t, s, v, o, x)) {
+        yield c
       }
-      return result;
-    }).call(this);
+    }
   }
 
   query(t, s, v, o, x) {
@@ -96,36 +89,29 @@ class Context {
 
   toString() {
     let result = '';
-    for (let c of Array.from(this.clauses)) {
+    for (let c of this.clauses) {
       result += c.toString() + '\n';
     }
     return result;
   }
 
   fromJSON(json) {
-    return (() => {
-      const result = [];
-      for (let k in json) {
-        var v = json[k];
-        const t = v.type;
-        var subj = $_(k, t);
-        result.push((() => {
-          const result1 = [];
-          for (let vk in v) {
-            const vv = v[vk];
-            var verb = $_(vk);
-            if (Array.isArray(vv)) {
-              result1.push(Array.from(vv).map((obj) =>
-                this.believe(subj, verb, $_(obj))));
-            } else {
-              result1.push(this.believe(subj, verb, $_(vv)));
-            }
+    for (let k in json) {
+      var v = json[k];
+      const t = v.type;
+      var subj = $_(k, t);
+      for (let vk in v) {
+        const vv = v[vk];
+        var verb = $_(vk);
+        if (Array.isArray(vv)) {
+          for (const obj of vv) {
+            this.believe(subj, verb, $_(obj))
           }
-          return result1;
-        })());
+        } else {
+          this.believe(subj, verb, $_(vv));
+        }
       }
-      return result;
-    })();
+    }
   }
   /*
   fromJSON: (json) ->

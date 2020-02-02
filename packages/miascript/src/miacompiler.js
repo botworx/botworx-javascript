@@ -1,23 +1,19 @@
 /*
  * decaffeinate suggestions:
- * DS001: Remove Babel/TypeScript constructor workaround
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
-const {
-  AstVisitor
-} = require('./astvisitor');
-const {
-  Analyzer
-} = require('./analyzer');
-const {_terms, _types, _Propose, _Attempt, _Assert} = require('./yy');
+const { AstVisitor } = require('./astvisitor');
+const { Analyzer } = require('./analyzer');
+const {_terms, _types, Block, _Propose, _Attempt, _Assert} = require('./yy');
 
 class CompilerBase extends AstVisitor {
   constructor() {
     super();
     this.delegator_({
+      // Paragraph: this.visitParagraph,
+      Action: this.visitAction,
       Array: this.visitArray,
       Literal: this.visitLiteral,
       Variable: this.visitVariable,
@@ -47,9 +43,25 @@ class CompilerBase extends AstVisitor {
     });
   }
 
+  visitParagraph(n) {
+    const arr = [];
+    for (let c of n.list) {
+      arr.push(this.visit(c));
+    }
+    return arr.join('')
+  }
+
+  visitAction(n) {
+    console.log(n)
+    const result = this.visit(n.expr)
+    if (result) {
+      this.writeLn(result);
+    }
+  }
+
   visitArray(n) {
     const arr = [];
-    for (let c of Array.from(n.nodes)) {
+    for (let c of n.nodes) {
       arr.push(this.visit(c));
     }
     return [
@@ -60,7 +72,7 @@ class CompilerBase extends AstVisitor {
   }
 
   visitSnippet(n) {
-    return this.writeLn(`console.log(${n.text})`);
+    this.writeLn(`console.log(${n.text})`);
   }
 
   visitLiteral(n) {
@@ -81,7 +93,7 @@ class CompilerBase extends AstVisitor {
 
   visitProperties(n) {
     const arr = [];
-    for (let c of Array.from(n.nodes)) {
+    for (let c of n.nodes) {
       arr.push(this.visit(c));
     }
     return [
@@ -123,7 +135,11 @@ class CompilerBase extends AstVisitor {
     if (node.scope) {
       for (let k in node.scope.vars) {
         const v = node.scope.vars[k];
-        this.writeLn(['$', k, ' = ', v.value].join(''));
+        let val = v.value
+        if (!val) {
+          val = 'undefined'
+        }
+        this.writeLn(`let $${k} = ${val}`);
       }
     }
     return this.visitNode(node);
@@ -211,26 +227,21 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   visitMessage(n) {
     let list;
     if (Array.isArray(n.arg)) { list = n.arg; } else { list = [n.arg]; }
-    return (() => {
-      const result = [];
-      for (let c of Array.from(list)) {
-        switch (n.type) {
-          case _Assert:
-            result.push(this.writeLn(["this.assert(", this.visit(c), ")"].join('')));
-            break;
-          case _Attempt:
-            result.push(this.visitCallStmt(n));
-            break;
-          case _Propose:
-            result.push(this.writeLn(["this.propose(", this.visit(c), ")"].join('')));
-            break;
-          default:
-            result.push(undefined);
-        }
+    for (let c of list) {
+      switch (n.type) {
+        case _Assert:
+          this.writeLn(["this.assert(", this.visit(c), ")"].join(''));
+          break;
+        case _Attempt:
+          this.visitCallStmt(n);
+          break;
+        case _Propose:
+          this.writeLn(["this.propose(", this.visit(c), ")"].join(''));
+          break;
       }
-      return result;
-    })();
+    }
   }
+
   visitCallStmt(n) {
     return this.writeLn([
       'yield this.call(',
@@ -333,11 +344,16 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   }
 
   visitBinaryExpr(n) {
-    return [
+    const result = [
       this.visit(n.left),
       ` ${n.kind} `,
       this.visit(n.right)
     ].join('');
+    if (this.top(-1) instanceof Block) {
+      this.writeLn(result)
+    } else {
+      return result
+    }
   }
 }
 
@@ -370,6 +386,10 @@ class MiaCompiler extends CompilerBase {
       return;
     }
     return this.out.write(this.indentation + s + '\n');
+  }
+
+  joinLn(s) {
+    return this.indentation + s + '\n';
   }
 
   indent(s) {

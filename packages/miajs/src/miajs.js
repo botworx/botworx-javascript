@@ -24,14 +24,10 @@ class MiaJs {
     }
 
     const cfg = doc[this.env];
-    return (() => {
-      const result = [];
-      for (let k in cfg) {
-        const v = cfg[k];
-        result.push(process.env[k] = v);
-      }
-      return result;
-    })();
+    for (let k in cfg) {
+      const v = cfg[k];
+      process.env[k] = v;
+    }
   }
 }
 

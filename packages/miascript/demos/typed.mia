@@ -1,0 +1,22 @@
+Table: Table1
+Block: Block1
+Block: Block2
+Block3 :Block
+Block1 on Block2
+Achieve: Block1 on Block2
++ put Block1 on: Block2
++ Achieve: Block1 on Block2
+Block4 ^Block
+
+def (hello)
+  where
+    (Block: $x) exists
+    #$x on $y
+  -->
+    | _.$x
+
+def (goodbye)
+  | String(this.rnr.ctx)
+
+hello
+goodbye

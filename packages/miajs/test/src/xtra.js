@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
@@ -22,7 +21,7 @@ describe('Clause', () => describe('@xtra', () => it('should work',  function() {
   ctx.add(c2);
 
   $$.h2("All Clauses");
-  for (let c of Array.from(ctx.clauses)) {
+  for (let c of ctx.clauses) {
     $$._(c.toString());
   }
 

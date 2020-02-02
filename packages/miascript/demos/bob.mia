@@ -1,7 +1,7 @@
 def ($x likes Pizza)
   | $x + " says Yum!!!"
 
-Bob ::
+Bob
   likes Fish
   likes Pizza
 

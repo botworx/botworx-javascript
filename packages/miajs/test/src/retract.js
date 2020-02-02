@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -26,7 +25,7 @@ describe('Retract', () => it('should work', function() {
   ctx.add(c2);
 
   $$.$("Context Before");
-  for (c of Array.from(ctx.clauses)) {
+  for (c of ctx.clauses) {
     $$._(c.toString());
   }
 
@@ -42,12 +41,8 @@ describe('Retract', () => it('should work', function() {
   rnr.post(m);
   return rnr.run().then(function() {
     $$.$("Context After");
-    return (() => {
-      const result = [];
-      for (c of Array.from(ctx.clauses)) {
-        result.push($$._(c.toString()));
-      }
-      return result;
-    })();
+    for (c of ctx.clauses) {
+      $$._(c.toString());
+    }
   });
 }));

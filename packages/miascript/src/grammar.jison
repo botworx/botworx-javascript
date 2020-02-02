@@ -126,6 +126,11 @@ Statement
   : Import | Def | DefG | Where | Return
   ;
 
+Action
+  : Expression
+    { $$ = new yy.Action($1); }
+  ;
+
 Import
   : IMPORT Expression
     { $$ = new yy.ImportStmt($2); }
@@ -191,22 +196,22 @@ Rhs
 
 WhereTrue
   : LONGARROW Block
-    { $$ = new yy.Action($2, $1); }
+    { $$ = new yy.Actions($2, $1); }
   ;
 
 WhereFalse
   : NOTARROW Block
-    { $$ = new yy.Action($2, $1); }
+    { $$ = new yy.Actions($2, $1); }
   ;
 
 WhereAllTrue
   : LONGFATARROW Block
-    { $$ = new yy.Action($2, $1); }
+    { $$ = new yy.Actions($2, $1); }
   ;
 
 WhereAllFalse
   : NOTFATARROW Block
-    { $$ = new yy.Action($2, $1); }
+    { $$ = new yy.Actions($2, $1); }
   ;
 
 Expression

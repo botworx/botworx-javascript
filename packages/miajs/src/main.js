@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS207: Consider shorter variations of null checks
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -79,7 +78,7 @@ exports.$_ = ($_ = function(arg, type) {
       return term;
     case 'object':
       var obj = {};
-      for (let e of Array.from(arg)) {
+      for (let e of arg) {
         const n = '_' + e;
         obj[n] = $_(e);
       }

@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -43,7 +42,7 @@ class Runner extends Task {
     $$.$(`Broadcast:\t${m}`);
     m.from = this;
     this.post(m);
-    return Array.from(this.tasks).map((t) =>
+    return this.tasks.map((t) =>
       t.broadcast(m));
   }
 
@@ -69,8 +68,10 @@ class Runner extends Task {
         $$.$(`* \t${msg}`);
         var pmsg = new Attempt();
         Object.assign(pmsg, msg);
-        return Array.from(msg.from.matchRules(pmsg)).map((m) =>
-          this.fork(m.to));
+        for(const m of msg.from.matchRules(pmsg)) {
+          this.fork(m.to);
+        }
+        return;
       case Assert:
         $$.$(`+ \t${msg}`);
         this.ctx.add(msg.data);
@@ -86,14 +87,10 @@ class Runner extends Task {
   }
 
   dispatch(msg) {
-    return (() => {
-      const result = [];
-      for (let m of msg.from.matchRules(msg)) {
-        $$.$(`Fire:\t${m}`);
-        result.push(this.schedule(m.to));
-      }
-      return result;
-    })();
+    for (let m of msg.from.matchRules(msg)) {
+      $$.$(`Fire:\t${m}`);
+      this.schedule(m.to);
+    }
   }
 
   main() {
@@ -141,7 +138,7 @@ class Runner extends Task {
   }
 
   run(...queue) {
-    for (let task of Array.from(queue)) {
+    for (let task of queue) {
       this.schedule(task);
     }
     return this;

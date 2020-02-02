@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -22,7 +21,7 @@ const c2 = believe_(_Joe, _likes, _Peas);
 ctx.add(c2);
 
 $$.$("All Clauses");
-for (c of Array.from(ctx.clauses)) {
+for (c of ctx.clauses) {
   $$._(c.toString());
 }
 
@@ -45,23 +44,24 @@ describe('Context', function() {
     it('should work', function() {
       const matches = ctx.match(Believe, _Bob, _likes, _Fish);
       $$.$("Bob, likes, Fish");
-      return Array.from(matches).map((r) =>
-        $$._(r.toString()));
+      for (r of matches) {
+        $$._(r.toString())
+      }
     });
     return it('should work', function() {
       const matches = ctx.match(Believe, __, _likes, __);
       $$.$("ctx.match(__, _likes, __)");
-      return Array.from(matches).map((r) =>
-        $$._(r.toString()));
+      for (r of matches) {
+        $$._(r.toString())
+      }
     });
   });
 
-  return describe('@iterator', () => it('should work', () => //ctx.forEach (c) -> $$._ c
-  (() => {
-    const result = [];
-    for (c of ctx) {
-      result.push($$._(c));
-    }
-    return result;
-  })()));
+  describe('@iterator', function() {
+    it('should work', function() {
+      for (c of ctx) {
+        $$._(c);
+      }
+    });
+  });
 });

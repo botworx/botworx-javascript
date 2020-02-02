@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -74,14 +73,10 @@ class AnalyzerBase extends AstVisitor {
   }
 
   visitProperties(n) {
-    return (() => {
-      const result = [];
-      for (let c of Array.from(n.nodes)) {
-        this.value = `this.msg.data.${c.name}`;
-        result.push(this.visit(c));
-      }
-      return result;
-    })();
+    for (let c of n.nodes) {
+      this.value = `this.msg.data.${c.name}`;
+      this.visit(c);
+    }
   }
 
   visitProperty(n) {
@@ -104,8 +99,9 @@ class AnalyzerBase extends AstVisitor {
 
   visitContextualize(n) {
     this.visit(n.left);
-    return Array.from(n.right).map((c) =>
-      this.visit(c));
+    for (c of n.right) {
+      this.visit(c);
+    }
   }
 
   visitMessage(n) {

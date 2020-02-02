@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -12,7 +11,7 @@ Function.prototype.TNode = function() {
     },
 
     add(child) {
-      //child.parent = @
+      //child.parent = this
       return this.nodes.push(child);
     },
 
@@ -23,19 +22,15 @@ Function.prototype.TNode = function() {
 
     walk(fn) {
       fn.apply(this);
-      return Array.from(this.nodes).map((child) =>
+      return this.nodes.map((child) =>
         child.walk(fn));
     }
   };
 
   proto[Symbol.iterator] = function*() {
-    return yield* (function*() {
-      const result = [];
-      for (let node of this.nodes) {
-        result.push(yield node);
-      }
-      return result;
-    }).call(this);
+    for (let node of this.nodes) {
+      yield node;
+    }
   };
 
   return Object.assign(this.prototype, proto);

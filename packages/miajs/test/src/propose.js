@@ -3,9 +3,7 @@
  * DS102: Remove unnecessary code created because of implicit returns
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
-const {
-  assert
-} = require('chai');
+const { assert } = require('chai');
 const {unit_, runtime} = require('./common');
 const $$ = unit_(module);
 const {Term, Context, Propose, Attempt, Assert, Retract, Believe, Achieve} = runtime;

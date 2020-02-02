@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * DS207: Consider shorter variations of null checks
@@ -36,19 +35,15 @@ class Visitor {
     let child;
     if (!node) { return; }
     if (Array.isArray(node)) {
-      for (child of Array.from(node)) {
+      for (child of node) {
         this.visit(child);
       }
       return;
     }
     if (!node._TNode) { throw new Error(JSON.stringify(node)); }
-    return (() => {
-      const result = [];
-      for (child of Array.from(node.nodes)) {
-        result.push(this.visit(child));
-      }
-      return result;
-    })();
+    for (child of node.nodes) {
+      this.visit(child);
+    }
   }
 
   visit(node) {

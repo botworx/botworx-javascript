@@ -1,7 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS001: Remove Babel/TypeScript constructor workaround
- * DS101: Remove unnecessary use of Array.from
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
@@ -56,8 +54,9 @@ class Query {
   }
 
   exec(onSuccess) {
-    return Array.from(this.binders()).map((binder) =>
-      onSuccess(binder));
+    for (const binder of this.binders()) {
+      onSuccess(binder);
+    }
   }
 }
 
@@ -93,17 +92,11 @@ class QFilter extends Condition {
     } else {
       source = this.blank();
     }
-    return yield* (function*() {
-      const result = [];
-      for (let binder of source) {
-        if (this.fn(binder)) {
-          result.push(yield binder);
-        } else {
-          result.push(undefined);
-        }
+    for (let binder of source) {
+      if (this.fn(binder)) {
+        yield binder;
       }
-      return result;
-    }).call(this);
+    }
   }
 }
 
@@ -116,6 +109,7 @@ class QClause extends Condition {
     this.o = o;
     this.x = x;
   }
+
   *binders() {
     let source;
     if (this.src) {
@@ -123,51 +117,31 @@ class QClause extends Condition {
     } else {
       source = this.blank();
     }
-    return yield* (function*() {
-      const result = [];
-      for (var binder of source) {
-        var s = this.binding(binder, this.s) || this.s;
-        var o = this.binding(binder, this.o) || this.o;
-        if (s instanceof Variable) {
-          if (o instanceof Variable) {
-            result.push(yield* (function*() {
-              const result1 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result1.push(yield Object.assign({[s.name]: c.subj, [o.name]: c.obj}, binder));
-              }
-              return result1;
-            }).call(this));
-          } else {
-            result.push(yield* (function*() {
-              const result2 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result2.push(yield Object.assign({[s.name]: c.subj}, binder));
-              }
-              return result2;
-            }).call(this));
+    for (var binder of source) {
+      var s = this.binding(binder, this.s) || this.s;
+      var o = this.binding(binder, this.o) || this.o;
+      if (s instanceof Variable) {
+        if (o instanceof Variable) {
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[s.name]: c.subj, [o.name]: c.obj}, binder);
           }
         } else {
-          if (o instanceof Variable) {
-            result.push(yield* (function*() {
-              const result3 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result3.push(yield Object.assign({[o.name]: c.obj}, binder));
-              }
-              return result3;
-            }).call(this));
-          } else {
-            result.push(yield* (function*() {
-              const result4 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result4.push(yield binder);
-              }
-              return result4;
-            }).call(this));
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[s.name]: c.subj}, binder);
+          }
+        }
+      } else {
+        if (o instanceof Variable) {
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[o.name]: c.obj}, binder);
+          }
+        } else {
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield binder;
           }
         }
       }
-      return result;
-    }).call(this);
+    }
   }
 }
 
@@ -189,49 +163,31 @@ class QNegClause extends Condition {
     } else {
       source = this.blank();
     }
-    return yield* (function*() {
-      const result = [];
-      for (var binder of source) {
-        var s = this.binding(binder, this.s) || this.s;
-        var o = this.binding(binder, this.o) || this.o;
-        if (s instanceof Variable) {
-          if (o instanceof Variable) {
-            result.push(yield* (function*() {
-              const result1 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result1.push(yield Object.assign({[s.name]: c.subj, [o.name]: c.obj}, binder));
-              }
-              return result1;
-            }).call(this));
-          } else {
-            result.push(yield* (function*() {
-              const result2 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result2.push(yield Object.assign({[s.name]: c.subj}, binder));
-              }
-              return result2;
-            }).call(this));
+    for (var binder of source) {
+      var s = this.binding(binder, this.s) || this.s;
+      var o = this.binding(binder, this.o) || this.o;
+      if (s instanceof Variable) {
+        if (o instanceof Variable) {
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[s.name]: c.subj, [o.name]: c.obj}, binder);
           }
         } else {
-          if (o instanceof Variable) {
-            result.push(yield* (function*() {
-              const result3 = [];
-              for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
-                result3.push(yield Object.assign({[o.name]: c.obj}, binder));
-              }
-              return result3;
-            }).call(this));
-          } else {
-            if (!this.ctx.exists(this.t, s, this.v, o, this.x)) {
-              result.push(yield binder);
-            } else {
-              result.push(undefined);
-            }
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[s.name]: c.subj}, binder);
+          }
+        }
+      } else {
+        if (o instanceof Variable) {
+          for (let c of this.ctx.match(this.t, s, this.v, o, this.x)) {
+            yield Object.assign({[o.name]: c.obj}, binder);
+          }
+        } else {
+          if (!this.ctx.exists(this.t, s, this.v, o, this.x)) {
+            yield binder;
           }
         }
       }
-      return result;
-    }).call(this);
+    }
   }
 }
 

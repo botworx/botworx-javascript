@@ -2,37 +2,36 @@
 # Blocks World
 #
 
-Table1 @Table ::
+Table1 :Table
   isClear True
 
-Block1 @Block ::
+Block1 :Block
   onTop Table1
 
-Block2 @Block ::
+Block2 :Block
   onTop Block1
 
-Block3 @Block ::
+Block3 :Block
   onTop Block2
   isClear True
 
-stack Block1 on: Block2
-stack Block2 on: Block3
++ Achieve: stack Block1 on: Block2
++ Achieve: stack Block2 on: Block3
 
 def (blox)
 
-  def (_impasse)
+  defg (impasse)
     where
-      $g @Goal status Active
+      ($g :Goal) status Active
     -->
-      * /$g !
+      * /$g
     !=>
       halt
-    ;
 
-  def (+ $g @Goal)
+  def (+ ($g :Achieve))
     + $g status Active
 
-  def (- $g @Goal)
+  def (- $g :Goal)
     - $g status Active
 
   def (stack $x on: $y -> $g)
@@ -42,20 +41,21 @@ def (blox)
       /clear $x
     ==>
       return
-    ;
+
     where
       not $y isClear True
     -->
       /clear $y
     ==>
       return
-    ;
+
     where
       $x onTop $z
     -->
       - $x onTop $z
-    ;
-    + $x onTop $y; - $g
+
+    + $x onTop $y
+    - $g
 
   def (clear $x)
     where
@@ -65,7 +65,6 @@ def (blox)
       $z != $y
     -->
       * /stack $y on: $z
-    ;
 
   def (- $x onTop $y)
     - $y beneath $x
@@ -73,14 +72,13 @@ def (blox)
 
   def (+ $x onTop $y)
     where
-      $y @Block isClear True
+      (Block: $y) isClear True
     -->
       - $y isClear True
-    ;
+
     where
       $x onTop $y
     -->
       + $y beneath $x
-    ;
 
 blox

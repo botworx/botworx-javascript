@@ -1,6 +1,5 @@
 /*
  * decaffeinate suggestions:
- * DS001: Remove Babel/TypeScript constructor workaround
  * DS102: Remove unnecessary code created because of implicit returns
  * DS206: Consider reworking classes to avoid initClass
  * DS207: Consider shorter variations of null checks
@@ -76,8 +75,8 @@ class Variable extends Node {
 exports.Variable = Variable;
 //
 class Term extends Node {
-  constructor(name, kind) {
-    super(kind ? kind : 'Term');
+  constructor(name, kind='Term') {
+    super(kind);
     this.name = name;
   }
 
@@ -145,8 +144,8 @@ exports.Literal = Literal;
 exports._null = (_null = new Literal('null'));
 //
 class ExprList extends Node {
-  constructor(child, kind) {
-    super(kind || 'ExprList');
+  constructor(child, kind='ExprList') {
+    super(kind);
     if(child) {
       this.add(child);
     }
@@ -156,8 +155,8 @@ class ExprList extends Node {
 exports.ExprList = ExprList;
 //
 class Block extends ExprList {
-  constructor(child, kind) {
-    super(child, kind || 'Block');
+  constructor(child, kind='Block') {
+    super(child, kind);
   }
 
   toJSON() {
@@ -309,8 +308,8 @@ class UnaryExpr extends Node {
   static initClass() {
     this.node('arg');
   }
-  constructor(arg, kind) {
-    super(kind ? kind : 'UnaryExpr');
+  constructor(arg, kind='UnaryExpr') {
+    super(kind);
     this.arg = arg;
   }
 
@@ -323,8 +322,8 @@ UnaryExpr.initClass();
 exports.UnaryExpr = UnaryExpr;
 
 class PrefixExpr extends UnaryExpr {
-  constructor(arg, kind) {
-    super(arg, kind ? kind : 'PrefixExpr');
+  constructor(arg, kind='PrefixExpr') {
+    super(arg, kind);
   }
 }
 
@@ -392,8 +391,8 @@ class Retract extends Message {
 exports.Retract = Retract;
 
 class PostfixExpr extends UnaryExpr {
-  constructor(arg, kind) {
-    super(arg, kind ? kind : 'PostfixExpr');
+  constructor(arg, kind='PostfixExpr') {
+    super(arg, kind);
   }
 }
 
@@ -404,8 +403,8 @@ class BinaryExpr extends Node {
     this.node('left');
     this.node('right');
   }
-  constructor(left, right, kind) {
-    super(kind ? kind : 'BinaryExpr');
+  constructor(left, right, kind='BinaryExpr') {
+    super(kind);
     this.left = left;
     this.right = right;
   }
@@ -438,8 +437,8 @@ Contextualize.initClass();
 exports.Contextualize = Contextualize;
 
 class Statement extends Node {
-  constructor(kind) {
-    super(kind || 'Statement');
+  constructor(kind='Statement') {
+    super(kind);
   }
 
   toJSON() {
@@ -454,8 +453,8 @@ class Def extends Statement {
     this.node('trigger');
     this.node('body');
   }
-  constructor(trigger, body, kind) {
-    super(kind ? kind : 'Def');
+  constructor(trigger, body, kind='Def') {
+    super(kind);
     this.trigger = trigger;
     this.body = body;
   }
@@ -527,8 +526,8 @@ class Condition extends Node {
   static initClass() {
     this.node('expr');
   }
-  constructor(expr, kind) {
-    super(kind || 'Condition');
+  constructor(expr, kind='Condition') {
+    super(kind);
     this.expr = expr;
   }
 
@@ -580,7 +579,7 @@ class Rhs extends Block {
 
 exports.Rhs = Rhs;
 //
-class Action extends Node {
+class Actions extends Node {
   constructor(body, kind) {
     super(kind);
     this.body = body;
@@ -591,7 +590,21 @@ class Action extends Node {
   }
 }
 
+exports.Actions = Actions;
+//
+class Action extends Node {
+  constructor(expr, kind='Action') {
+    super(kind);
+    this.expr = expr;
+  }
+
+  toJSON() {
+    return {kind: this.kind, expr: this.expr};
+  }
+}
+
 exports.Action = Action;
+
 //
 class Return extends Node {
   constructor(expr) {

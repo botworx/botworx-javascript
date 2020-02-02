@@ -27,12 +27,9 @@ hello\
   $$._(data);
   $$.h2('Tokens');
   lexer.setInput(data);
-  return (() => {
-    let tok;
-    const result = [];
-    while ((tok = lexer.lex()) !== lexer.EOF) {
-      result.push($$._(terminals[tok]));
-    }
-    return result;
-  })();
+  let tok;
+  const result = [];
+  while ((tok = lexer.lex()) !== lexer.EOF) {
+    $$._(terminals[tok]);
+  }
 })));

@@ -1,8 +1,0 @@
-import "./cleavers"
-
-where
-  _ dad $d
-  $d wife $w
--->
-  | console.log($w);
-;

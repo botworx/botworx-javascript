@@ -1,10 +1,5 @@
-/*
- * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
 const {AstVisitor} = require('./astvisitor');
-const {_null, _exists, _Achieve, Block, CallStmt, Attempt, Assert, Clause} = require('./yy');
+const {_null, _exists, _Achieve, Block, Action, CallStmt, Attempt, Assert, Clause} = require('./yy');
 
 class Transformer extends AstVisitor {
   constructor() {
@@ -67,12 +62,10 @@ class Transformer extends AstVisitor {
   }
 
   visitSentence(node) {
-    const {
-      clause
-    } = node;
+    const { clause } = node;
     const {subj, verb} = clause;
     const result = [this.visitClause(clause)];
-    for (let obj of Array.from(node.list)) {
+    for (let obj of node.list) {
       result.push(this.visitClause(new Clause(subj, verb, obj)));
     }
     return result;
@@ -83,7 +76,7 @@ class Transformer extends AstVisitor {
     ({subj: this.subj, list} = node);
     this.visitNode(node);
     let result = [this.visitTerm(this.subj)];
-    for (let clause of Array.from(node.list)) {
+    for (let clause of node.list) {
       const subclause = this.visitClause(clause);
       if (Array.isArray(subclause)) {
         result = result.concat(subclause);
