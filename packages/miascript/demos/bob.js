@@ -9,10 +9,10 @@ _Fish = $_('Fish')
 _Cheese = $_('Cheese')
 _Tuna = $_('Tuna')
 module.exports = module_(function*() {
-  let $x = undefined
-  let $y = undefined
+  $x = undefined
+  $y = undefined
   this.def(new Trigger(Assert,Believe,__,_likes,_Pizza,__), function*() {
-    let $x = this.msg.data.subj
+    $x = this.msg.data.subj
     console.log($x + " says Yum!!!")
   });
   this.assert(new Believe(_Bob,_exists,null))
@@ -23,4 +23,4 @@ module.exports = module_(function*() {
   $y = new Believe(_Bob,_likes,_Tuna,{with: _Cheese})
   this.assert($y)
 });
-if (require.main == module) { runner_().run(module.exports) }
+runner_().run(module.exports)

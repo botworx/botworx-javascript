@@ -283,7 +283,7 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
       }
     });
     const c = node.expr;
-    const header = node.first ? "this.rnr.ctx.query(" : ".and(";
+    const header = node.first ? "$query = this.rnr.ctx.query(" : ".and(";
     return this.writeLn([
       header,
       [
@@ -332,11 +332,13 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   }
 
   visitSuccess(node) {
-    this.writeLn(".exec((_) => {");
+    //this.writeLn(".exec((_) => {");
+    this.writeLn('for (const _ of $query.binders()) {')
     this.indent();
     this.visit(node.body);
     this.dedent();
-    this.writeLn('})')
+    //this.writeLn('})')
+    this.writeLn('}')
   }
 
   visitUnaryExpr(n) {

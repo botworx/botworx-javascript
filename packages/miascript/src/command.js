@@ -1,11 +1,7 @@
 const fs = require('fs');
 const stream = require('stream');
 const path = require('path');
-const {compile} = require('./index');
-
-defaults = {
-  ast: true
-}
+const {defaults, compile} = require('./index');
 
 const run = function(options=defaults) {
   let fileName = process.argv[2];

@@ -90,7 +90,7 @@
               },
               {
                 "kind": "Snippet",
-                "text": "this.rnr.ctx"
+                "text": "String(this.rnr.ctx)"
               },
               {
                 "kind": "Query",

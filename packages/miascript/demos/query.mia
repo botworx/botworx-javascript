@@ -3,7 +3,7 @@
 
 def (hello)
   | 'hello'
-  | this.rnr.ctx
+  | String(this.rnr.ctx)
   where
     $x likes $y
     $z likes $y

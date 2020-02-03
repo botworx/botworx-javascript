@@ -7,7 +7,11 @@ const {unit_, MiaLexer, MiaParser, Transformer, Analyzer, MiaCompiler, grammar, 
 
 const $$ = unit_(module);
 
-exports.lex = (lex = function(code, options) {
+exports.defaults = defaults = {
+  ast: true
+}
+
+exports.lex = (lex = function(code, options=defaults) {
   let token;
   const terminals = grammar.parser.terminals_;
   const lexer = new MiaLexer();
@@ -20,7 +24,7 @@ exports.lex = (lex = function(code, options) {
   return tokens;
 });
 
-exports.parse = (parse = function(code, options) {
+exports.parse = (parse = function(code, options=defaults) {
   const lexer = new MiaLexer();
   const parser = new MiaParser(lexer, yy);
   //
@@ -39,23 +43,23 @@ exports.parse = (parse = function(code, options) {
   */
 });
 
-exports.transform = (transform = function(code, options) {
+exports.transform = (transform = function(code, options=defaults) {
   let ast = parse(code, options);
   const transformer = new Transformer();
   ast = transformer.transform(ast, options);
   return ast;
 });
 
-exports.analyze = (analyze = function(code, options) {
+exports.analyze = (analyze = function(code, options=defaults) {
   let ast = transform(code, options);
   const analyzer = new Analyzer();
   ast = analyzer.analyze(ast, options);
   return ast;
 });
 
-exports.transpile = (transpile  = function(code, options) {
+exports.transpile = (transpile  = function(code, options=defaults) {
   const ast = analyze(code, options);
-  if (options.ast) {
+  if (options.ast && options.fileName) {
     const { fileName } = options;
     const outFileName = fileName.substr(0, fileName.lastIndexOf(".")) + ".json";
     const out = fs.createWriteStream(outFileName);
@@ -70,12 +74,12 @@ exports.transpile = (transpile  = function(code, options) {
   return js;
 });
 
-exports.compile = (compile = function(code, options) {
+exports.compile = (compile = function(code, options=defaults) {
   const js = transpile(code, options);
   return js;
 });
 
-exports.evaluate = (evaluate = function(code, options) {
+exports.evaluate = (evaluate = function(code, options=defaults) {
   const js = transpile(code, options);
   console.log(js)
   const context = { require, module };

@@ -34,11 +34,11 @@ module.exports = module_(function*() {
     this.assert(new Achieve(null,_stack,_Block2,{on: _Block3}))
     this.defg(new Trigger(Attempt,Achieve,null,_impasse,null,__), function*() {
       _$g = new Variable('$g', (v) => v instanceof Goal)
-      this.rnr.ctx.query(Believe,_$g,_status,_Active)
-      .exec(function* (_) {
+      $query = this.rnr.ctx.query(Believe,_$g,_status,_Active)
+      for (const _ of $query.binders()) {
         console.log('active')
         this.propose(_.$g)
-      }() )
+      }
     });
     this.def(new Trigger(Assert,Goal,__,__,__,__), function*() {
       $g = this.msg.data
@@ -54,20 +54,20 @@ module.exports = module_(function*() {
       $y = this.msg.data.on
       _$x = new Variable('$x')
       this.rnr.ctx.query(Believe,_$x,_isClear,_True)
-      .exec(function* (_) {
+      for (const _ of $query.binders()) {
         yield this.call(null,_clear,_.$x)
-      }() )
+      }
       _$y = new Variable('$y')
       this.rnr.ctx.query(Believe,_$y,_isClear,_True)
-      .exec(function* (_) {
+      for (const _ of $query.binders()) {
         yield this.call(null,_clear,_.$y)
-      }() )
+      }
       _$x = new Variable('$x')
       _$z = new Variable('$z')
-      this.rnr.ctx.query(Believe,_$x,_onTop,_$z)
-      .exec(function* (_) {
+      $query = this.rnr.ctx.query(Believe,_$x,_onTop,_$z)
+      for (const _ of $query.binders()) {
         this.retract(new Believe(_.$x,_onTop,_.$z))
-      }() )
+      }
       this.assert(new Believe($x,_onTop,$y))
       this.retract($g)
     });
@@ -76,13 +76,13 @@ module.exports = module_(function*() {
       _$x = new Variable('$x')
       _$y = new Variable('$y')
       _$z = new Variable('$z')
-      this.rnr.ctx.query(Believe,_$x,_beneath,_$y)
+      $query = this.rnr.ctx.query(Believe,_$x,_beneath,_$y)
       .and(Believe,_$z,_isClear,_True)
       .filter((_) => _.$z != _.$x)
       .filter((_) => _.$z != _.$y)
-      .exec(function* (_) {
+      for (const _ of $query.binders()) {
         this.propose(new Achieve(null,_stack,_.$y,{on: _.$z}))
-      }() )
+      }
     });
     this.def(new Trigger(Retract,Believe,__,_onTop,__,__), function*() {
       $x = this.msg.data.subj
@@ -94,16 +94,16 @@ module.exports = module_(function*() {
       $x = this.msg.data.subj
       $y = this.msg.data.obj
       _$y = new Variable('$y', (v) => v instanceof Block)
-      this.rnr.ctx.query(Believe,_$y,_isClear,_True)
-      .exec(function* (_) {
+      $query = this.rnr.ctx.query(Believe,_$y,_isClear,_True)
+      for (const _ of $query.binders()) {
         this.retract(new Believe(_.$y,_isClear,_True))
-      }() )
+      }
       _$x = new Variable('$x')
       _$y = new Variable('$y')
-      this.rnr.ctx.query(Believe,_$x,_onTop,_$y)
-      .exec(function* (_) {
+      $query = this.rnr.ctx.query(Believe,_$x,_onTop,_$y)
+      for (const _ of $query.binders()) {
         this.assert(new Believe(_.$y,_beneath,_.$x))
-      }() )
+      }
     });
   });
   yield this.call(null,_blox,null)

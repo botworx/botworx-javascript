@@ -1,0 +1,228 @@
+{
+  "kind": "Module",
+  "nodes": [
+    {
+      "kind": "Block",
+      "nodes": [
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Assert"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Believe"
+            },
+            "subj": {
+              "kind": "Variable",
+              "name": "x",
+              "info": {
+                "name": "x",
+                "value": "this.msg.data.subj"
+              }
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "likes"
+            },
+            "obj": {
+              "kind": "Term",
+              "name": "Pizza"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Snippet",
+                "text": "$x + \" says Yum!!!\""
+              }
+            ]
+          }
+        },
+        [
+          {
+            "kind": "Message",
+            "type": {
+              "kind": "Type",
+              "name": "Assert"
+            },
+            "arg": {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Term",
+                "name": "Bob"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "exists"
+              },
+              "obj": {
+                "kind": "Literal",
+                "value": "null"
+              }
+            }
+          },
+          {
+            "kind": "Message",
+            "type": {
+              "kind": "Type",
+              "name": "Assert"
+            },
+            "arg": {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Term",
+                "name": "Bob"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "likes"
+              },
+              "obj": {
+                "kind": "Term",
+                "name": "Fish"
+              }
+            }
+          },
+          {
+            "kind": "Message",
+            "type": {
+              "kind": "Type",
+              "name": "Assert"
+            },
+            "arg": {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Term",
+                "name": "Bob"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "likes"
+              },
+              "obj": {
+                "kind": "Term",
+                "name": "Pizza"
+              }
+            }
+          }
+        ],
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Believe"
+            },
+            "subj": {
+              "kind": "Term",
+              "name": "Bob"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "likes"
+            },
+            "obj": {
+              "kind": "Term",
+              "name": "Cheese"
+            }
+          }
+        },
+        {
+          "kind": "=",
+          "left": {
+            "kind": "Variable",
+            "name": "x",
+            "info": {
+              "name": "x",
+              "value": null
+            }
+          },
+          "right": {
+            "kind": "Term",
+            "name": "Bob"
+          }
+        },
+        {
+          "kind": "=",
+          "left": {
+            "kind": "Variable",
+            "name": "y",
+            "info": {
+              "name": "y",
+              "value": null
+            }
+          },
+          "right": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Believe"
+            },
+            "subj": {
+              "kind": "Term",
+              "name": "Bob"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "likes"
+            },
+            "obj": {
+              "kind": "Term",
+              "name": "Tuna"
+            },
+            "xtra": {
+              "kind": "Properties",
+              "nodes": [
+                {
+                  "kind": "Property",
+                  "name": "with",
+                  "value": {
+                    "kind": "Term",
+                    "name": "Cheese"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": {
+            "kind": "Variable",
+            "name": "y",
+            "info": {
+              "name": "y",
+              "value": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
