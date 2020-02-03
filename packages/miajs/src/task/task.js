@@ -46,9 +46,9 @@ class Task extends EventEmitter {
       set(parent) {
         this._parent = parent;
         if (this.policy) {
-          return this.policy.parent = parent.policy;
+          this.policy.parent = parent.policy;
         } else {
-          return this.policy = parent.policy;
+          this.policy = parent.policy;
         }
       }
     }
@@ -58,7 +58,7 @@ class Task extends EventEmitter {
       get() { return this._msg; },
       set(msg) {
         this._msg = msg;
-        return this.policy = msg.from.policy;
+        this.policy = msg.from.policy;
       }
     }
     );
@@ -166,7 +166,7 @@ class Task extends EventEmitter {
         return this.status;
       };
       return this.status = toStatus(this.action());
-    //else if @init instanceof AsyncFunction then @status = (await @init()) || TS_SUCCESS
+    //else if this.init instanceof AsyncFunction then this.status = (await this.init()) || TS_SUCCESS
     } else {
       this.status = toStatus(this.init());
       if(this.main) {

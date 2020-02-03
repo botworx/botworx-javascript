@@ -53,9 +53,9 @@ class Query {
     return yield* this.conds[this.conds.length - 1].binders();
   }
 
-  exec(onSuccess) {
+  *exec(onSuccess) {
     for (const binder of this.binders()) {
-      onSuccess(binder);
+      return yield* onSuccess(binder);
     }
   }
 }

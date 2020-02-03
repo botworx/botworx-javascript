@@ -1,0 +1,333 @@
+{
+  "kind": "Module",
+  "nodes": [
+    {
+      "kind": "Block",
+      "nodes": [
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Believe"
+            },
+            "subj": {
+              "kind": "Term",
+              "name": "Bob"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "likes"
+            },
+            "obj": {
+              "kind": "Term",
+              "name": "Fish"
+            }
+          }
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Believe"
+            },
+            "subj": {
+              "kind": "Term",
+              "name": "Joe"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "likes"
+            },
+            "obj": {
+              "kind": "Term",
+              "name": "Fish"
+            }
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "hello"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Snippet",
+                "text": "'hello'"
+              },
+              {
+                "kind": "Snippet",
+                "text": "this.rnr.ctx"
+              },
+              {
+                "kind": "Query",
+                "lhs": {
+                  "kind": "Lhs",
+                  "nodes": [
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "x",
+                          "info": {
+                            "name": "x",
+                            "value": null,
+                            "qvar": true
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "likes"
+                        },
+                        "obj": {
+                          "kind": "Variable",
+                          "name": "y",
+                          "info": {
+                            "name": "y",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "z",
+                          "info": {
+                            "name": "z",
+                            "value": null,
+                            "qvar": true
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "likes"
+                        },
+                        "obj": {
+                          "kind": "Variable",
+                          "name": "y",
+                          "info": {
+                            "name": "y",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "QFilter",
+                      "expr": {
+                        "kind": "!=",
+                        "left": {
+                          "kind": "Variable",
+                          "name": "x",
+                          "info": {
+                            "name": "x",
+                            "value": null,
+                            "qvar": true
+                          }
+                        },
+                        "right": {
+                          "kind": "Variable",
+                          "name": "z",
+                          "info": {
+                            "name": "z",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "rhs": {
+                  "kind": "Rhs",
+                  "nodes": [
+                    {
+                      "kind": "-->",
+                      "body": {
+                        "kind": "Block",
+                        "nodes": [
+                          {
+                            "kind": "Snippet",
+                            "text": "_"
+                          },
+                          {
+                            "kind": "Message",
+                            "type": {
+                              "kind": "Type",
+                              "name": "Assert"
+                            },
+                            "arg": {
+                              "kind": "Clause",
+                              "type": {
+                                "kind": "Type",
+                                "name": "Believe"
+                              },
+                              "subj": {
+                                "kind": "Variable",
+                                "name": "x",
+                                "info": null
+                              },
+                              "verb": {
+                                "kind": "Term",
+                                "name": "likes"
+                              },
+                              "obj": {
+                                "kind": "Variable",
+                                "name": "z",
+                                "info": null
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "goodbye"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Snippet",
+                "text": "'goodbye'"
+              },
+              {
+                "kind": "Snippet",
+                "text": "String(this.rnr.ctx)"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Attempt"
+          },
+          "arg": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "hello"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          }
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Attempt"
+          },
+          "arg": {
+            "kind": "Clause",
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "goodbye"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

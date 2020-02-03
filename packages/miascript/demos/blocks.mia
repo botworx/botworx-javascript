@@ -2,33 +2,34 @@
 # Blocks World
 #
 
-Table1 :Table
-  isClear True
-
-Block1 :Block
-  onTop Table1
-
-Block2 :Block
-  onTop Block1
-
-Block3 :Block
-  onTop Block2
-  isClear True
-
-+ Achieve: stack Block1 on: Block2
-+ Achieve: stack Block2 on: Block3
-
 def (blox)
+
+  Table1 :Table
+    isClear True
+
+  Block1 :Block
+    onTop Table1
+
+  Block2 :Block
+    onTop Block1
+
+  Block3 :Block
+    onTop Block2
+    isClear True
+
+  + Achieve: stack Block1 on: Block2
+  + Achieve: stack Block2 on: Block3
 
   defg (impasse)
     where
       ($g :Goal) status Active
     -->
+      | 'active'
       * /$g
     !=>
       halt
 
-  def (+ ($g :Achieve))
+  def (+ $g :Goal)
     + $g status Active
 
   def (- $g :Goal)

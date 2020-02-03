@@ -2,6 +2,7 @@
 + Joe likes Fish
 
 def (hello)
+  | 'hello'
   | this.rnr.ctx
   where
     $x likes $y
@@ -12,6 +13,7 @@ def (hello)
     + $x likes $z
 
 def (goodbye)
+  | 'goodbye'
   | String(this.rnr.ctx)
 
 hello

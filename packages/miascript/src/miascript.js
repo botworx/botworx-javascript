@@ -1,3 +1,4 @@
+const fs = require('fs');
 const vm = require('vm');
 
 let analyze, compile, evaluate, lex, parse, transform, transpile;
@@ -54,11 +55,19 @@ exports.analyze = (analyze = function(code, options) {
 
 exports.transpile = (transpile  = function(code, options) {
   const ast = analyze(code, options);
+  if (options.ast) {
+    const { fileName } = options;
+    const outFileName = fileName.substr(0, fileName.lastIndexOf(".")) + ".json";
+    const out = fs.createWriteStream(outFileName);
+    json = JSON.stringify(ast, null, 2);
+    out.write(json);
+    out.end();
+  }
   const stringer = new Stringer();
   const compiler = new MiaCompiler(stringer);
   compiler.compile(ast, options);
-  const coffeecode = stringer.toString();
-  return coffeecode;
+  const js = stringer.toString();
+  return js;
 });
 
 exports.compile = (compile = function(code, options) {

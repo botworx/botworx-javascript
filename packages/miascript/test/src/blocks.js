@@ -70,11 +70,11 @@ goodbye\
 `;
 
 describe('Blox', () => it('should work', function() {
-  //$$._ lex data
-  //$$._ JSON.stringify (parse data), null, 2
-  //$$._ JSON.stringify (transform data), null, 2
-  //$$._ JSON.stringify (analyze data), null, 2
-  $$._(transpile(data));
-  //$$._ compile data
+  //$$._(lex(data))
+  //$$._(JSON.stringify(parse(data), null, 2))
+  //$$._(JSON.stringify(transform(data), null, 2))
+  $$._(JSON.stringify(analyze(data), null, 2))
+  //$$._(transpile(data));
+  //$$._(compile(data));
   return evaluate(data);
 }));

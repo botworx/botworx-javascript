@@ -13,9 +13,14 @@ def (hello)
     (Block: $x) exists
     #$x on $y
   -->
+    | 'hello'
     | _.$x
 
+def (+ (Block: $x) exists)
+  | `exists: ${$x}`
+
 def (goodbye)
+  | 'goodbye'
   | String(this.rnr.ctx)
 
 hello

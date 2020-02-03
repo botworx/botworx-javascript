@@ -1,13 +1,13 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
 const fs = require('fs');
 const stream = require('stream');
 const path = require('path');
 const {compile} = require('./index');
-const run = function() {
+
+defaults = {
+  ast: true
+}
+
+const run = function(options=defaults) {
   let fileName = process.argv[2];
   const ext = path.extname(fileName);
   if (ext === '') {
@@ -16,18 +16,20 @@ const run = function() {
 
   console.log("Compiling " + fileName);
 
-  return fs.readFile(fileName, 'utf8', function(err, data) {
+  options.fileName = fileName
+
+  fs.readFile(fileName, 'utf8', function(err, data) {
     if (err) {
       console.log("ERROR: ", err);
       return false;
     }
     //
-    const code = compile(data, {filename: fileName});
+    const code = compile(data, options);
     //
     const outFileName = fileName.substr(0, fileName.lastIndexOf(".")) + ".js";
     const out = fs.createWriteStream(outFileName);
     out.write(code);
-    return out.end();
+    out.end();
   });
 };
 

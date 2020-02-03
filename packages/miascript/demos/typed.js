@@ -27,10 +27,16 @@ module.exports = module_(function*() {
     _$x = new Variable('$x', (v) => v instanceof Block)
     this.rnr.ctx.query(Believe,_$x,_exists,null)
     .exec( (_) => {
+      console.log('hello')
       console.log(_.$x)
     })
   });
+  this.def(new Trigger(Assert,Believe,__,_exists,null,__), function*() {
+    let $x = this.msg.data.subj
+    console.log(`exists: ${$x}`)
+  });
   this.def(new Trigger(Attempt,Achieve,null,_goodbye,null,__), function*() {
+    console.log('goodbye')
     console.log(String(this.rnr.ctx))
   });
   yield this.call(null,_hello,null)

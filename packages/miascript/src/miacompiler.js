@@ -6,7 +6,7 @@
  */
 const { AstVisitor } = require('./astvisitor');
 const { Analyzer } = require('./analyzer');
-const {_terms, _types, Block, _Propose, _Attempt, _Assert} = require('./yy');
+const {_terms, _types, Block, _Propose, _Attempt, _Assert, _Retract} = require('./yy');
 
 class CompilerBase extends AstVisitor {
   constructor() {
@@ -139,7 +139,7 @@ class CompilerBase extends AstVisitor {
         if (!val) {
           val = 'undefined'
         }
-        this.writeLn(`let $${k} = ${val}`);
+        this.writeLn(`$${k} = ${val}`);
       }
     }
     return this.visitNode(node);
@@ -232,6 +232,9 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
         case _Assert:
           this.writeLn(["this.assert(", this.visit(c), ")"].join(''));
           break;
+        case _Retract:
+          this.writeLn(["this.retract(", this.visit(c), ")"].join(''));
+          break;  
         case _Attempt:
           this.visitCallStmt(n);
           break;
@@ -243,7 +246,7 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   }
 
   visitCallStmt(n) {
-    return this.writeLn([
+    this.writeLn([
       'yield this.call(',
       [
         this.visit(n.arg.subj),
@@ -329,7 +332,7 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   }
 
   visitSuccess(node) {
-    this.writeLn(".exec( (_) => {");
+    this.writeLn(".exec((_) => {");
     this.indent();
     this.visit(node.body);
     this.dedent();

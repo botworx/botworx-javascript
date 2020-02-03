@@ -1,10 +1,14 @@
 const {AstVisitor} = require('./astvisitor');
-const {_null, _exists, _Achieve, Block, Action, CallStmt, Attempt, Assert, Clause} = require('./yy');
+const {_null, _exists, _Achieve, Block, Action, CallStmt, Query, Rhs, Attempt, Assert, Clause} = require('./yy');
 
 class Transformer extends AstVisitor {
   constructor() {
     super();
     this.delegator_({
+      Block: this.visitBlock,
+      Query: this.visitQuery,
+      Rhs: this.visitRhs,
+      "-->": this.visitSuccess,
       Term: this.visitTerm,
       Clause: this.visitClause,
       Sentence: this.visitSentence,
@@ -37,6 +41,23 @@ class Transformer extends AstVisitor {
     return node;
   }
 
+  visitBlock(node) {
+    return this.visitNode(node);
+  }
+
+  visitQuery(node) {
+    return this.visitNode(node);
+  }
+
+  visitRhs(node) {
+    return this.visitNode(node);
+  }
+
+  visitSuccess(node) {
+    this.visit(node.body);
+    return node
+  }
+
   visitTerm(node) {
     if (this.top(-1) instanceof Block) {
       return new Assert(new Clause(node, _exists, _null));
@@ -45,6 +66,7 @@ class Transformer extends AstVisitor {
   }
 
   visitClause(node) {
+    console.log(node)
     const parent = this.top(-1);
     if (parent instanceof Block) {
       if (node.subj === _null) {
