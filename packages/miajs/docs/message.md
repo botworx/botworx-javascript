@@ -38,7 +38,7 @@ class Clause extends Atom
 
 ## Messages
 ```
-class Message extends Clause
+class Message
   from:
   to:
 ```

@@ -19,7 +19,7 @@ class Runner extends Task {
     this.queue = [];
     this.scheduled = false;
     this.impassed = false;
-    this.post(new Attempt(new Achieve(null, _start, null)));
+    // this.post(new Attempt(new Achieve(null, _start, null)));
   }
 
   schedule(t) {
@@ -68,6 +68,7 @@ class Runner extends Task {
         $$.$(`* \t${msg}`);
         var pmsg = new Attempt();
         Object.assign(pmsg, msg);
+        console.log(pmsg)
         for(const m of msg.from.matchRules(pmsg)) {
           this.fork(m.to);
         }
@@ -114,9 +115,8 @@ class Runner extends Task {
         this.queue.push(t.caller);
       }
     }
-
+    $$.$('eval posts');
     while ((post = this.posts.shift())) {
-      $$.$('eval posts');
       this.eval(post);
     }
 
@@ -147,15 +147,3 @@ class Runner extends Task {
 
 exports.Runner = Runner;
 exports.runner_ = before => new Runner(before);
-
-//
-//Agent
-//
-class Agent extends Runner {
-  constructor() {
-    super();
-  }
-}
-
-exports.Agent = Agent;
-exports.agent_ = init => new Agent(init);

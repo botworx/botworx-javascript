@@ -2,84 +2,80 @@
 # Blocks World
 #
 
-def (blox)
+Table1 :Table
+  isClear True
 
-  Table1 :Table
-    isClear True
+Block1 :Block
+  onTop Table1
 
-  Block1 :Block
-    onTop Table1
+Block2 :Block
+  onTop Block1
 
-  Block2 :Block
-    onTop Block1
+Block3 :Block
+  onTop Block2
+  isClear True
 
-  Block3 :Block
-    onTop Block2
-    isClear True
++ Achieve: stack Block1 on: Block2
++ Achieve: stack Block2 on: Block3
 
-  + Achieve: stack Block1 on: Block2
-  + Achieve: stack Block2 on: Block3
+def (impasse)
+  where
+    ($g :Goal) status Active
+  -->
+    | 'active'
+    * /$g
+  !=>
+    halt
 
-  defg (impasse)
-    where
-      ($g :Goal) status Active
-    -->
-      | 'active'
-      * /$g
-    !=>
-      halt
+def (+ $g :Goal)
+  + $g status Active
 
-  def (+ $g :Goal)
-    + $g status Active
+def (- $g :Goal)
+  - $g status Active
 
-  def (- $g :Goal)
-    - $g status Active
+def (stack $x on: $y -> $g)
+  where
+    not $x isClear True
+  -->
+    /clear $x
+  ==>
+    return
 
-  def (stack $x on: $y -> $g)
-    where
-      not $x isClear True
-    -->
-      /clear $x
-    ==>
-      return
+  where
+    not $y isClear True
+  -->
+    /clear $y
+  ==>
+    return
 
-    where
-      not $y isClear True
-    -->
-      /clear $y
-    ==>
-      return
+  where
+    $x onTop $z
+  -->
+    - $x onTop $z
 
-    where
-      $x onTop $z
-    -->
-      - $x onTop $z
+  + $x onTop $y
+  - $g
 
-    + $x onTop $y
-    - $g
+def (clear $x)
+  where
+    $x beneath $y
+    $z isClear True
+    $z != $x
+    $z != $y
+  -->
+    * /stack $y on: $z
 
-  def (clear $x)
-    where
-      $x beneath $y
-      $z isClear True
-      $z != $x
-      $z != $y
-    -->
-      * /stack $y on: $z
+def (- $x onTop $y)
+  - $y beneath $x
+  + $y isClear True
 
-  def (- $x onTop $y)
-    - $y beneath $x
-    + $y isClear True
+def (+ $x onTop $y)
+  where
+    (Block: $y) isClear True
+  -->
+    - $y isClear True
 
-  def (+ $x onTop $y)
-    where
-      (Block: $y) isClear True
-    -->
-      - $y isClear True
-
-    where
-      $x onTop $y
-    -->
-      + $y beneath $x
-
-blox
+  where
+    $x onTop $y
+  -->
+    + $y beneath $x

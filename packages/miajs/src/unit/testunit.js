@@ -43,11 +43,9 @@ class TestUnit extends Unit {
   tap() {
     beforeEach(() => {
       this.pushLogger();
-      return this.$('Baba');
     });
-    return afterEach(() => {
-      this.$('Yaga');
-      return this.popLogger();
+    afterEach(() => {
+      this.popLogger();
     });
   }
 

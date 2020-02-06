@@ -25,7 +25,7 @@ class Unit {
     this.logger = console;
     this.loggers = [];
     /*
-    @logger = new winston.Logger
+    this.logger = new winston.Logger
       level: 'silly',
       transports: [
         new winston.transports.Console()

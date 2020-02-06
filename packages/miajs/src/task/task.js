@@ -180,7 +180,6 @@ class Task extends EventEmitter {
   schedule(t) {
     if (t.scheduled) { return t; }
     t.scheduled = true;
-    //setImmediate ->
     nextTick(function() {
       t.scheduled = false;
       try {
@@ -287,14 +286,6 @@ class Task extends EventEmitter {
   }
 
   call(s, p, o, x) {
-    const c = new Achieve(s, p, o, x);
-    const m = new Attempt(c, this);
-    m.caller = this;
-    this.post(m);
-    return this.suspend();
-  }
-
-  callSync(s, p, o, x) {
     const c = new Achieve(s, p, o, x);
     const m = new Attempt(c, this);
     m.caller = this;
@@ -505,19 +496,22 @@ class Module extends Method {
 
 exports.Module = Module;
 exports.module_ = action => new Module(action);
+
 //
 //Rule
 //
 class Rule {
-  constructor(t, a) {
-    this.trigger = t;
-    this.action = a;
+  constructor(trigger, action, produce=(action)=>new Method(action)) {
+    this.trigger = trigger;
+    this.action = action;
+    this.produce = produce
   }
 
   match(msg) {
     const result = this.trigger.match(msg);
     if (!result) { return false; }
-    const t = new Method(this.action);
+    //const t = new Method(this.action);
+    const t = this.produce(this.action);
     const m = clone(msg, result);
     m.rule = this;
     m.to = t;
@@ -525,13 +519,6 @@ class Rule {
     t.caller = m.caller;
     return m;
   }
-  /*
-  fire: (rnr, msg) ->
-    t = new Method(@action)
-    t.msg = msg
-    t.caller = msg.caller
-    rnr.schedule(t)
-  */
 }
 exports.Rule = Rule;
 exports.def = (t, a) => new Rule(t, a);

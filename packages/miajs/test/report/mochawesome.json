@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 68,
-    "tests": 55,
-    "passes": 55,
+    "suites": 70,
+    "tests": 56,
+    "passes": 56,
     "pending": 0,
     "failures": 0,
-    "start": "2020-02-03T07:29:14.499Z",
-    "end": "2020-02-03T07:29:14.570Z",
-    "duration": 71,
-    "testsRegistered": 55,
+    "start": "2020-02-06T01:40:04.273Z",
+    "end": "2020-02-06T01:40:04.357Z",
+    "duration": 84,
+    "testsRegistered": 56,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b5b54b87-81a4-4e5c-8797-e30a8f36b995",
+      "uuid": "d3accaf9-718f-4e2b-b2f2-1165f7cdccb5",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,103 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0f8b222f-518b-4bb0-a2c1-c6934313e09e",
+          "uuid": "a584e9ec-94c2-4571-9681-454a5822b936",
+          "title": "Agent",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/agent.js",
+          "file": "/test/src/agent.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Agent \"before each\" hook",
+              "timedOut": false,
+              "duration": 11,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.pushLogger();\nreturn this.$('Baba');",
+              "err": {},
+              "uuid": "2cef7581-cbd4-48c2-834f-a3be29db7b55",
+              "parentUUID": "a584e9ec-94c2-4571-9681-454a5822b936",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Agent \"after each\" hook",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.$('Yaga');\nreturn this.popLogger();",
+              "err": {},
+              "uuid": "3ac1b435-b522-4622-9f75-988785a2f7be",
+              "parentUUID": "a584e9ec-94c2-4571-9681-454a5822b936",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "dac0d954-b20f-4869-82a8-8ec4a45c173f",
+              "title": "@run",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/agent.js",
+              "file": "/test/src/agent.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Agent @run should work",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "agent_(__main).run()",
+                  "err": {},
+                  "uuid": "5947c198-b6f4-4109-8bb7-70dcdebb916a",
+                  "parentUUID": "dac0d954-b20f-4869-82a8-8ec4a45c173f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5947c198-b6f4-4109-8bb7-70dcdebb916a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4d2421a8-527b-4416-ac9f-82c94b33016e",
           "title": "Rule",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/assert.js",
           "file": "/test/src/assert.js",
@@ -36,7 +132,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "42aef224-0227-49df-8a34-94911bfe0526",
+              "uuid": "1795a656-4118-497d-9e44-b971cfbb4a12",
               "title": "@fire",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/assert.js",
               "file": "/test/src/assert.js",
@@ -47,7 +143,7 @@
                   "title": "should work",
                   "fullTitle": "Rule @fire should work",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -56,15 +152,111 @@
                   "context": null,
                   "code": "const ctx = new Context();\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\nfor (let c of ctx.clauses) {\n  $$._(c.toString());\n}\nconst m = new Assert(c1);\n$$.$('Begin Task Execution');\nconst rnr = new Runner();\nrnr.def(new Trigger(Assert, Believe, __, _likes, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} likes Fish`);\n});\nrnr.post(m);\nreturn rnr.run();",
                   "err": {},
-                  "uuid": "ded983e7-7183-4349-8877-b30b63538a27",
-                  "parentUUID": "42aef224-0227-49df-8a34-94911bfe0526",
+                  "uuid": "88e55832-64a4-4466-aedf-78a2f743bf3d",
+                  "parentUUID": "1795a656-4118-497d-9e44-b971cfbb4a12",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "ded983e7-7183-4349-8877-b30b63538a27"
+                "88e55832-64a4-4466-aedf-78a2f743bf3d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4c170a6e-0bdb-47fc-891c-bf69a2f304c6",
+          "title": "Async",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/async.js",
+          "file": "/test/src/async.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Async \"before each\" hook",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.pushLogger();\nreturn this.$('Baba');",
+              "err": {},
+              "uuid": "931bcc65-56c1-4701-ad37-5cbd5b78481b",
+              "parentUUID": "4c170a6e-0bdb-47fc-891c-bf69a2f304c6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "Async \"after each\" hook",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.$('Yaga');\nreturn this.popLogger();",
+              "err": {},
+              "uuid": "db7504b6-32ea-45d2-a9a7-f7ba4d8c6085",
+              "parentUUID": "4c170a6e-0bdb-47fc-891c-bf69a2f304c6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "568cd0c9-464f-47de-a4f3-ae93e9b6aa9d",
+              "title": "@call",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/async.js",
+              "file": "/test/src/async.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Async @call should work",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "runner_().run(t1)",
+                  "err": {},
+                  "uuid": "ad067e88-8d34-47f3-ac81-66dcf3a0b26a",
+                  "parentUUID": "568cd0c9-464f-47de-a4f3-ae93e9b6aa9d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ad067e88-8d34-47f3-ac81-66dcf3a0b26a"
               ],
               "failures": [],
               "pending": [],
@@ -85,103 +277,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "2dddbe50-1c9f-4a03-addb-8f96dded6ac5",
-          "title": "Async",
-          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/async.js",
-          "file": "/test/src/async.js",
-          "beforeHooks": [
-            {
-              "title": "\"before each\" hook",
-              "fullTitle": "Async \"before each\" hook",
-              "timedOut": false,
-              "duration": 14,
-              "state": null,
-              "speed": null,
-              "pass": false,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "this.pushLogger();\nreturn this.$('Baba');",
-              "err": {},
-              "uuid": "5dacca6b-3cba-4d20-be4c-8421b4ff8619",
-              "parentUUID": "2dddbe50-1c9f-4a03-addb-8f96dded6ac5",
-              "isHook": true,
-              "skipped": false
-            }
-          ],
-          "afterHooks": [
-            {
-              "title": "\"after each\" hook",
-              "fullTitle": "Async \"after each\" hook",
-              "timedOut": false,
-              "duration": 0,
-              "state": null,
-              "speed": null,
-              "pass": false,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "this.$('Yaga');\nreturn this.popLogger();",
-              "err": {},
-              "uuid": "cf36d2ee-f001-4b15-b20d-e798898beb60",
-              "parentUUID": "2dddbe50-1c9f-4a03-addb-8f96dded6ac5",
-              "isHook": true,
-              "skipped": false
-            }
-          ],
-          "tests": [],
-          "suites": [
-            {
-              "uuid": "d5f9461a-7cb6-4648-8965-9279d233a804",
-              "title": "@call",
-              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/async.js",
-              "file": "/test/src/async.js",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "should work",
-                  "fullTitle": "Async @call should work",
-                  "timedOut": false,
-                  "duration": 1,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "runner_().run(t1)",
-                  "err": {},
-                  "uuid": "ddb5bc0c-616f-430c-b406-f31b701c3553",
-                  "parentUUID": "d5f9461a-7cb6-4648-8965-9279d233a804",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [
-                "ddb5bc0c-616f-430c-b406-f31b701c3553"
-              ],
-              "failures": [],
-              "pending": [],
-              "skipped": [],
-              "duration": 1,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
-            }
-          ],
-          "passes": [],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 0,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "2de1d054-3fdb-4ace-a2d8-c4cecd57dda5",
+          "uuid": "55ba7127-63b9-4323-89e0-27eb1dce8044",
           "title": "Attempt",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/attempt.js",
           "file": "/test/src/attempt.js",
@@ -192,7 +288,7 @@
               "title": "should work",
               "fullTitle": "Attempt should work",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -201,26 +297,26 @@
               "context": null,
               "code": "const ctx = new Context();\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\nfor (let c of ctx.clauses) {\n  $$._(c.toString());\n}\nconst m = new Attempt(new Achieve(_Bob, _get, _Fish));\n$$.$('Begin Task Execution');\nconst rnr = new Runner();\nrnr.def(new Trigger(Attempt, Achieve, __, _get, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} getting Fish`);\n});\nrnr.post(m);\nreturn rnr.run();",
               "err": {},
-              "uuid": "2415ca39-193e-4e86-a66f-560dce97ad61",
-              "parentUUID": "2de1d054-3fdb-4ace-a2d8-c4cecd57dda5",
+              "uuid": "9607daf8-7448-4278-aebe-0f1996e43f62",
+              "parentUUID": "55ba7127-63b9-4323-89e0-27eb1dce8044",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2415ca39-193e-4e86-a66f-560dce97ad61"
+            "9607daf8-7448-4278-aebe-0f1996e43f62"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "cbe0cf35-e49a-4d9a-9591-2f78e6ea6d95",
+          "uuid": "6d391ffa-3f3e-49c0-b1bb-36283b96614a",
           "title": "Await",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/await.js",
           "file": "/test/src/await.js",
@@ -229,7 +325,7 @@
               "title": "\"before each\" hook",
               "fullTitle": "Await \"before each\" hook",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": null,
               "speed": null,
               "pass": false,
@@ -238,8 +334,8 @@
               "context": null,
               "code": "this.pushLogger();\nreturn this.$('Baba');",
               "err": {},
-              "uuid": "d3f92f9f-a636-4ed4-ae52-ce1c7795dc42",
-              "parentUUID": "cbe0cf35-e49a-4d9a-9591-2f78e6ea6d95",
+              "uuid": "314e6346-dbd1-4911-9835-bde9704544a1",
+              "parentUUID": "6d391ffa-3f3e-49c0-b1bb-36283b96614a",
               "isHook": true,
               "skipped": false
             }
@@ -249,7 +345,7 @@
               "title": "\"after each\" hook",
               "fullTitle": "Await \"after each\" hook",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": null,
               "speed": null,
               "pass": false,
@@ -258,8 +354,8 @@
               "context": null,
               "code": "this.$('Yaga');\nreturn this.popLogger();",
               "err": {},
-              "uuid": "61240170-2ac4-4ea4-b50d-ced9f468989f",
-              "parentUUID": "cbe0cf35-e49a-4d9a-9591-2f78e6ea6d95",
+              "uuid": "8a200e51-0026-48d2-8c2e-35c6b36e3ac7",
+              "parentUUID": "6d391ffa-3f3e-49c0-b1bb-36283b96614a",
               "isHook": true,
               "skipped": false
             }
@@ -278,8 +374,8 @@
               "context": null,
               "code": "const bar = async () => console.log(await foo());\nreturn bar;",
               "err": {},
-              "uuid": "3bd19ff7-96d3-47d5-a61d-6307930059a8",
-              "parentUUID": "cbe0cf35-e49a-4d9a-9591-2f78e6ea6d95",
+              "uuid": "886965a6-9dec-4b25-b25a-c06ba736b285",
+              "parentUUID": "6d391ffa-3f3e-49c0-b1bb-36283b96614a",
               "isHook": false,
               "skipped": false
             },
@@ -296,16 +392,16 @@
               "context": null,
               "code": "const bar = async () => console.log(await foo2());\nreturn bar;",
               "err": {},
-              "uuid": "d68847c6-c07b-4107-b0f6-e56f0644a042",
-              "parentUUID": "cbe0cf35-e49a-4d9a-9591-2f78e6ea6d95",
+              "uuid": "a4508162-70b2-4f39-a195-c5a33f75f04f",
+              "parentUUID": "6d391ffa-3f3e-49c0-b1bb-36283b96614a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3bd19ff7-96d3-47d5-a61d-6307930059a8",
-            "d68847c6-c07b-4107-b0f6-e56f0644a042"
+            "886965a6-9dec-4b25-b25a-c06ba736b285",
+            "a4508162-70b2-4f39-a195-c5a33f75f04f"
           ],
           "failures": [],
           "pending": [],
@@ -316,7 +412,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "c8960853-8edc-4a70-9ed7-80356b73771e",
+          "uuid": "a20c7736-d529-4bbf-acf2-134c09fa5729",
           "title": "Task",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/call.js",
           "file": "/test/src/call.js",
@@ -325,7 +421,7 @@
               "title": "\"before each\" hook",
               "fullTitle": "Task \"before each\" hook",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": null,
               "speed": null,
               "pass": false,
@@ -334,8 +430,8 @@
               "context": null,
               "code": "this.pushLogger();\nreturn this.$('Baba');",
               "err": {},
-              "uuid": "9c6414a5-6e36-4d01-a804-2177718e5e25",
-              "parentUUID": "c8960853-8edc-4a70-9ed7-80356b73771e",
+              "uuid": "75ed0ed6-3a40-44f4-8607-8872cf1ad8e4",
+              "parentUUID": "a20c7736-d529-4bbf-acf2-134c09fa5729",
               "isHook": true,
               "skipped": false
             }
@@ -354,8 +450,8 @@
               "context": null,
               "code": "this.$('Yaga');\nreturn this.popLogger();",
               "err": {},
-              "uuid": "f91c76d4-90e0-4940-af19-32cd0f887d4d",
-              "parentUUID": "c8960853-8edc-4a70-9ed7-80356b73771e",
+              "uuid": "858603f6-6190-499c-8673-0c1d17e6fb03",
+              "parentUUID": "a20c7736-d529-4bbf-acf2-134c09fa5729",
               "isHook": true,
               "skipped": false
             }
@@ -363,7 +459,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "401f840a-93ed-4976-9387-ca21145f54c6",
+              "uuid": "01454809-28ce-4803-bb78-59e202d0e6d2",
               "title": "@call",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/call.js",
               "file": "/test/src/call.js",
@@ -383,15 +479,15 @@
                   "context": null,
                   "code": "runner_().run(t1)",
                   "err": {},
-                  "uuid": "471f2b75-a096-48cd-b812-00123f62722c",
-                  "parentUUID": "401f840a-93ed-4976-9387-ca21145f54c6",
+                  "uuid": "bdfaa0bd-79f2-48ba-af3b-f5104f5b6020",
+                  "parentUUID": "01454809-28ce-4803-bb78-59e202d0e6d2",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "471f2b75-a096-48cd-b812-00123f62722c"
+                "bdfaa0bd-79f2-48ba-af3b-f5104f5b6020"
               ],
               "failures": [],
               "pending": [],
@@ -412,7 +508,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "9ff45c39-4ecf-439f-93f3-fdf8acad11e6",
+          "uuid": "945e6512-d867-4cd6-8386-52ff6b7cde59",
           "title": "Task",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/chain.js",
           "file": "/test/src/chain.js",
@@ -421,7 +517,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "6504f903-3347-44d5-a367-ffffc4aa9c36",
+              "uuid": "73ae2a89-4f53-4980-a98e-e6f7cfa94c85",
               "title": "@chain",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/chain.js",
               "file": "/test/src/chain.js",
@@ -441,15 +537,15 @@
                   "context": null,
                   "code": "runner_().run(t1)",
                   "err": {},
-                  "uuid": "00589324-9747-4745-8c9a-1cb6e87857fc",
-                  "parentUUID": "6504f903-3347-44d5-a367-ffffc4aa9c36",
+                  "uuid": "940ca8b9-b830-4e16-866f-2e0e4bd392ed",
+                  "parentUUID": "73ae2a89-4f53-4980-a98e-e6f7cfa94c85",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "00589324-9747-4745-8c9a-1cb6e87857fc"
+                "940ca8b9-b830-4e16-866f-2e0e4bd392ed"
               ],
               "failures": [],
               "pending": [],
@@ -470,7 +566,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "c15d2603-fe4b-4713-a341-dbad5aaf312b",
+          "uuid": "69b3818b-0965-4c41-b708-4a51673d1a94",
           "title": "Config",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/config.js",
           "file": "/test/src/config.js",
@@ -490,15 +586,15 @@
               "context": null,
               "code": "$$.$('Config Results');\n$$._(config());\n$$.$('Environment');\nreturn $$._(process.env);",
               "err": {},
-              "uuid": "f83abfdc-4fc9-4347-83f2-1385017a4c56",
-              "parentUUID": "c15d2603-fe4b-4713-a341-dbad5aaf312b",
+              "uuid": "9777ef72-0006-4e64-a89c-40cdbca73113",
+              "parentUUID": "69b3818b-0965-4c41-b708-4a51673d1a94",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f83abfdc-4fc9-4347-83f2-1385017a4c56"
+            "9777ef72-0006-4e64-a89c-40cdbca73113"
           ],
           "failures": [],
           "pending": [],
@@ -509,7 +605,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "0faee532-2679-4a3f-bbd2-459505d2394c",
+          "uuid": "918bc27b-beda-4ddb-a04e-63cb0a873136",
           "title": "Context",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/context.js",
           "file": "/test/src/context.js",
@@ -518,7 +614,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "28de7ee2-d474-4c0a-8bb0-346aa529e432",
+              "uuid": "cd1749a0-e20e-4871-8b87-670c2bc4ffee",
               "title": "@find",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/context.js",
               "file": "/test/src/context.js",
@@ -529,7 +625,7 @@
                   "title": "should work",
                   "fullTitle": "Context @find should work",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -538,26 +634,26 @@
                   "context": null,
                   "code": "let r = ctx.find(Believe, _Bob, _likes, _Fish);\n$$.$(\"Bob, likes, Fish\");\n$$._(r.toString());\nr = ctx.find(Believe, __, _likes, _Fish);\n$$.$(\"_, likes, Fish\");\n$$._(r.toString());\nr = ctx.find(Believe, __, _likes, __);\n$$.$(\"_, likes, _\");\nreturn $$._(r.toString());",
                   "err": {},
-                  "uuid": "8be9c8f4-e27e-401e-8c6f-0ba310af384a",
-                  "parentUUID": "28de7ee2-d474-4c0a-8bb0-346aa529e432",
+                  "uuid": "66cc3a1d-f10e-4a54-b249-718049ab5c67",
+                  "parentUUID": "cd1749a0-e20e-4871-8b87-670c2bc4ffee",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "8be9c8f4-e27e-401e-8c6f-0ba310af384a"
+                "66cc3a1d-f10e-4a54-b249-718049ab5c67"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "3d1411be-382d-4479-9fa5-1795e1e6437f",
+              "uuid": "01d95379-114a-4893-9758-130259ef9a14",
               "title": "@match",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/context.js",
               "file": "/test/src/context.js",
@@ -568,7 +664,7 @@
                   "title": "should work",
                   "fullTitle": "Context @match should work",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -577,8 +673,8 @@
                   "context": null,
                   "code": "const matches = ctx.match(Believe, _Bob, _likes, _Fish);\n$$.$(\"Bob, likes, Fish\");\nfor (r of matches) {\n  $$._(r.toString())\n}",
                   "err": {},
-                  "uuid": "c398b495-9004-4e39-892e-02484cbabba1",
-                  "parentUUID": "3d1411be-382d-4479-9fa5-1795e1e6437f",
+                  "uuid": "bd4f8c8d-333d-415b-8ffb-2d4a12bbbd9c",
+                  "parentUUID": "01d95379-114a-4893-9758-130259ef9a14",
                   "isHook": false,
                   "skipped": false
                 },
@@ -595,27 +691,27 @@
                   "context": null,
                   "code": "const matches = ctx.match(Believe, __, _likes, __);\n$$.$(\"ctx.match(__, _likes, __)\");\nfor (r of matches) {\n  $$._(r.toString())\n}",
                   "err": {},
-                  "uuid": "135fef4a-8af7-4989-8821-597129cef2af",
-                  "parentUUID": "3d1411be-382d-4479-9fa5-1795e1e6437f",
+                  "uuid": "7633f90d-23cd-41bc-8da7-423945b2c5f5",
+                  "parentUUID": "01d95379-114a-4893-9758-130259ef9a14",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c398b495-9004-4e39-892e-02484cbabba1",
-                "135fef4a-8af7-4989-8821-597129cef2af"
+                "bd4f8c8d-333d-415b-8ffb-2d4a12bbbd9c",
+                "7633f90d-23cd-41bc-8da7-423945b2c5f5"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "f4fb3ab2-1bfc-4858-be6a-c18701ab36a9",
+              "uuid": "eac93426-03b3-4ca2-9288-01501635243d",
               "title": "@iterator",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/context.js",
               "file": "/test/src/context.js",
@@ -635,15 +731,15 @@
                   "context": null,
                   "code": "for (c of ctx) {\n  $$._(c);\n}",
                   "err": {},
-                  "uuid": "e520bb0e-fc87-40cb-a585-c0acf22c85cc",
-                  "parentUUID": "f4fb3ab2-1bfc-4858-be6a-c18701ab36a9",
+                  "uuid": "823b3fba-d506-47da-88ed-8873d03e9825",
+                  "parentUUID": "eac93426-03b3-4ca2-9288-01501635243d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e520bb0e-fc87-40cb-a585-c0acf22c85cc"
+                "823b3fba-d506-47da-88ed-8873d03e9825"
               ],
               "failures": [],
               "pending": [],
@@ -664,7 +760,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "3ad964b5-0d75-43af-b3df-4e704c00a66d",
+          "uuid": "ad2cc3cf-08d0-407c-9883-1d3e0a1f749e",
           "title": "Method",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/count.js",
           "file": "/test/src/count.js",
@@ -673,7 +769,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "d3fc1da2-a4ff-457d-a672-e9b6830748be",
+              "uuid": "a3b059a4-a3dc-493f-8c58-7566a6d51560",
               "title": "@counter",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/count.js",
               "file": "/test/src/count.js",
@@ -684,7 +780,7 @@
                   "title": "should work",
                   "fullTitle": "Method @counter should work",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -693,20 +789,20 @@
                   "context": null,
                   "code": "runner_().run(t1)",
                   "err": {},
-                  "uuid": "d6fc715c-4b0c-43cc-99b2-b17a830096d0",
-                  "parentUUID": "d3fc1da2-a4ff-457d-a672-e9b6830748be",
+                  "uuid": "b3c5b3dd-f265-4bf4-9749-56726bbd0671",
+                  "parentUUID": "a3b059a4-a3dc-493f-8c58-7566a6d51560",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "d6fc715c-4b0c-43cc-99b2-b17a830096d0"
+                "b3c5b3dd-f265-4bf4-9749-56726bbd0671"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 2,
+              "duration": 3,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -722,7 +818,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "40819733-b260-4907-a5ce-8e7900c37661",
+          "uuid": "e4a0ef73-d305-4b5f-ae70-1abf5067d467",
           "title": "Sequence",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/dsl.js",
           "file": "/test/src/dsl.js",
@@ -731,7 +827,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "22bdb910-ede6-4bf7-8b53-3e71c20925a7",
+              "uuid": "6ab7ddb0-dca3-4d44-80ad-13720e87f557",
               "title": "@action",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/dsl.js",
               "file": "/test/src/dsl.js",
@@ -742,7 +838,7 @@
                   "title": "should work",
                   "fullTitle": "Sequence @action should work",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -751,20 +847,20 @@
                   "context": null,
                   "code": "runner_().run(s1)",
                   "err": {},
-                  "uuid": "a9612d1f-e925-423b-b835-fca0c5e03506",
-                  "parentUUID": "22bdb910-ede6-4bf7-8b53-3e71c20925a7",
+                  "uuid": "ff2b80be-9ae4-482a-b33f-e1994b61c052",
+                  "parentUUID": "6ab7ddb0-dca3-4d44-80ad-13720e87f557",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "a9612d1f-e925-423b-b835-fca0c5e03506"
+                "ff2b80be-9ae4-482a-b33f-e1994b61c052"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -780,7 +876,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "6f61c1fb-d23c-435e-b518-c8f5228cb929",
+          "uuid": "9be2f48d-1d74-4f95-a68d-78886b953312",
           "title": "Task",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/hello.js",
           "file": "/test/src/hello.js",
@@ -789,7 +885,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "6c3d743a-f860-444b-bef7-4384c948dfbe",
+              "uuid": "709216b6-7275-4b99-9ee2-37d8756dcb58",
               "title": "@perform",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/hello.js",
               "file": "/test/src/hello.js",
@@ -809,15 +905,15 @@
                   "context": null,
                   "code": "const action = function() {\n  this.def(onAttempt(Achieve, null, _hello, null), function() {\n    this.def(onAttempt(Achieve, null, _say, __), function() {\n      const $t = this.msg.data.obj;\n      return $$.log($t);\n    });\n    this.perform(null, _say, \"Hello World\");\n    return this.perform(null, _say, \"Goodbye World\");\n  });\n  return this.perform(null, _hello, null);\n};\nreturn runner_().run(module_(action));",
                   "err": {},
-                  "uuid": "b4e94f10-2d0a-48fa-bdca-ed9e5c768558",
-                  "parentUUID": "6c3d743a-f860-444b-bef7-4384c948dfbe",
+                  "uuid": "a5a21574-b3a0-4965-b89a-54f40ef34428",
+                  "parentUUID": "709216b6-7275-4b99-9ee2-37d8756dcb58",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "b4e94f10-2d0a-48fa-bdca-ed9e5c768558"
+                "a5a21574-b3a0-4965-b89a-54f40ef34428"
               ],
               "failures": [],
               "pending": [],
@@ -838,7 +934,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "bed30578-9345-40c1-b260-c8e2a1a03680",
+          "uuid": "20f34066-1239-4391-b412-f0a1589ccb9e",
           "title": "Task",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/import.js",
           "file": "/test/src/import.js",
@@ -847,7 +943,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "39e23e8a-f418-4d6d-8436-f4c3ef574f77",
+              "uuid": "7a6ca0fa-b454-4982-8697-1a311cac2a6b",
               "title": "@import",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/import.js",
               "file": "/test/src/import.js",
@@ -858,7 +954,7 @@
                   "title": "should work",
                   "fullTitle": "Task @import should work",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -867,20 +963,20 @@
                   "context": null,
                   "code": "runner_().run(module_(function() {\n  this.import(require, './cleavers');\n  $$.$(\"All Clauses\");\n  return $$._(_$(this.rnr.ctx.clauses));\n})",
                   "err": {},
-                  "uuid": "433d8a19-8037-4e02-a3cc-fa7208f90e6e",
-                  "parentUUID": "39e23e8a-f418-4d6d-8436-f4c3ef574f77",
+                  "uuid": "478f3044-1e83-425a-b087-1f6e2736af46",
+                  "parentUUID": "7a6ca0fa-b454-4982-8697-1a311cac2a6b",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "433d8a19-8037-4e02-a3cc-fa7208f90e6e"
+                "478f3044-1e83-425a-b087-1f6e2736af46"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -896,7 +992,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "500143da-271d-4ddb-8f4b-ed14ebf237fa",
+          "uuid": "cb78594e-8b05-46fe-a70d-5e8ce59697a1",
           "title": "TIterable",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/iterable.js",
           "file": "/test/src/iterable.js",
@@ -916,15 +1012,15 @@
               "context": null,
               "code": "class A {\n  static initClass() {\n    this.iterator(function*() {\n      yield 'a';\n      return yield 'b';\n    });\n  }\n}\nA.initClass();\nclass B extends A {\n  static initClass() {\n    this.TIterable();\n  }\n  *iterator() {\n    yield* super.iterator();\n    return yield 'c';\n  }\n}\nB.initClass();\nconst b = new B();\nfor (l of b) {\n  $$._(l)\n}",
               "err": {},
-              "uuid": "931f5292-3286-4110-bf4b-1979e666d792",
-              "parentUUID": "500143da-271d-4ddb-8f4b-ed14ebf237fa",
+              "uuid": "119f9f16-9838-4e3b-bff3-39b6ccc5ebdb",
+              "parentUUID": "cb78594e-8b05-46fe-a70d-5e8ce59697a1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "931f5292-3286-4110-bf4b-1979e666d792"
+            "119f9f16-9838-4e3b-bff3-39b6ccc5ebdb"
           ],
           "failures": [],
           "pending": [],
@@ -935,7 +1031,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "966996ec-b6be-4e96-8b8a-90f0004256ca",
+          "uuid": "5d0f53ac-522c-4f8f-9151-c16ded7451dc",
           "title": "Loop",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/loop.js",
           "file": "/test/src/loop.js",
@@ -944,7 +1040,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "3981c43f-e0e9-4f62-9d24-871b1ab21418",
+              "uuid": "7347306d-6e80-4640-897a-c615206d92d7",
               "title": "@action",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/loop.js",
               "file": "/test/src/loop.js",
@@ -964,15 +1060,15 @@
                   "context": null,
                   "code": "const t1 = method_(function() {\n  return this.loop(function() {\n    return this.task(function() {\n      $$._(\"Hello\");\n      this.count = 10;\n      return this.main = function() {\n        $$._(this.count--);\n        if(this.count <= 0) {\n          $$._('Inner');\n          return this.fail();\n        }\n      };}).task(() => $$._(\"Loop\"));\n  });\n});\nreturn runner_().run(t1);",
                   "err": {},
-                  "uuid": "4d407ada-adfc-45fc-a4ad-1a86abaa43a8",
-                  "parentUUID": "3981c43f-e0e9-4f62-9d24-871b1ab21418",
+                  "uuid": "31a44b9a-5e9d-486d-aae0-1e530a7eb28b",
+                  "parentUUID": "7347306d-6e80-4640-897a-c615206d92d7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4d407ada-adfc-45fc-a4ad-1a86abaa43a8"
+                "31a44b9a-5e9d-486d-aae0-1e530a7eb28b"
               ],
               "failures": [],
               "pending": [],
@@ -993,7 +1089,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "c900b776-00bf-4349-82d1-13111eb33737",
+          "uuid": "3f9bdb7d-eac5-4c34-9a00-44c7287979b2",
           "title": "Matching",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
           "file": "/test/src/match.js",
@@ -1002,7 +1098,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+              "uuid": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
               "title": "Values",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1013,7 +1109,7 @@
                   "title": "match __, null",
                   "fullTitle": "Matching Values match __, null",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1022,8 +1118,8 @@
                   "context": null,
                   "code": "expect(match(__, null)).to.be.true",
                   "err": {},
-                  "uuid": "c9c23b43-49b5-407c-a6fe-546340ddfdba",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "7c939120-bd10-4a67-a3f8-202015d7ee95",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1040,8 +1136,8 @@
                   "context": null,
                   "code": "expect(match(null, null)).to.be.true",
                   "err": {},
-                  "uuid": "558c6f3e-8ee2-4548-96ec-95aef3585985",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "94b08062-cfc2-4fa9-a292-6c720ec037c2",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1058,8 +1154,8 @@
                   "context": null,
                   "code": "expect(match(null, 'hello')).to.be.false",
                   "err": {},
-                  "uuid": "af98e9a8-03b2-49f4-9438-1a7159fdded6",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "39dcd23d-0f12-4e1c-86d0-1bdd05c2f80e",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1076,8 +1172,8 @@
                   "context": null,
                   "code": "expect(match('hello', 'hello')).to.be.true",
                   "err": {},
-                  "uuid": "be18b8e5-5563-4539-9ddf-59288f4c2884",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "b37ef66c-3c31-4a07-b49f-6a9d7072f0e5",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1094,8 +1190,8 @@
                   "context": null,
                   "code": "expect(match('hello', 'goodbye')).to.be.false",
                   "err": {},
-                  "uuid": "3fc6e0c3-f3b8-4fc1-a3f8-40ac142223b8",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "613b5c32-f65e-4c2a-a8eb-0c82742fe7d3",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1103,7 +1199,7 @@
                   "title": "match ((x) -> x == 10), 10",
                   "fullTitle": "Matching Values match ((x) -> x == 10), 10",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1112,8 +1208,8 @@
                   "context": null,
                   "code": "expect(match((x => x === 10), 10)).to.be.true",
                   "err": {},
-                  "uuid": "8f3c1f23-fcc2-48e7-80a1-e7b73e614288",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "bd26b46f-af4b-4993-ad7d-4dfc7d761e95",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1130,8 +1226,8 @@
                   "context": null,
                   "code": "expect(match((x => x === 10), 20)).to.be.false",
                   "err": {},
-                  "uuid": "976e508e-b9b7-4f2e-af06-6a37034af8da",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "31580a9d-59d3-4205-8dbe-2e7b35226b97",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1148,33 +1244,33 @@
                   "context": null,
                   "code": "expect(match((x => x > 10), 20)).to.be.true",
                   "err": {},
-                  "uuid": "3cb53e99-cfd3-44f4-9f5d-516bc4f04160",
-                  "parentUUID": "0e052fde-969b-4417-859b-6e21a58aa5ea",
+                  "uuid": "9af646fc-66d4-4359-9a43-a406da570923",
+                  "parentUUID": "f1fb975f-a04a-4a47-9853-5b08df9ea6a7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c9c23b43-49b5-407c-a6fe-546340ddfdba",
-                "558c6f3e-8ee2-4548-96ec-95aef3585985",
-                "af98e9a8-03b2-49f4-9438-1a7159fdded6",
-                "be18b8e5-5563-4539-9ddf-59288f4c2884",
-                "3fc6e0c3-f3b8-4fc1-a3f8-40ac142223b8",
-                "8f3c1f23-fcc2-48e7-80a1-e7b73e614288",
-                "976e508e-b9b7-4f2e-af06-6a37034af8da",
-                "3cb53e99-cfd3-44f4-9f5d-516bc4f04160"
+                "7c939120-bd10-4a67-a3f8-202015d7ee95",
+                "94b08062-cfc2-4fa9-a292-6c720ec037c2",
+                "39dcd23d-0f12-4e1c-86d0-1bdd05c2f80e",
+                "b37ef66c-3c31-4a07-b49f-6a9d7072f0e5",
+                "613b5c32-f65e-4c2a-a8eb-0c82742fe7d3",
+                "bd26b46f-af4b-4993-ad7d-4dfc7d761e95",
+                "31580a9d-59d3-4205-8dbe-2e7b35226b97",
+                "9af646fc-66d4-4359-9a43-a406da570923"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 2,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "6738037b-1830-477f-97b1-12495bb0e93e",
+              "uuid": "842abb3b-ac65-4a27-9d9c-72548091bfe9",
               "title": "Regular Expressions",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1194,8 +1290,8 @@
                   "context": null,
                   "code": "expect(match(re, 'test.js')).to.be.true",
                   "err": {},
-                  "uuid": "080edaad-5c31-48a7-bc2e-6e214f556e0c",
-                  "parentUUID": "6738037b-1830-477f-97b1-12495bb0e93e",
+                  "uuid": "b247b1eb-16fc-4a98-8027-b011a0b788fd",
+                  "parentUUID": "842abb3b-ac65-4a27-9d9c-72548091bfe9",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1212,16 +1308,16 @@
                   "context": null,
                   "code": "expect(match(re, 'test.txt')).to.be.false",
                   "err": {},
-                  "uuid": "65e69c7a-1643-4789-acc7-614e0dfa774d",
-                  "parentUUID": "6738037b-1830-477f-97b1-12495bb0e93e",
+                  "uuid": "38246cef-6e2f-4867-874e-af836711aa72",
+                  "parentUUID": "842abb3b-ac65-4a27-9d9c-72548091bfe9",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "080edaad-5c31-48a7-bc2e-6e214f556e0c",
-                "65e69c7a-1643-4789-acc7-614e0dfa774d"
+                "b247b1eb-16fc-4a98-8027-b011a0b788fd",
+                "38246cef-6e2f-4867-874e-af836711aa72"
               ],
               "failures": [],
               "pending": [],
@@ -1232,7 +1328,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "59e8127d-2136-4cad-80f9-04d5be8ee20d",
+              "uuid": "96dbc96e-0b56-4cd5-8959-f1e38b4c992f",
               "title": "Variable Binding",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1252,15 +1348,15 @@
                   "context": null,
                   "code": "//$$._ match($('x'), 10)\n  expect(match($('x'), 10)).to.have.property('$x', 10)",
                   "err": {},
-                  "uuid": "9f4d37a6-0ab8-4db4-aa74-3a0565f60a30",
-                  "parentUUID": "59e8127d-2136-4cad-80f9-04d5be8ee20d",
+                  "uuid": "bc010236-61e3-4c01-830c-ce1f3d6879d8",
+                  "parentUUID": "96dbc96e-0b56-4cd5-8959-f1e38b4c992f",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "9f4d37a6-0ab8-4db4-aa74-3a0565f60a30"
+                "bc010236-61e3-4c01-830c-ce1f3d6879d8"
               ],
               "failures": [],
               "pending": [],
@@ -1271,7 +1367,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "f48bf0bd-b21d-46ae-b271-3bf86e43d470",
+              "uuid": "2ba2cfd4-ad3f-4433-ae7e-9c5461da3609",
               "title": "Clauses",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1291,8 +1387,8 @@
                   "context": null,
                   "code": "expect(believe_(_Bob, _likes, _Fish).match(Believe, __, _likes, __)).to.be.true",
                   "err": {},
-                  "uuid": "58dc84b8-e144-40d9-bdad-99e55be7801c",
-                  "parentUUID": "f48bf0bd-b21d-46ae-b271-3bf86e43d470",
+                  "uuid": "12c77dc9-af77-4e75-a7cd-67622815acf8",
+                  "parentUUID": "2ba2cfd4-ad3f-4433-ae7e-9c5461da3609",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1300,7 +1396,7 @@
                   "title": "believe_(_Bob, _likes, _Fish).match Believe, $('x'), _likes, $('y')",
                   "fullTitle": "Matching Clauses believe_(_Bob, _likes, _Fish).match Believe, $('x'), _likes, $('y')",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1309,27 +1405,27 @@
                   "context": null,
                   "code": "const result = believe_(_Bob, _likes, _Fish).match(Believe, $('x'), _likes, $('y'));\nexpect(result).to.have.property('$x', _Bob);\nreturn expect(result).to.have.property('$y', _Fish);",
                   "err": {},
-                  "uuid": "f629a5a1-ab32-4b6e-9713-f8e003de5691",
-                  "parentUUID": "f48bf0bd-b21d-46ae-b271-3bf86e43d470",
+                  "uuid": "ba9a52cf-5254-458b-a3b8-a35436b414d0",
+                  "parentUUID": "2ba2cfd4-ad3f-4433-ae7e-9c5461da3609",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "58dc84b8-e144-40d9-bdad-99e55be7801c",
-                "f629a5a1-ab32-4b6e-9713-f8e003de5691"
+                "12c77dc9-af77-4e75-a7cd-67622815acf8",
+                "ba9a52cf-5254-458b-a3b8-a35436b414d0"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "74b14b46-892f-482f-b1a9-584591f95451",
+              "uuid": "4f67d741-b4e3-4c18-984e-dd61be35e01e",
               "title": "Messages",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1349,15 +1445,15 @@
                   "context": null,
                   "code": "const result = assert_(Believe, _Bob, _likes, _Fish).match(Assert, Believe, $('x'), _likes, $('y'));\nexpect(result).to.have.property('$x', _Bob);\nreturn expect(result).to.have.property('$y', _Fish);",
                   "err": {},
-                  "uuid": "0962a56d-b5a7-44eb-b582-a383778d2917",
-                  "parentUUID": "74b14b46-892f-482f-b1a9-584591f95451",
+                  "uuid": "7d17e820-8e0f-4090-a426-6dbedd37d104",
+                  "parentUUID": "4f67d741-b4e3-4c18-984e-dd61be35e01e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "0962a56d-b5a7-44eb-b582-a383778d2917"
+                "7d17e820-8e0f-4090-a426-6dbedd37d104"
               ],
               "failures": [],
               "pending": [],
@@ -1368,7 +1464,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "93f50837-3eca-412a-afe6-ac9f14d485d9",
+              "uuid": "deb1c5c7-4512-40c8-9261-0cf37d723687",
               "title": "Triggers",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1388,8 +1484,8 @@
                   "context": null,
                   "code": "const result = onAssert(Believe, $('x'), _likes, $('y')).match(assert_(Believe, _Bob, _likes, _Fish));\nexpect(result).to.have.property('$x', _Bob);\nreturn expect(result).to.have.property('$y', _Fish);",
                   "err": {},
-                  "uuid": "35e9adf9-50e8-48ed-b130-822359a6f00f",
-                  "parentUUID": "93f50837-3eca-412a-afe6-ac9f14d485d9",
+                  "uuid": "f90a75cc-d387-4555-996a-86609c49cdbf",
+                  "parentUUID": "deb1c5c7-4512-40c8-9261-0cf37d723687",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1406,16 +1502,16 @@
                   "context": null,
                   "code": "const result = onAssert(Believe, $('x'), _likes, $('y')).match(attempt_(Believe, _Bob, _likes, _Fish));\nreturn expect(result).to.be.false;",
                   "err": {},
-                  "uuid": "5d682eb1-8bea-465c-8b5e-6358f1ae5a83",
-                  "parentUUID": "93f50837-3eca-412a-afe6-ac9f14d485d9",
+                  "uuid": "b768a102-d7ad-471d-ae52-8805a26f370a",
+                  "parentUUID": "deb1c5c7-4512-40c8-9261-0cf37d723687",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "35e9adf9-50e8-48ed-b130-822359a6f00f",
-                "5d682eb1-8bea-465c-8b5e-6358f1ae5a83"
+                "f90a75cc-d387-4555-996a-86609c49cdbf",
+                "b768a102-d7ad-471d-ae52-8805a26f370a"
               ],
               "failures": [],
               "pending": [],
@@ -1426,7 +1522,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "e11beec1-4cb3-4272-b654-f513e597201c",
+              "uuid": "6791e007-a518-4ea9-8933-39d6929cbe48",
               "title": "Triggers with Xtras",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/match.js",
               "file": "/test/src/match.js",
@@ -1437,7 +1533,7 @@
                   "title": "onAssert(Believe, $('x'), _likes, $('y')).match assert_(Believe, _Bob, _likes, _Fish)",
                   "fullTitle": "Matching Triggers with Xtras onAssert(Believe, $('x'), _likes, $('y')).match assert_(Believe, _Bob, _likes, _Fish)",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1446,15 +1542,73 @@
                   "context": null,
                   "code": "const result = onAssert(Believe, $('x'), _likes, $('y')).match(assert_(Believe, _Bob, _likes, _Fish));\nexpect(result).to.have.property('$x', _Bob);\nreturn expect(result).to.have.property('$y', _Fish);",
                   "err": {},
-                  "uuid": "82f19226-9e88-47e5-9489-3021694704ff",
-                  "parentUUID": "e11beec1-4cb3-4272-b654-f513e597201c",
+                  "uuid": "83e6b318-a7b6-456c-9ba3-bc867bdf3a68",
+                  "parentUUID": "6791e007-a518-4ea9-8933-39d6929cbe48",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "82f19226-9e88-47e5-9489-3021694704ff"
+                "83e6b318-a7b6-456c-9ba3-bc867bdf3a68"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "06b3bb05-523f-4128-89ec-37c083d5dd3e",
+          "title": "Message",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/message.js",
+          "file": "/test/src/message.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "3c20351c-90fc-4c3d-9c62-1b45640b964c",
+              "title": "@match",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/message.js",
+              "file": "/test/src/message.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Message @match should work",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const ctx = new Context();\nconst c1 = believe_(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = believe_(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.h2(\"All Clauses\");\n$$._(String(ctx));\n$$._(ctx);\n$$.h2('Message Matching');\nconst m = new Assert(c1);\n$$._(m.match(Assert, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Retract, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Assert, Believe, _Joe, _likes, _Fish));\nreturn $$._(m.match(Assert, Achieve, _Joe, _likes, _Fish));",
+                  "err": {},
+                  "uuid": "82a2e38a-267b-4100-9754-bd3cfac15e2f",
+                  "parentUUID": "3c20351c-90fc-4c3d-9c62-1b45640b964c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "82a2e38a-267b-4100-9754-bd3cfac15e2f"
               ],
               "failures": [],
               "pending": [],
@@ -1475,65 +1629,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "22f96bc4-8c8c-4bfd-b32c-3a594cd5420d",
-          "title": "Message",
-          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/message.js",
-          "file": "/test/src/message.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [],
-          "suites": [
-            {
-              "uuid": "6cc94611-c247-4355-a8a7-2e65acea972d",
-              "title": "@match",
-              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/message.js",
-              "file": "/test/src/message.js",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "should work",
-                  "fullTitle": "Message @match should work",
-                  "timedOut": false,
-                  "duration": 0,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "const ctx = new Context();\nconst c1 = believe_(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = believe_(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.h2(\"All Clauses\");\n$$._(String(ctx));\n$$._(ctx);\n$$.h2('Message Matching');\nconst m = new Assert(c1);\n$$._(m.match(Assert, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Retract, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Assert, Believe, _Joe, _likes, _Fish));\nreturn $$._(m.match(Assert, Achieve, _Joe, _likes, _Fish));",
-                  "err": {},
-                  "uuid": "0151a8e7-8cb2-4f51-92d7-53873d12eab7",
-                  "parentUUID": "6cc94611-c247-4355-a8a7-2e65acea972d",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [
-                "0151a8e7-8cb2-4f51-92d7-53873d12eab7"
-              ],
-              "failures": [],
-              "pending": [],
-              "skipped": [],
-              "duration": 0,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
-            }
-          ],
-          "passes": [],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 0,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "5efb3e2e-6371-43f4-b032-319bd56be233",
+          "uuid": "870da7eb-662e-46ae-825d-82caffdbab05",
           "title": "Module",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/module.js",
           "file": "/test/src/module.js",
@@ -1542,7 +1638,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "2aedc80f-8da8-43ae-a3c7-2022f00e1b4e",
+              "uuid": "6931be53-9d95-4830-8a71-c86df11e77e3",
               "title": "@action",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/module.js",
               "file": "/test/src/module.js",
@@ -1562,15 +1658,15 @@
                   "context": null,
                   "code": "const ctx = context_();\nconst c1 = believe_(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = believe_(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\nfor (let c of ctx.clauses) {\n  $$._(c.toString());\n}\nconst m = new Assert(c1);\n$$.$('Begin Task Execution');\nconst exports = module_(function() {\n  this.def(new Trigger(Assert, Believe, __, _likes, _Fish), function() {\n    const self = this;\n    return this.task(function() {\n      $$._('Task Fire 1:');\n      return this.perform(self.msg.data.subj, _get, _Fish);}).task(() => $$._('Task Fire 2:'));\n  });\n  this.def(new Trigger(Attempt, Achieve, __, _get, _Fish), function() {\n    const self = this;\n    return this.task(() => $$._(_$(self.msg.data.subj) + ' is getting Fish.'));\n  });\n  this.defg(new Trigger(Attempt, Achieve, null, _impasse, null), () => //$$._ String(this.rnr.ctx)\n  $$._('Impassed'));\n  return this.post(m);\n});\n\nreturn runner_().run(exports);",
                   "err": {},
-                  "uuid": "c93303e4-50af-4019-ab52-2849c88b3f0b",
-                  "parentUUID": "2aedc80f-8da8-43ae-a3c7-2022f00e1b4e",
+                  "uuid": "bfed5d8b-de6a-4fff-b17d-47f381301352",
+                  "parentUUID": "6931be53-9d95-4830-8a71-c86df11e77e3",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c93303e4-50af-4019-ab52-2849c88b3f0b"
+                "bfed5d8b-de6a-4fff-b17d-47f381301352"
               ],
               "failures": [],
               "pending": [],
@@ -1591,7 +1687,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "e5aa853e-63b2-48fa-8848-78492b56ad20",
+          "uuid": "fa78169d-e01e-47fc-a334-f9fcc3a187be",
           "title": "TNode",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/node.js",
           "file": "/test/src/node.js",
@@ -1602,7 +1698,7 @@
               "title": "should work",
               "fullTitle": "TNode should work",
               "timedOut": false,
-              "duration": 2,
+              "duration": 0,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1611,26 +1707,26 @@
               "context": null,
               "code": "let node;\n$$.$('class Plain');\n$$._(Plain);\n//\n$$.$('class Node');\n$$._(Node.toString());\n$$.$('class Node.prototype');\n$$._(Node.prototype);\n//\n$$.$('class DerivedNode');\n$$._(DerivedNode.toString());\n$$.$('class DerivedNode.prototype');\n$$._(DerivedNode.prototype);\n//\n$$.$('n1.Node');\nconst n1 = new Node();\nn1.node1 = 0;\nn1.node2 = 2;\nn1.node1 = 1;\n$$._(n1);\n$$.$('nodes');\nfor (node of n1) {\n  $$._(node);\n}\n$$.$('n2.DerivedNode');\nconst n2 = new DerivedNode(3);\n$$._(n2);\n$$.$('nodes');\nfor (node of n2) {\n  $$._(node);\n}",
               "err": {},
-              "uuid": "73f4aa0e-ec72-4b35-bdfd-f88b122b7f58",
-              "parentUUID": "e5aa853e-63b2-48fa-8848-78492b56ad20",
+              "uuid": "d525faf0-8a3e-4e97-bfd8-622af9cd58c9",
+              "parentUUID": "fa78169d-e01e-47fc-a334-f9fcc3a187be",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "73f4aa0e-ec72-4b35-bdfd-f88b122b7f58"
+            "d525faf0-8a3e-4e97-bfd8-622af9cd58c9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2,
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "a0887c29-b2da-4a31-9ab9-badea86fcfc0",
+          "uuid": "5a86caff-63f5-4a73-8f5d-0106194b11d8",
           "title": "Parallel",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/parallel.js",
           "file": "/test/src/parallel.js",
@@ -1639,7 +1735,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "da9cad64-45b7-4a45-806f-1f42028cde28",
+              "uuid": "5226657f-877f-4ed2-9530-85caa845a23e",
               "title": "@action",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/parallel.js",
               "file": "/test/src/parallel.js",
@@ -1650,7 +1746,7 @@
                   "title": "should work",
                   "fullTitle": "Parallel @action should work",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1659,112 +1755,15 @@
                   "context": null,
                   "code": "const t1 = parallel_(function() {\n  this.counter(1, 5, function() {\n    const counter1 = this;\n    return this.task(() => $$.log(`Counter 1:  ${counter1.value}`));\n  });\n  return this.counter(1, 10, function() {\n    const counter2 = this;\n    return this.task(() => $$.log(`Counter 2:  ${counter2.value}`));\n  });\n});\nreturn runner_().run(t1);",
                   "err": {},
-                  "uuid": "da7085cc-5bbe-4107-96f8-5d28ee918a99",
-                  "parentUUID": "da9cad64-45b7-4a45-806f-1f42028cde28",
+                  "uuid": "8286916c-88a1-4160-8f0b-46f2af86db68",
+                  "parentUUID": "5226657f-877f-4ed2-9530-85caa845a23e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "da7085cc-5bbe-4107-96f8-5d28ee918a99"
-              ],
-              "failures": [],
-              "pending": [],
-              "skipped": [],
-              "duration": 2,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
-            }
-          ],
-          "passes": [],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 0,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "e2d64672-2703-4260-8b7d-410e905492f2",
-          "title": "Propose",
-          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/propose.js",
-          "file": "/test/src/propose.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "should work",
-              "fullTitle": "Propose should work",
-              "timedOut": false,
-              "duration": 2,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "const ctx = new Context();\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\n$$._(String(ctx));\nconst m = new Propose(new Achieve(_Bob, _eat, _Fish));\n$$.$('Begin Task Execution');\nconst rnr = new Runner();\nrnr.def(new Trigger(Attempt, Achieve, __, _eat, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} buying Fish`);\n});\nrnr.def(new Trigger(Attempt, Achieve, __, _eat, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} catching Fish`);\n});\nrnr.def(new Trigger(Attempt, Achieve, null, _impasse, null), () => //$$._ String(this.rnr.ctx)\n$$._('Impassed'));\nrnr.post(m);\nreturn rnr.run();",
-              "err": {},
-              "uuid": "88b066d2-328e-4cf0-866a-67753b58dd71",
-              "parentUUID": "e2d64672-2703-4260-8b7d-410e905492f2",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "88b066d2-328e-4cf0-866a-67753b58dd71"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 2,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "96079130-0d28-4767-9392-c1addf5488bf",
-          "title": "Query",
-          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qfilter.js",
-          "file": "/test/src/qfilter.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [],
-          "suites": [
-            {
-              "uuid": "fa341335-2c9b-48bd-afbe-33759ced2783",
-              "title": "Filter",
-              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qfilter.js",
-              "file": "/test/src/qfilter.js",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "should work",
-                  "fullTitle": "Query Filter should work",
-                  "timedOut": false,
-                  "duration": 1,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "const ctx = yamlcontext_().load($$.dataPath('bob.yml'));\n$$.h2(\"All Clauses\");\n$$._(ctx.toString());\n$$.h2('Binders');\nconst _$x = new Variable('$x');\nconst _$y = new Variable('$y');\nconst _$z = new Variable('$z');\n$$.$(`\\\nctx.query Believe, _$x, _likes, _$y\n.and Believe, _$z, _likes, _$y\\\n`\n);\nctx.query(Believe, _$x, _likes, _$y)\n.and(Believe, _$z, _likes, _$y)\n.exec(binder => $$._(binder));\n$$.$(`\\\nctx.query Believe, _$x, _likes, _$y\n.and Believe, _$z, _likes, _$y\n.filter (binder) -> binder.$x != binder.$z\\\n`\n);\nreturn ctx.query(Believe, _$x, _likes, _$y)\n.and(Believe, _$z, _likes, _$y)\n.filter(function(binder) { const {$x, $z} = binder; return $x !== $z; })\n.exec(binder => $$._(binder));",
-                  "err": {},
-                  "uuid": "f5ee2a3b-0a88-41e9-9e5a-e95aab802982",
-                  "parentUUID": "fa341335-2c9b-48bd-afbe-33759ced2783",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [
-                "f5ee2a3b-0a88-41e9-9e5a-e95aab802982"
+                "8286916c-88a1-4160-8f0b-46f2af86db68"
               ],
               "failures": [],
               "pending": [],
@@ -1785,7 +1784,104 @@
           "_timeout": 2000
         },
         {
-          "uuid": "aaeb94df-ec2a-4db0-8857-b62723f8e058",
+          "uuid": "791bdccf-2094-45d5-9969-a1965874029a",
+          "title": "Propose",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/propose.js",
+          "file": "/test/src/propose.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should work",
+              "fullTitle": "Propose should work",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ctx = new Context();\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\n$$._(String(ctx));\nconst m = new Propose(new Achieve(_Bob, _eat, _Fish));\n$$.$('Begin Task Execution');\nconst rnr = new Runner();\nrnr.def(new Trigger(Attempt, Achieve, __, _eat, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} buying Fish`);\n});\nrnr.def(new Trigger(Attempt, Achieve, __, _eat, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} catching Fish`);\n});\nrnr.def(new Trigger(Attempt, Achieve, null, _impasse, null), () => //$$._ String(this.rnr.ctx)\n$$._('Impassed'));\nrnr.post(m);\nreturn rnr.run();",
+              "err": {},
+              "uuid": "b658035f-eb2e-4eb6-afc0-4e4ee349a1c7",
+              "parentUUID": "791bdccf-2094-45d5-9969-a1965874029a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b658035f-eb2e-4eb6-afc0-4e4ee349a1c7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a69c1acd-0c26-4a6b-b2c4-a74e12edd149",
+          "title": "Query",
+          "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qfilter.js",
+          "file": "/test/src/qfilter.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "622ee098-7c07-4bb7-90e4-bf7c288ff518",
+              "title": "Filter",
+              "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qfilter.js",
+              "file": "/test/src/qfilter.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work",
+                  "fullTitle": "Query Filter should work",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const ctx = yamlcontext_().load($$.dataPath('bob.yml'));\n$$.h2(\"All Clauses\");\n$$._(ctx.toString());\n$$.h2('Binders');\nconst _$x = new Variable('$x');\nconst _$y = new Variable('$y');\nconst _$z = new Variable('$z');\n$$.$(`\\\nctx.query Believe, _$x, _likes, _$y\n.and Believe, _$z, _likes, _$y\\\n`\n);\nctx.query(Believe, _$x, _likes, _$y)\n.and(Believe, _$z, _likes, _$y)\n.exec(binder => $$._(binder));\n$$.$(`\\\nctx.query Believe, _$x, _likes, _$y\n.and Believe, _$z, _likes, _$y\n.filter (binder) -> binder.$x != binder.$z\\\n`\n);\nreturn ctx.query(Believe, _$x, _likes, _$y)\n.and(Believe, _$z, _likes, _$y)\n.filter(function(binder) { const {$x, $z} = binder; return $x !== $z; })\n.exec(binder => $$._(binder));",
+                  "err": {},
+                  "uuid": "2e80df8e-13b4-4262-84df-09cab2caaa68",
+                  "parentUUID": "622ee098-7c07-4bb7-90e4-bf7c288ff518",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2e80df8e-13b4-4262-84df-09cab2caaa68"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "1267e0ac-5088-4178-97ad-9344316b18e8",
           "title": "Query",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qnegclause.js",
           "file": "/test/src/qnegclause.js",
@@ -1794,7 +1890,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "7b52fc7d-2df5-43df-a41a-4cc923454190",
+              "uuid": "65f5aaed-a80f-4c95-9f17-d39af3874e6e",
               "title": "NegClause",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qnegclause.js",
               "file": "/test/src/qnegclause.js",
@@ -1814,15 +1910,15 @@
                   "context": null,
                   "code": "const ctx = yamlcontext_().load($$.dataPath('bob.yml'));\n$$.h2(\"All Clauses\");\n$$._(ctx.toString());\n$$.h2('Binders');\nconst _$x = new Variable('$x');\nconst _$y = new Variable('$y');\nconst _$z = new Variable('$z');\n$$.$(`\\\nctx.query Believe, _$x, _likes, _$y\n.not Believe, _$x, _likes, _Chips\\\n`\n);\nreturn ctx.query(Believe, _$x, _likes, _Fish)\n.not(Believe, _$x, _likes, _Chips)\n.exec(binder => $$._(binder));",
                   "err": {},
-                  "uuid": "0015b59b-6712-4dbd-b730-9dcc47e146b4",
-                  "parentUUID": "7b52fc7d-2df5-43df-a41a-4cc923454190",
+                  "uuid": "097e4596-ed56-4463-ba2f-cf085ee8dcdc",
+                  "parentUUID": "65f5aaed-a80f-4c95-9f17-d39af3874e6e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "0015b59b-6712-4dbd-b730-9dcc47e146b4"
+                "097e4596-ed56-4463-ba2f-cf085ee8dcdc"
               ],
               "failures": [],
               "pending": [],
@@ -1843,7 +1939,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "8d22f3fc-c1c0-4d47-89de-d5c3d4091cf4",
+          "uuid": "83c5061f-1410-4b71-9e55-6b5e1862f5dd",
           "title": "Query",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qtyped.js",
           "file": "/test/src/qtyped.js",
@@ -1852,7 +1948,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "5c24ac61-2369-4e56-ad5a-c2837ac77e22",
+              "uuid": "5d70fda9-3e45-4446-b019-0147073b0c28",
               "title": "Typed",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/qtyped.js",
               "file": "/test/src/qtyped.js",
@@ -1872,15 +1968,15 @@
                   "context": null,
                   "code": "const ctx = yamlcontext_().load($$.dataPath('blocks.yml'));\n$$.h2(\"All Clauses\");\n$$._(ctx.toString());\n$$.h2('Binders');\nconst $x = new Variable('$x', v => v instanceof Block);\nconst $y = new Variable('$y');\n$$.$(\"ctx.query Believe, $x, _on, $y\");\nreturn ctx.query(Believe, $x, _on, $y)\n.exec(binder => $$._(binder));",
                   "err": {},
-                  "uuid": "29266f2f-9dcb-496a-9b76-5d8035423083",
-                  "parentUUID": "5c24ac61-2369-4e56-ad5a-c2837ac77e22",
+                  "uuid": "b6ba243f-0145-4899-8cda-40ab54c1d0af",
+                  "parentUUID": "5d70fda9-3e45-4446-b019-0147073b0c28",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "29266f2f-9dcb-496a-9b76-5d8035423083"
+                "b6ba243f-0145-4899-8cda-40ab54c1d0af"
               ],
               "failures": [],
               "pending": [],
@@ -1901,7 +1997,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "eabcf6ec-5654-43e3-84f7-c05642f5447b",
+          "uuid": "e87c6084-0b8a-4182-9ee7-4f45561666de",
           "title": "Query",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/query.js",
           "file": "/test/src/query.js",
@@ -1910,7 +2006,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "260952de-b7a9-4413-ae0a-4bbab5aa6f42",
+              "uuid": "d0bd5e19-20b1-4a73-8824-9eae16067dfb",
               "title": "Basic",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/query.js",
               "file": "/test/src/query.js",
@@ -1930,15 +2026,15 @@
                   "context": null,
                   "code": "const ctx = yamlcontext_().load($$.dataPath('cleavers.yml'));\n$$.h2(\"All Clauses\");\n$$._(ctx.toString());\n$$.h2('Binders');\nconst _$x = new Variable('$x');\nconst _$d = new Variable('$d');\nconst _$w = new Variable('$w');\n$$.$(\"ctx.query Believe, _$x, _dad, _$d\");\nctx.query(Believe, _$x, _dad, _$d)\n.exec(binder => $$._(binder));\n$$.$(`\\\nctx.query Believe, _$x, _dad, _$d\n.and Believe, _$d, _wife, _$w\\\n`\n);\nreturn ctx.query(Believe, _$x, _dad, _$d)\n.and(Believe, _$d, _wife, _$w)\n.exec(binder => $$._(binder));",
                   "err": {},
-                  "uuid": "93cc054f-e694-4c43-be13-4396b4f72ce6",
-                  "parentUUID": "260952de-b7a9-4413-ae0a-4bbab5aa6f42",
+                  "uuid": "9908518a-0579-4301-bcb6-da85a6089c4c",
+                  "parentUUID": "d0bd5e19-20b1-4a73-8824-9eae16067dfb",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "93cc054f-e694-4c43-be13-4396b4f72ce6"
+                "9908518a-0579-4301-bcb6-da85a6089c4c"
               ],
               "failures": [],
               "pending": [],
@@ -1959,7 +2055,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "762bf36d-a6ba-406c-bf44-4aee463b0d53",
+          "uuid": "e8944a03-a7da-4962-a80e-77cea5961363",
           "title": "Retract",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/retract.js",
           "file": "/test/src/retract.js",
@@ -1979,15 +2075,15 @@
               "context": null,
               "code": "let c;\nconst rnr = new Runner();\nconst {\n  ctx\n} = rnr;\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"Context Before\");\nfor (c of ctx.clauses) {\n  $$._(c.toString());\n}\nconst m = new Retract(c1);\n$$.$('Begin Task Execution');\nrnr.def(new Trigger(Retract, Believe, __, _likes, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} doesn't like Fish`);\n});\nrnr.post(m);\nreturn rnr.run().then(function() {\n  $$.$(\"Context After\");\n  for (c of ctx.clauses) {\n    $$._(c.toString());\n  }\n});",
               "err": {},
-              "uuid": "148adbf5-8341-4a5f-abc2-66a717cb0eca",
-              "parentUUID": "762bf36d-a6ba-406c-bf44-4aee463b0d53",
+              "uuid": "21c2ce66-c1c5-4b9f-ba5b-c2514832d86d",
+              "parentUUID": "e8944a03-a7da-4962-a80e-77cea5961363",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "148adbf5-8341-4a5f-abc2-66a717cb0eca"
+            "21c2ce66-c1c5-4b9f-ba5b-c2514832d86d"
           ],
           "failures": [],
           "pending": [],
@@ -1998,7 +2094,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "fddf3fb1-597e-4ab3-8411-95c85e5aab63",
+          "uuid": "e18a148a-fd56-46d1-8eb2-dc5d83e5d748",
           "title": "Rule",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/rule.js",
           "file": "/test/src/rule.js",
@@ -2007,7 +2103,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "ab917e45-4b14-4512-a59e-0d0b52109959",
+              "uuid": "aa8ea05a-5c12-4562-8511-2da9adcbf457",
               "title": "@fire",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/rule.js",
               "file": "/test/src/rule.js",
@@ -2018,7 +2114,7 @@
                   "title": "should work",
                   "fullTitle": "Rule @fire should work",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 2,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2027,20 +2123,20 @@
                   "context": null,
                   "code": "const ctx = new Context();\nconst c1 = new Believe(_Bob, _likes, _Fish);\nctx.add(c1);\nconst c2 = new Believe(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.$(\"All Clauses\");\nfor (let c of ctx.clauses) {\n  $$._(c.toString());\n}\nconst m = new Assert(c1);\n$$.$('Begin Task Execution');\nconst rnr = new Runner();\nrnr.def(new Trigger(Assert, Believe, __, _likes, _Fish), function() {\n  const $x = this.msg.data.subj;\n  return this.task(function() {\n    $$._('A');\n    return this.perform($x, _get, _Fish);}).task(() => $$._('B'));\n});\nrnr.def(new Trigger(Attempt, Achieve, __, _get, _Fish),  function() {\n  const $x = this.msg.data.subj;\n  return $$._(_$($x) + ' is getting Fish.');\n});\nrnr.post(m);\nreturn rnr.run();",
                   "err": {},
-                  "uuid": "f7e807b5-a32d-4d9d-89e1-a2ce091ac99b",
-                  "parentUUID": "ab917e45-4b14-4512-a59e-0d0b52109959",
+                  "uuid": "c668062a-16d2-44b5-ae61-ddd23ee2ccde",
+                  "parentUUID": "aa8ea05a-5c12-4562-8511-2da9adcbf457",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "f7e807b5-a32d-4d9d-89e1-a2ce091ac99b"
+                "c668062a-16d2-44b5-ae61-ddd23ee2ccde"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 2,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -2056,7 +2152,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "3d200ad0-9e1f-459a-9788-b2523873d4bc",
+          "uuid": "a39c0f3b-ac8b-420d-97ba-d039d2193ddf",
           "title": "Runner",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/runner.js",
           "file": "/test/src/runner.js",
@@ -2065,7 +2161,7 @@
               "title": "\"before each\" hook",
               "fullTitle": "Runner \"before each\" hook",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": null,
               "speed": null,
               "pass": false,
@@ -2074,8 +2170,8 @@
               "context": null,
               "code": "this.pushLogger();\nreturn this.$('Baba');",
               "err": {},
-              "uuid": "1cbcb1f6-0ad0-4f6c-94c1-1e6b2d8f0a2f",
-              "parentUUID": "3d200ad0-9e1f-459a-9788-b2523873d4bc",
+              "uuid": "64df5096-2c07-4590-b493-be0c85086404",
+              "parentUUID": "a39c0f3b-ac8b-420d-97ba-d039d2193ddf",
               "isHook": true,
               "skipped": false
             }
@@ -2094,8 +2190,8 @@
               "context": null,
               "code": "this.$('Yaga');\nreturn this.popLogger();",
               "err": {},
-              "uuid": "279be15e-ec2d-41c2-acbf-e7b0bc9edb9d",
-              "parentUUID": "3d200ad0-9e1f-459a-9788-b2523873d4bc",
+              "uuid": "28a0bb1f-3341-4595-ada9-2cde3ef4a112",
+              "parentUUID": "a39c0f3b-ac8b-420d-97ba-d039d2193ddf",
               "isHook": true,
               "skipped": false
             }
@@ -2103,7 +2199,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "b10ede7b-9a18-460f-a40a-023fa5822aca",
+              "uuid": "1d178e5f-075d-41d2-a226-df52e21fa961",
               "title": "@run",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/runner.js",
               "file": "/test/src/runner.js",
@@ -2114,7 +2210,7 @@
                   "title": "should work",
                   "fullTitle": "Runner @run should work",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 2,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2123,20 +2219,20 @@
                   "context": null,
                   "code": "runner_(__main).run()",
                   "err": {},
-                  "uuid": "fdc2fc6d-7e1b-44fe-aa31-0e041ce876de",
-                  "parentUUID": "b10ede7b-9a18-460f-a40a-023fa5822aca",
+                  "uuid": "febe9a54-6c33-4713-9f28-e9826b4d4b04",
+                  "parentUUID": "1d178e5f-075d-41d2-a226-df52e21fa961",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "fdc2fc6d-7e1b-44fe-aa31-0e041ce876de"
+                "febe9a54-6c33-4713-9f28-e9826b4d4b04"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 2,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -2152,7 +2248,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "2f2578fb-b804-412d-bf7a-9f9ce8353586",
+          "uuid": "355eea77-708a-4915-94c9-3dbf55daed14",
           "title": "Sequence",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/sequence.js",
           "file": "/test/src/sequence.js",
@@ -2161,7 +2257,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "49830ccd-c365-4807-820b-ec6ae9a1359c",
+              "uuid": "068b97d6-bf71-4434-9c32-858079bfba3d",
               "title": "In Parallel",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/sequence.js",
               "file": "/test/src/sequence.js",
@@ -2181,15 +2277,15 @@
                   "context": null,
                   "code": "const t1 = sequence_(function() {\n  this.task(() => $$._('A'));\n  this.task(() => $$._('B'));\n  return this.task(() => $$._('C'));\n});\nconst t2 = sequence_(function() {\n  this.task(() => $$._('D'));\n  this.task(function() {\n    $$._('E');\n    return this.fail();\n  });\n  return this.task(() => $$._('F'));\n});\nreturn runner_().run(t1, t2);",
                   "err": {},
-                  "uuid": "ff6bc159-e3d3-43ff-8e61-cfcef9d3e8f0",
-                  "parentUUID": "49830ccd-c365-4807-820b-ec6ae9a1359c",
+                  "uuid": "9d7d8285-49a9-4d85-8034-5fb597a748bb",
+                  "parentUUID": "068b97d6-bf71-4434-9c32-858079bfba3d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "ff6bc159-e3d3-43ff-8e61-cfcef9d3e8f0"
+                "9d7d8285-49a9-4d85-8034-5fb597a748bb"
               ],
               "failures": [],
               "pending": [],
@@ -2210,7 +2306,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "80aef806-4e85-43ce-b904-179d290fecaf",
+          "uuid": "911e1d19-0357-4abb-aaea-b9a13f08355a",
           "title": "Streamer",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/streamer.js",
           "file": "/test/src/streamer.js",
@@ -2219,7 +2315,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "a2d13783-4f09-4d9b-8e77-60608b408e11",
+              "uuid": "1ea88354-923e-4151-8ba2-9c71c9673539",
               "title": "@chain",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/streamer.js",
               "file": "/test/src/streamer.js",
@@ -2230,7 +2326,7 @@
                   "title": "should work",
                   "fullTitle": "Streamer @chain should work",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2239,20 +2335,20 @@
                   "context": null,
                   "code": "const t1 = chain_(function() {\n  return this.chain(new ReadFile($$.dataPath('test.txt')))\n  .chain(new ConsoleWriter);\n});\nreturn runner_().run(t1);",
                   "err": {},
-                  "uuid": "db48608f-910e-4393-a43d-8d0f5b04ad31",
-                  "parentUUID": "a2d13783-4f09-4d9b-8e77-60608b408e11",
+                  "uuid": "a79e4325-8936-4b53-bc16-abef20e9201f",
+                  "parentUUID": "1ea88354-923e-4151-8ba2-9c71c9673539",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "db48608f-910e-4393-a43d-8d0f5b04ad31"
+                "a79e4325-8936-4b53-bc16-abef20e9201f"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -2268,7 +2364,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "57632945-b36b-4095-a6ee-6bfba5d1b537",
+          "uuid": "3d69c22f-ddad-4183-9198-d4dca2ad172e",
           "title": "Stringer",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/stringer.js",
           "file": "/test/src/stringer.js",
@@ -2288,15 +2384,15 @@
               "context": null,
               "code": "const stringer = new Stringer();\nstringer.write('Hello');\nstringer.write('World');\n$$._(stringer);\n$$._(stringer.toString());\nreturn $$._(String(stringer));",
               "err": {},
-              "uuid": "7b619dd7-d31a-4d5c-89df-ca4c2f70cfc2",
-              "parentUUID": "57632945-b36b-4095-a6ee-6bfba5d1b537",
+              "uuid": "40c64ea4-4b38-42da-8860-18ce3508d29d",
+              "parentUUID": "3d69c22f-ddad-4183-9198-d4dca2ad172e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7b619dd7-d31a-4d5c-89df-ca4c2f70cfc2"
+            "40c64ea4-4b38-42da-8860-18ce3508d29d"
           ],
           "failures": [],
           "pending": [],
@@ -2307,7 +2403,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "ea487be2-cb47-4b6b-a684-57bb4f071a52",
+          "uuid": "f8080723-d1ca-4cd4-8eea-28b5b6abcc60",
           "title": "Term",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/typed.js",
           "file": "/test/src/typed.js",
@@ -2316,7 +2412,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "4ea97ee8-0840-495a-b943-e658669b03ef",
+              "uuid": "778c55f1-200a-4b9d-9bd1-16f43790ba0c",
               "title": "typed",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/typed.js",
               "file": "/test/src/typed.js",
@@ -2336,15 +2432,15 @@
                   "context": null,
                   "code": "//t = $_ 'Block1', 'Block'\nclass Table extends Term {}\nconst t1 = $_('Table1', Table);\n$$._(t1);\nconst t2 = $_('Block1', 'Block');\nreturn $$._(t2);",
                   "err": {},
-                  "uuid": "71f60fb3-33e1-4974-8bb5-ade2db83eb8f",
-                  "parentUUID": "4ea97ee8-0840-495a-b943-e658669b03ef",
+                  "uuid": "1448f449-309f-4efc-8c41-dd04d8854863",
+                  "parentUUID": "778c55f1-200a-4b9d-9bd1-16f43790ba0c",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "71f60fb3-33e1-4974-8bb5-ade2db83eb8f"
+                "1448f449-309f-4efc-8c41-dd04d8854863"
               ],
               "failures": [],
               "pending": [],
@@ -2365,7 +2461,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "e775b497-8e0d-40a8-af78-bd18f175ba33",
+          "uuid": "34db896f-9df4-4fcb-a933-196969176365",
           "title": "Unit",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/unit.js",
           "file": "/test/src/unit.js",
@@ -2374,7 +2470,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "0862cf55-e5e2-43c5-960f-d68cc0066aaf",
+              "uuid": "eef436f8-6861-45f3-ae4a-6563ee3529cc",
               "title": "test",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/unit.js",
               "file": "/test/src/unit.js",
@@ -2385,7 +2481,7 @@
                   "title": "should work",
                   "fullTitle": "Unit test should work",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2394,20 +2490,20 @@
                   "context": null,
                   "code": "let {$$, unit_} = require('./common');\n$$ = unit_(module, $$);\nreturn $$._($$.stringify($$));",
                   "err": {},
-                  "uuid": "57fc6bea-a894-4b0f-85c6-ea0ca8e6b938",
-                  "parentUUID": "0862cf55-e5e2-43c5-960f-d68cc0066aaf",
+                  "uuid": "3af14469-b82c-4839-9e28-ac7338ba08bf",
+                  "parentUUID": "eef436f8-6861-45f3-ae4a-6563ee3529cc",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "57fc6bea-a894-4b0f-85c6-ea0ca8e6b938"
+                "3af14469-b82c-4839-9e28-ac7338ba08bf"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -2423,7 +2519,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "95faf5a1-7de6-470a-8c5a-c00a02bc0d00",
+          "uuid": "8c2fcb71-cb55-4015-9464-7b4e1cdbfc62",
           "title": "Clause",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/xtra.js",
           "file": "/test/src/xtra.js",
@@ -2432,7 +2528,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "8301f459-1022-4c51-bbaf-7ce25745e833",
+              "uuid": "af2f258a-0e35-41e6-8153-ed5451bb17f9",
               "title": "@xtra",
               "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/xtra.js",
               "file": "/test/src/xtra.js",
@@ -2452,15 +2548,15 @@
                   "context": null,
                   "code": "const ctx = context_();\nconst c1 = believe_(_Bob, _likes, _Tuna, {with: _Cheese});\nctx.add(c1);\nconst c2 = believe_(_Joe, _likes, _Peas);\nctx.add(c2);\n$$.h2(\"All Clauses\");\nfor (let c of ctx.clauses) {\n  $$._(c.toString());\n}\n$$.h2(\"Find in Context\");\nlet r = ctx.find(Believe, _Bob, _likes, _Tuna);\n$$.$(\"< Bob likes Tuna >\");\n$$._(r.toString());\nr = ctx.find(Believe, __, _likes, _Tuna);\n$$.$(\"< __ likes Tuna >\");\n$$._(r.toString());\nr = ctx.find(Believe, __, _likes, __);\n$$.$(\"< __ likes __ >\");\n$$._(r.toString());\n$$.h2(\"Message Matches\");\nconst m = new Assert(c1);\n$$._(m.match(Assert, Believe, __, _likes, _Tuna));\n$$._(m.match(Assert, Believe, _Bob, _likes, _Tuna));\n$$._(m.match(Assert, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Retract, Believe, _Bob, _likes, _Fish));\n$$._(m.match(Assert, Believe, _Joe, _likes, _Fish));\nconst rnr = runner_();\nrnr.def(new OnAssert(Believe, __, _likes, _Tuna), function() {\n  const $x = this.msg.data.subj;\n  return this.task(function() {\n    $$._('A');\n    return this.perform($x, _get, _Fish);}).task(() => $$._('B'));\n});\nrnr.def(new OnAttempt(Achieve, __, _get, _Fish),  function() {\n  const $x = this.msg.data.subj;\n  return $$._(`${$x} is getting Fish.`);\n});\nrnr.post(m);\nreturn rnr.run();",
                   "err": {},
-                  "uuid": "e7ea1ad2-fed3-4c08-b154-34e8cf0928ba",
-                  "parentUUID": "8301f459-1022-4c51-bbaf-7ce25745e833",
+                  "uuid": "cb0f8e2e-5848-4892-bf7d-cf1e3fc9e5d1",
+                  "parentUUID": "af2f258a-0e35-41e6-8153-ed5451bb17f9",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e7ea1ad2-fed3-4c08-b154-34e8cf0928ba"
+                "cb0f8e2e-5848-4892-bf7d-cf1e3fc9e5d1"
               ],
               "failures": [],
               "pending": [],
@@ -2481,7 +2577,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "eb39266e-56f5-4d24-9554-dbd32fb4bc4a",
+          "uuid": "d5b724cf-f5d3-4dfa-9021-d175df47df2d",
           "title": "Yaml",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/yaml.js",
           "file": "/test/src/yaml.js",
@@ -2492,7 +2588,7 @@
               "title": "should work",
               "fullTitle": "Yaml should work",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -2501,26 +2597,26 @@
               "context": null,
               "code": "// Get document, or throw exception on error\ntry {\n  const doc = yaml.safeLoad(fs.readFileSync($$.dataPath('cleavers.yml'), 'utf8'));\n  return console.log(doc);\n} catch (e) {\n  return console.log(e);\n}",
               "err": {},
-              "uuid": "5c289c87-6bd1-4fec-a830-50bbdf6f02f0",
-              "parentUUID": "eb39266e-56f5-4d24-9554-dbd32fb4bc4a",
+              "uuid": "1ecc14dc-56aa-4643-b65f-1b3700e45a11",
+              "parentUUID": "d5b724cf-f5d3-4dfa-9021-d175df47df2d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5c289c87-6bd1-4fec-a830-50bbdf6f02f0"
+            "1ecc14dc-56aa-4643-b65f-1b3700e45a11"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "186a9b9d-1b1e-4b0f-b326-4497faebce12",
+          "uuid": "b4e679a2-fb10-460f-8a98-711575ab1555",
           "title": "YamlContext",
           "fullFile": "/home/kurtis/Dev/botworx-javascript/packages/miajs/test/src/yamlcontext.js",
           "file": "/test/src/yamlcontext.js",
@@ -2540,15 +2636,15 @@
               "context": null,
               "code": "const ctx = new YamlContext().load($$.dataPath('cleavers.yml'));\n$$._(ctx);\nreturn ctx.clauses.map((c) =>\n  $$._(_$(c)));",
               "err": {},
-              "uuid": "5df27897-16b0-459a-bc3b-08a7a9488f9e",
-              "parentUUID": "186a9b9d-1b1e-4b0f-b326-4497faebce12",
+              "uuid": "7e900adc-6b49-4c85-844d-23d2a381bba0",
+              "parentUUID": "b4e679a2-fb10-460f-8a98-711575ab1555",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5df27897-16b0-459a-bc3b-08a7a9488f9e"
+            "7e900adc-6b49-4c85-844d-23d2a381bba0"
           ],
           "failures": [],
           "pending": [],

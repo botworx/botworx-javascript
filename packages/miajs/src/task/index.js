@@ -2,6 +2,8 @@ for (let name of [
     'policy',
     'task',
     'runner',
+    'actor',
+    'agent',
     'streamer',
     'project'
   ]) {
