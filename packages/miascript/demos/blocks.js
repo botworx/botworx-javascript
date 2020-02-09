@@ -18,7 +18,7 @@ _Active = $_('Active')
 _halt = $_('halt')
 _clear = $_('clear')
 _beneath = $_('beneath')
-module.exports = module_(function*() {
+module.exports = function() {
   this.assert(new Believe(_Table1,_exists,null))
   this.assert(new Believe(_Table1,_isClear,_True))
   this.assert(new Believe(_Block1,_exists,null))
@@ -30,11 +30,10 @@ module.exports = module_(function*() {
   this.assert(new Believe(_Block3,_isClear,_True))
   this.assert(new Achieve(null,_stack,_Block1,{on: _Block2}))
   this.assert(new Achieve(null,_stack,_Block2,{on: _Block3}))
-  this.defg(new Trigger(Attempt,Achieve,null,_impasse,null,__), function*() {
+  this.sig(new Trigger(Attempt,Achieve,null,_impasse,null,__), function*() {
     _$g = new Variable('$g', (v) => v instanceof Goal)
     $query = this.rnr.ctx.query(Believe,_$g,_status,_Active)
     for (const _ of $query.binders()) {
-      console.log('active')
       this.propose(_.$g)
     }
   });
@@ -51,12 +50,12 @@ module.exports = module_(function*() {
     $x = this.msg.data.obj
     $y = this.msg.data.on
     _$x = new Variable('$x')
-    this.rnr.ctx.query(Believe,_$x,_isClear,_True)
+    $query = this.rnr.ctx.query(Believe,_$x,_isClear,_True)
     for (const _ of $query.binders()) {
       yield this.call(null,_clear,_.$x)
     }
     _$y = new Variable('$y')
-    this.rnr.ctx.query(Believe,_$y,_isClear,_True)
+    $query = this.rnr.ctx.query(Believe,_$y,_isClear,_True)
     for (const _ of $query.binders()) {
       yield this.call(null,_clear,_.$y)
     }
@@ -103,5 +102,5 @@ module.exports = module_(function*() {
       this.assert(new Believe(_.$y,_beneath,_.$x))
     }
   });
-});
-runner_().run(module.exports)
+}
+if (require.main == module) { runner_(module.exports).run() }

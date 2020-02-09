@@ -12,13 +12,13 @@ id      [a-zA-Z_]+[a-zA-Z0-9_]*
 cr      [\r?\n]+
 %%
 
-digit+						return 'NUMBER';
+{digit}+						return 'NUMBER';
 "true"      return 'TRUE';
 "false"      return 'FALSE';
 //
 "import"          return 'IMPORT';
 "def"             return 'DEF';
-"defg"             return 'DEFG';
+"sig"             return 'SIG';
 "not"             return 'NOT';
 "return"          return 'RETURN';
 //
@@ -37,6 +37,7 @@ digit+						return 'NUMBER';
 "@"               return '@';
 "/"               return '/';
 //
+"=="              return '==';
 "!="              return '!=';
 "="              return '=';
 "!"              return '!';
@@ -60,6 +61,7 @@ digit+						return 'NUMBER';
 //
 "#".*{cr}             //return 'COMMENT'
 "|".*             return 'SNIPPET';
+"{".*"}"          return 'CODE';
 
 //"\""*"\""         return 'STRING';
 L?\"(\\.|[^\\"])*\"	return 'STRING';
@@ -123,7 +125,7 @@ Line
   ;
 
 Statement
-  : Import | Def | DefG | Where | Return
+  : Import | Def | Sig | Where | Return
   ;
 
 Action
@@ -146,9 +148,9 @@ Def
     { $$ = new yy.Def($3, $5); }
   ;
 
-DefG
-  : DEFG '(' Trigger ')' Block
-    { $$ = new yy.DefG($3, $5); }
+Sig
+  : SIG '(' Trigger ')' Block
+    { $$ = new yy.Sig($3, $5); }
   ;
 
 Condition
@@ -215,15 +217,17 @@ WhereAllFalse
   ;
 
 Expression
-  : Terminal | ParExpr | PrefixExpr | PostfixExpr | BinaryExpr | Paragraph
+  : ParExpr | PrefixExpr | PostfixExpr | BinaryExpr | Paragraph | Terminal
   ;
 
 Terminal
-  : Literal | Variable | Term | Snippet
+  : Literal | Variable | Term | Snippet | Code
   ;
 
 Literal
   : STRING
+    { $$ = new yy.Literal($1); }
+  | NUMBER
     { $$ = new yy.Literal($1); }
   | TRUE
     { $$ = new yy.Literal($1); }
@@ -251,11 +255,18 @@ Snippet
     { $$ = new yy.Snippet($1); }
   ;
 
+Code
+  : CODE
+    { $$ = new yy.Code($1); }
+  ;
+
 Paragraph
 : Sentence
   {$$ = $1;}
-| Expression INDENT ExprList OUTDENT
-  {$$ = new yy.Paragraph($1, $3);}
+| ClauseExpr '::' INDENT ExprList OUTDENT
+  {$$ = new yy.Paragraph($1, $4);}
+| Term '::' INDENT ExprList OUTDENT
+  {$$ = new yy.Paragraph($1, $4);}
 ;
 
 SentenceList
@@ -433,7 +444,7 @@ Achieve
   ;
 
 BinaryExpr
-  : ContextExpr | InjectExpr | TypeOfExpr | AssignExpr | NotEqualExpr
+  : ContextExpr | InjectExpr | TypeOfExpr | AssignExpr | EqualExpr | NotEqualExpr
   ;
 
 ContextExpr
@@ -453,6 +464,11 @@ TypeOfExpr
 
 AssignExpr
   : Expression '=' Expression
+    { $$ = new yy.BinaryExpr($1, $3, $2); }
+  ;
+
+EqualExpr
+  : Expression '==' Expression
     { $$ = new yy.BinaryExpr($1, $3, $2); }
   ;
 

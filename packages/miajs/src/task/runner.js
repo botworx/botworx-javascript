@@ -17,9 +17,13 @@ class Runner extends Task {
     this.ctx = new Context();
     this.posts = [];
     this.queue = [];
+    this.proposals = [];
     this.scheduled = false;
     this.impassed = false;
     // this.post(new Attempt(new Achieve(null, _start, null)));
+    this.signals = new Map([
+      [_impasse, []]
+    ])
   }
 
   schedule(t) {
@@ -58,7 +62,7 @@ class Runner extends Task {
     $$.$(`Fork:\t${t.msg}`);
     const child = new Runner();
     child.policy = this.policy;
-    child.ctx = this.ctx;
+    child.ctx = this.ctx.copy();
     return child.run(t);
   }
 
@@ -68,10 +72,12 @@ class Runner extends Task {
         $$.$(`* \t${msg}`);
         var pmsg = new Attempt();
         Object.assign(pmsg, msg);
-        console.log(pmsg)
+        // console.log(pmsg)
+        this.proposals.push(pmsg);
+        /*
         for(const m of msg.from.matchRules(pmsg)) {
           this.fork(m.to);
-        }
+        } */
         return;
       case Assert:
         $$.$(`+ \t${msg}`);
@@ -128,16 +134,34 @@ class Runner extends Task {
     return (this.posts.length === 0) && (this.queue.length === 0) && (this.tasks.length === 0);
   }
 
+  signal (trigger, task) {
+    console.log(trigger.verb)
+    this.signals.get(trigger.verb).push(task)
+  }
+
   impasse() {
     $$.$("@impasse");
-    if (this.impassed) { return true; }
+    if (this.impassed) {
+      for (const msg of this.proposals) {
+        for(const m of msg.from.matchRules(msg)) {
+          this.fork(m.to);
+        }
+      }
+      return true; 
+    }
     this.impassed = true;
     this.post(new Attempt(new Achieve(null, _impasse, null)));
+    /*
+    const tasks = this.signals.get(_impasse)
+    for (const task of tasks) {
+      task.post(new Attempt(new Achieve(null, _impasse, null)));
+    } */
     this.schedule(this);
     return false;
   }
 
   run(...queue) {
+    this.action()
     for (let task of queue) {
       this.schedule(task);
     }

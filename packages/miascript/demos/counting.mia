@@ -1,0 +1,39 @@
+#
+# Counting
+#
+
++ countTo 5 ::
+  value 0
+
+sig (impasse)
+  where
+    ($g :Goal) status Active
+  -->
+    * $g
+
+def (+ $g :Goal)
+  + $g status Active
+
+def (- $g :Goal)
+  - $g status Active
+
+def (countTo $v1 -> $g)
+  where
+    $g value $v2
+    $v1 == $v2
+  -->
+    | $v1
+    | _.$v2
+    - $g
+    return
+  #else
+  increment $g
+
+def (increment $g)
+  where
+    $g value $v1
+  -->
+    - $g value $v1
+    { const $v2 = _.$v1 + 1 }
+    + $g value {$v2}
+    | $v2

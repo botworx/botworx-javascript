@@ -59,9 +59,9 @@ exports.analyze = (analyze = function(code, options=defaults) {
 
 exports.transpile = (transpile  = function(code, options=defaults) {
   const ast = analyze(code, options);
-  if (options.ast && options.fileName) {
-    const { fileName } = options;
-    const outFileName = fileName.substr(0, fileName.lastIndexOf(".")) + ".json";
+  if (options.ast && options.filename) {
+    const { filename } = options;
+    const outFileName = filename.substr(0, filename.lastIndexOf(".")) + ".json";
     const out = fs.createWriteStream(outFileName);
     json = JSON.stringify(ast, null, 2);
     out.write(json);

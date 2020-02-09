@@ -47,9 +47,12 @@ class Visitor {
   }
 
   visit(node) {
-    //if !node then throw new Error(node)
+    if (!node) {
+      // console.log(this)
+      // throw new Error(this)
+      return;
+    }
     let result;
-    if (!node) { return; }
     this.save();
     this.stack.push(node);
     const delegate = this.delegator.find(node.kind);

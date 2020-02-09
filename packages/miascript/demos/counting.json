@@ -1,0 +1,623 @@
+{
+  "kind": "Module",
+  "nodes": [
+    {
+      "kind": "Block",
+      "nodes": [
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
+              "kind": "=",
+              "left": {
+                "kind": "Literal",
+                "value": "$$subject"
+              },
+              "right": {
+                "kind": "Clause",
+                "type": {
+                  "kind": "Type",
+                  "name": "Achieve"
+                },
+                "subj": {
+                  "kind": "Literal",
+                  "value": "null"
+                },
+                "verb": {
+                  "kind": "Term",
+                  "name": "countTo"
+                },
+                "obj": {
+                  "kind": "Literal",
+                  "value": "5"
+                }
+              }
+            },
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Literal",
+                "value": "$$subject"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "value"
+              },
+              "obj": {
+                "kind": "Literal",
+                "value": "0"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Sig",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "impasse"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Query",
+                "lhs": {
+                  "kind": "Lhs",
+                  "nodes": [
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "g",
+                          "type": {
+                            "kind": "Type",
+                            "name": "Goal"
+                          },
+                          "info": {
+                            "name": "g",
+                            "value": null,
+                            "type": {
+                              "kind": "Type",
+                              "name": "Goal"
+                            },
+                            "qvar": true
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "status"
+                        },
+                        "obj": {
+                          "kind": "Term",
+                          "name": "Active"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "rhs": {
+                  "kind": "Rhs",
+                  "nodes": [
+                    {
+                      "kind": "-->",
+                      "body": {
+                        "kind": "Block",
+                        "nodes": [
+                          {
+                            "kind": "Message",
+                            "type": {
+                              "kind": "Type",
+                              "name": "Propose"
+                            },
+                            "arg": {
+                              "kind": "Variable",
+                              "name": "g",
+                              "info": null
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Assert"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Goal"
+            },
+            "binding": {
+              "kind": "Variable",
+              "name": "g",
+              "type": {
+                "kind": "Type",
+                "name": "Goal"
+              },
+              "info": {
+                "name": "g",
+                "value": "this.msg.data",
+                "type": {
+                  "kind": "Type",
+                  "name": "Goal"
+                }
+              }
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Message",
+                "type": {
+                  "kind": "Type",
+                  "name": "Assert"
+                },
+                "arg": {
+                  "kind": "Clause",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Believe"
+                  },
+                  "subj": {
+                    "kind": "Variable",
+                    "name": "g",
+                    "info": {
+                      "name": "g",
+                      "value": "this.msg.data",
+                      "type": {
+                        "kind": "Type",
+                        "name": "Goal"
+                      }
+                    }
+                  },
+                  "verb": {
+                    "kind": "Term",
+                    "name": "status"
+                  },
+                  "obj": {
+                    "kind": "Term",
+                    "name": "Active"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Retract"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Goal"
+            },
+            "binding": {
+              "kind": "Variable",
+              "name": "g",
+              "type": {
+                "kind": "Type",
+                "name": "Goal"
+              },
+              "info": {
+                "name": "g",
+                "value": "this.msg.data",
+                "type": {
+                  "kind": "Type",
+                  "name": "Goal"
+                }
+              }
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Message",
+                "type": {
+                  "kind": "Type",
+                  "name": "Retract"
+                },
+                "arg": {
+                  "kind": "Clause",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Believe"
+                  },
+                  "subj": {
+                    "kind": "Variable",
+                    "name": "g",
+                    "info": {
+                      "name": "g",
+                      "value": "this.msg.data",
+                      "type": {
+                        "kind": "Type",
+                        "name": "Goal"
+                      }
+                    }
+                  },
+                  "verb": {
+                    "kind": "Term",
+                    "name": "status"
+                  },
+                  "obj": {
+                    "kind": "Term",
+                    "name": "Active"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "countTo"
+            },
+            "obj": {
+              "kind": "Variable",
+              "name": "v1",
+              "info": {
+                "name": "v1",
+                "value": "this.msg.data.obj"
+              }
+            },
+            "binding": {
+              "kind": "Variable",
+              "name": "g",
+              "info": {
+                "name": "g",
+                "value": "this.msg.data"
+              }
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Query",
+                "lhs": {
+                  "kind": "Lhs",
+                  "nodes": [
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "g",
+                          "info": {
+                            "name": "g",
+                            "value": "this.msg.data"
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "value"
+                        },
+                        "obj": {
+                          "kind": "Variable",
+                          "name": "v2",
+                          "info": {
+                            "name": "v2",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "QFilter",
+                      "expr": {
+                        "kind": "==",
+                        "left": {
+                          "kind": "Variable",
+                          "name": "v1",
+                          "info": {
+                            "name": "v1",
+                            "value": "this.msg.data.obj"
+                          }
+                        },
+                        "right": {
+                          "kind": "Variable",
+                          "name": "v2",
+                          "info": {
+                            "name": "v2",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "rhs": {
+                  "kind": "Rhs",
+                  "nodes": [
+                    {
+                      "kind": "-->",
+                      "body": {
+                        "kind": "Block",
+                        "nodes": [
+                          {
+                            "kind": "Snippet",
+                            "text": "$v1"
+                          },
+                          {
+                            "kind": "Snippet",
+                            "text": "_.$v2"
+                          },
+                          {
+                            "kind": "Message",
+                            "type": {
+                              "kind": "Type",
+                              "name": "Retract"
+                            },
+                            "arg": {
+                              "kind": "Variable",
+                              "name": "g",
+                              "info": null
+                            }
+                          },
+                          {
+                            "kind": "Return",
+                            "expr": null
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "kind": "Message",
+                "type": {
+                  "kind": "Type",
+                  "name": "Attempt"
+                },
+                "arg": {
+                  "kind": "Clause",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Achieve"
+                  },
+                  "subj": {
+                    "kind": "Literal",
+                    "value": "null"
+                  },
+                  "verb": {
+                    "kind": "Term",
+                    "name": "increment"
+                  },
+                  "obj": {
+                    "kind": "Variable",
+                    "name": "g",
+                    "info": {
+                      "name": "g",
+                      "value": "this.msg.data"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Def",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "increment"
+            },
+            "obj": {
+              "kind": "Variable",
+              "name": "g",
+              "info": {
+                "name": "g",
+                "value": "this.msg.data.obj"
+              }
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Query",
+                "lhs": {
+                  "kind": "Lhs",
+                  "nodes": [
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "g",
+                          "info": {
+                            "name": "g",
+                            "value": "this.msg.data.obj"
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "value"
+                        },
+                        "obj": {
+                          "kind": "Variable",
+                          "name": "v1",
+                          "info": {
+                            "name": "v1",
+                            "value": null,
+                            "qvar": true
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "rhs": {
+                  "kind": "Rhs",
+                  "nodes": [
+                    {
+                      "kind": "-->",
+                      "body": {
+                        "kind": "Block",
+                        "nodes": [
+                          {
+                            "kind": "Message",
+                            "type": {
+                              "kind": "Type",
+                              "name": "Retract"
+                            },
+                            "arg": {
+                              "kind": "Clause",
+                              "type": {
+                                "kind": "Type",
+                                "name": "Believe"
+                              },
+                              "subj": {
+                                "kind": "Variable",
+                                "name": "g",
+                                "info": null
+                              },
+                              "verb": {
+                                "kind": "Term",
+                                "name": "value"
+                              },
+                              "obj": {
+                                "kind": "Variable",
+                                "name": "v1",
+                                "info": null
+                              }
+                            }
+                          },
+                          {
+                            "kind": "Code",
+                            "text": "const $v2 = _.$v1 + 1"
+                          },
+                          {
+                            "kind": "Message",
+                            "type": {
+                              "kind": "Type",
+                              "name": "Assert"
+                            },
+                            "arg": {
+                              "kind": "Clause",
+                              "type": {
+                                "kind": "Type",
+                                "name": "Believe"
+                              },
+                              "subj": {
+                                "kind": "Variable",
+                                "name": "g",
+                                "info": null
+                              },
+                              "verb": {
+                                "kind": "Term",
+                                "name": "value"
+                              },
+                              "obj": {
+                                "kind": "Code",
+                                "text": "$v2"
+                              }
+                            }
+                          },
+                          {
+                            "kind": "Snippet",
+                            "text": "$v2"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

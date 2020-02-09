@@ -149,6 +149,13 @@ class Clause {
   match(t, s, v, o, x) {
     return this instanceof t && match(s, this.subj, match(v, this.verb, match(o, this.obj) ) );
   }
+
+  isEqual(clause) {
+    return this.constructor.name === clause.constructor.name &&
+      this.subj === clause.subj &&
+      this.verb === clause.verb &&
+      this.obj === clause.obj;
+  }
 }
 
 exports.Clause = Clause;

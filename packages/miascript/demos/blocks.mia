@@ -18,11 +18,10 @@ Block3 :Block
 + Achieve: stack Block1 on: Block2
 + Achieve: stack Block2 on: Block3
 
-def (impasse)
+sig (impasse)
   where
     ($g :Goal) status Active
   -->
-    | 'active'
     * /$g
   !=>
     halt

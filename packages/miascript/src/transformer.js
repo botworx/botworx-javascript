@@ -1,5 +1,8 @@
 const {AstVisitor} = require('./astvisitor');
-const {_null, _exists, _Achieve, Block, Action, CallStmt, Query, Rhs, Attempt, Assert, Clause} = require('./yy');
+const {
+  _null, _exists, _Achieve, Block, Action, CallStmt, Query, Rhs,
+  Attempt, Assert, Clause, Literal, Paragraph, BinaryExpr
+} = require('./yy');
 
 class Transformer extends AstVisitor {
   constructor() {
@@ -67,8 +70,7 @@ class Transformer extends AstVisitor {
 
   visitClause(node) {
     console.log(node)
-    const parent = this.top(-1);
-    if (parent instanceof Block) {
+    if (this.top(-1) instanceof Block) {
       if (node.subj === _null) {
         node.type = _Achieve;
         return new Attempt(node);
@@ -94,10 +96,13 @@ class Transformer extends AstVisitor {
   }
 
   visitParagraph(node) {
-    let list;
-    ({subj: this.subj, list} = node);
     this.visitNode(node);
-    let result = [this.visitTerm(this.subj)];
+    const subj = new Literal('$$subject')
+    if (node.subj.subj === _null) {
+      node.subj.type = _Achieve;
+    }
+    let result = [new BinaryExpr(subj, this.visit(node.subj), '=')]
+    this.subj = subj
     for (let clause of node.list) {
       const subclause = this.visitClause(clause);
       if (Array.isArray(subclause)) {

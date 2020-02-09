@@ -188,8 +188,21 @@ class Snippet extends Node {
     return {kind: this.kind, text: this.text};
   }
 }
-
 exports.Snippet = Snippet;
+
+class Code extends Node {
+  constructor(t) {
+    super('Code');
+    t = t.substring(1, t.length - 1);
+    t = t.trim();
+    this.text = t;
+  }
+
+  toJSON() {
+    return {kind: this.kind, text: this.text};
+  }
+}
+exports.Code = Code;
 
 class Paragraph extends Node {
   static initClass() {
@@ -467,12 +480,12 @@ Def.initClass();
 
 exports.Def = Def;
 
-class DefG extends Def {
+class Sig extends Def {
   constructor(trigger, body) {
-    super(trigger, body, 'DefG');
+    super(trigger, body, 'Sig');
   }
 }
-exports.DefG = DefG;
+exports.Sig = Sig;
 
 class ImportStmt extends Statement {
   constructor(expr) {

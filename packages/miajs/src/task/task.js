@@ -86,12 +86,9 @@ class Task extends EventEmitter {
     return this.addRule(new Rule(trigger, action));
   }
 
-  defg(trigger, action) {
-    return this.defn(this.rnr, trigger, action);
-  }
-
-  defn(n, trigger, action) {
-    return n.addRule(new Rule(trigger, action));
+  sig(trigger, action) {
+    // this.rnr.signal(trigger, this)
+    return this.def(trigger, action);
   }
 
   addRule(r) {

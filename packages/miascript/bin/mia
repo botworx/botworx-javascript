@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// #!/usr/bin/env -S node --inspect-brk
 var fs, lib, path;
 
 path = require('path');

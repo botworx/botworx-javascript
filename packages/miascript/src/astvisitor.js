@@ -13,10 +13,13 @@ class Scope {
 
   add(v) {
     const k = v.name;
-    if (!this.vars[k]) {
-      this.vars[k] = v;
+    //if (!this.vars[k]) {
+    let v1;
+    if (v1 = this.find(k)) {
+      return v1;
     }
-    return this.vars[k];
+    this.vars[k] = v;
+    return v;
   }
 
   var_(v, r){

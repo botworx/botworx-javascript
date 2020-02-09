@@ -389,7 +389,7 @@
           }
         },
         {
-          "kind": "DefG",
+          "kind": "Sig",
           "trigger": {
             "kind": "Trigger",
             "flavor": {
@@ -466,10 +466,6 @@
                       "body": {
                         "kind": "Block",
                         "nodes": [
-                          {
-                            "kind": "Snippet",
-                            "text": "'active'"
-                          },
                           {
                             "kind": "Message",
                             "type": {

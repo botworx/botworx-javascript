@@ -14,8 +14,12 @@ class Context {
       return yield* this.clauses;
     });
   }
-  constructor() {
-    this.clauses = [];
+  constructor(clauses=[]) {
+    this.clauses = clauses;
+  }
+  copy () {
+    const other = new Context(Array.from(this.clauses));
+    return other;
   }
   load(loader) {
     return loader.load(this);
@@ -46,10 +50,12 @@ class Context {
   }
 
   remove(clause) {
+    /*
     const index = this.clauses.indexOf(clause);
     if (index > -1) {
       this.clauses.splice(index, 1);
-    }
+    }*/
+    this.clauses = this.clauses.filter( (value, index, arr) => !value.isEqual(clause) )
     return this;
   }
 

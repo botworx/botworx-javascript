@@ -4,17 +4,17 @@ const path = require('path');
 const {defaults, compile} = require('./index');
 
 const run = function(options=defaults) {
-  let fileName = process.argv[2];
-  const ext = path.extname(fileName);
+  let filename = process.argv[2];
+  const ext = path.extname(filename);
   if (ext === '') {
-    fileName += '.mia';
+    filename += '.mia';
   }
 
-  console.log("Compiling " + fileName);
+  console.log("Compiling " + filename);
 
-  options.fileName = fileName
+  options.filename = filename
 
-  fs.readFile(fileName, 'utf8', function(err, data) {
+  fs.readFile(filename, 'utf8', function(err, data) {
     if (err) {
       console.log("ERROR: ", err);
       return false;
@@ -22,7 +22,7 @@ const run = function(options=defaults) {
     //
     const code = compile(data, options);
     //
-    const outFileName = fileName.substr(0, fileName.lastIndexOf(".")) + ".js";
+    const outFileName = filename.substr(0, filename.lastIndexOf(".")) + ".js";
     const out = fs.createWriteStream(outFileName);
     out.write(code);
     out.end();

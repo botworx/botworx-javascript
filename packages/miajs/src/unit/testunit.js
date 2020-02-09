@@ -13,12 +13,12 @@ exports.chalk = (chalk = require('chalk'));
 const {Unit} = require('./unit');
 /*
 exports.unitize = unitize = (_module) ->
-  fileName = mmpackage.logDir + path.basename(_module.filename, '.js') + '.json'
+  filename = mmpackage.logDir + path.basename(_module.filename, '.js') + '.json'
   logger = new winston.Logger
     level: 'silly',
     transports: [
       new winston.transports.Console(),
-      new winston.transports.File({ filename: fileName })
+      new winston.transports.File({ filename: filename })
     ]
   *hf _module
   return exports
@@ -50,12 +50,12 @@ class TestUnit extends Unit {
   }
 
   pushLogger() {
-    const fileName = this.logPath(path.basename(this.filename, '.js') + '.json');
+    const filename = this.logPath(path.basename(this.filename, '.js') + '.json');
     const logger = winston.createLogger({
       level: 'silly',
       transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: fileName })
+        new winston.transports.File({ filename: filename })
       ]});
     return super.pushLogger(logger);
   }

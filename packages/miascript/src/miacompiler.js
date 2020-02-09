@@ -26,7 +26,7 @@ class CompilerBase extends AstVisitor {
       CallStmt: this.visitCallStmt,
       ImportStmt: this.visitImport,
       Def: this.visitDef,
-      DefG: this.visitDefG,
+      Sig: this.visitSig,
       BinaryExpr: this.visitBinaryExpr,
       UnaryExpr: this.visitUnaryExpr,
       Clause: this.visitClause,
@@ -37,9 +37,12 @@ class CompilerBase extends AstVisitor {
       QFilter: this.visitQFilter,
       "-->": this.visitSuccess,
       Snippet: this.visitSnippet,
+      Code: this.visitCode,
       Message: this.visitMessage,
       "=": this.visitBinaryExpr,
-      "!=": this.visitBinaryExpr
+      "==": this.visitBinaryExpr,
+      "!=": this.visitBinaryExpr,
+      Return: this.visitReturn
     });
   }
 
@@ -71,8 +74,20 @@ class CompilerBase extends AstVisitor {
     ].join('');
   }
 
+  visitReturn(n) {
+    this.writeLn(`yield this.succeed(${this.visit(n.expr)})`);
+  }
+
   visitSnippet(n) {
     this.writeLn(`console.log(${n.text})`);
+  }
+
+  visitCode(n) {
+    if (this.top(-1) instanceof Block) {
+      this.writeLn(n.text);
+    } else {
+      return n.text;
+    }
   }
 
   visitLiteral(n) {
@@ -118,14 +133,20 @@ class CompilerBase extends AstVisitor {
         if (v.type) {
           this.writeLn(`_$${k} = new Variable('$${k}', (v) => v instanceof ${v.type.name})`);
         } else {
-          this.writeLn(`_$${k} = new Variable('$${k}')`);
+          if (v.qvar) {
+            this.writeLn(`_$${k} = new Variable('$${k}')`);
+          }
         }
       }
     }
     this.delegator_({
       Variable(n) {
         v = this.scope.find(n.name);
-        if (v.qvar) { return `_.$${n.name}`; } else { return visitVariable(n); }
+        if (v.qvar) {
+          return `_.$${n.name}`;
+        } else { 
+          return this.visitVariable(n);
+        }
       }
     });
     return this.visitNode(node);
@@ -171,15 +192,15 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
       }
     }
 
-    this.writeLn("module.exports = module_(function*() {");
+    this.writeLn("module.exports = function() {");
     this.indent();
     this.visitBlock(n);
     this.dedent();
-    this.writeLn("});")
+    this.writeLn("}")
     if (!this.options.filename) { //were running in a sandbox
       this.writeLn("runner_().run(module.exports)");
     } else {
-      this.writeLn("if (require.main == module) { runner_().run(module.exports) }");
+      this.writeLn("if (require.main == module) { runner_(module.exports).run() }");
     }
   }
 
@@ -195,8 +216,8 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
     this.writeLn('});');
   }
 
-  visitDefG(n) {
-    this.writeLn(['this.defg(', this.visit(n.trigger), ', function*() {'].join(''));
+  visitSig(n) {
+    this.writeLn(['this.sig(', this.visit(n.trigger), ', function*() {'].join(''));
     this.indent();
     this.visit(n.body);
     this.dedent();
@@ -308,7 +329,7 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
       }
     });
     const c = node.expr;
-    const header = node.first ? "this.rnr.ctx.query(" : ".not(";
+    const header = node.first ? "$query = this.rnr.ctx.query(" : ".not(";
     return this.writeLn([
       header,
       [
