@@ -2,7 +2,7 @@
 # Counting
 #
 
-+ countTo 5 ::
++ (countTo 5) ::
   value 0
 
 sig (impasse)

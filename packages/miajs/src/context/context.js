@@ -18,7 +18,7 @@ class Context {
     this.clauses = clauses;
   }
   copy () {
-    const other = new Context(Array.from(this.clauses));
+    const other = new Context(this.clauses.slice());
     return other;
   }
   load(loader) {

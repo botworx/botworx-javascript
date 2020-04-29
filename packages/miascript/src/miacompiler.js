@@ -23,7 +23,6 @@ class CompilerBase extends AstVisitor {
       Type: this.visitType,
       Block: this.visitBlock,
       Module: this.visitModule,
-      CallStmt: this.visitCallStmt,
       ImportStmt: this.visitImport,
       Def: this.visitDef,
       Sig: this.visitSig,
@@ -36,13 +35,16 @@ class CompilerBase extends AstVisitor {
       QNegClause: this.visitQNegClause,
       QFilter: this.visitQFilter,
       "-->": this.visitSuccess,
+      "!=>": this.visitTotalFailure,
       Snippet: this.visitSnippet,
       Code: this.visitCode,
       Message: this.visitMessage,
       "=": this.visitBinaryExpr,
       "==": this.visitBinaryExpr,
       "!=": this.visitBinaryExpr,
-      Return: this.visitReturn
+      "instanceof": this.visitBinaryExpr,
+      Return: this.visitReturn,
+      Halt: this.visitHalt
     });
   }
 
@@ -55,7 +57,7 @@ class CompilerBase extends AstVisitor {
   }
 
   visitAction(n) {
-    console.log(n)
+    // console.log(n)
     const result = this.visit(n.expr)
     if (result) {
       this.writeLn(result);
@@ -76,6 +78,10 @@ class CompilerBase extends AstVisitor {
 
   visitReturn(n) {
     this.writeLn(`yield this.succeed(${this.visit(n.expr)})`);
+  }
+
+  visitHalt(n) {
+    this.writeLn(`yield this.halt(${this.visit(n.expr)})`);
   }
 
   visitSnippet(n) {
@@ -257,7 +263,7 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
           this.writeLn(["this.retract(", this.visit(c), ")"].join(''));
           break;  
         case _Attempt:
-          this.visitCallStmt(n);
+          this.visitAttempt(n);
           break;
         case _Propose:
           this.writeLn(["this.propose(", this.visit(c), ")"].join(''));
@@ -266,9 +272,11 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
     }
   }
 
-  visitCallStmt(n) {
+  visitAttempt(n) {
+    const header = n.arg.slash ? 'this.perform(' : 'yield this.call('
+    console.log(n)
     this.writeLn([
-      'yield this.call(',
+      header,
       [
         this.visit(n.arg.subj),
         this.visit(n.arg.verb),
@@ -355,6 +363,16 @@ const {__, $_, _$, module_, Message, Rule, Trigger, Variable, runner_} = miajs\
   visitSuccess(node) {
     //this.writeLn(".exec((_) => {");
     this.writeLn('for (const _ of $query.binders()) {')
+    this.indent();
+    this.visit(node.body);
+    this.dedent();
+    //this.writeLn('})')
+    this.writeLn('}')
+  }
+
+  visitTotalFailure(node) {
+    //this.writeLn(".exec((_) => {");
+    this.writeLn('if (!$query.binders().next()) {')
     this.indent();
     this.visit(node.body);
     this.dedent();

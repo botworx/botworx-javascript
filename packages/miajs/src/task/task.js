@@ -5,10 +5,8 @@
  * DS207: Consider shorter variations of null checks
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
-let TS_RUNNING, TS_SUCCESS;
-const {
-  nextTick
-} = require('process');
+const uuidv1 = require('uuid/v1');
+const { nextTick } = require('process');
 const {unit_, __, clone, GeneratorFunction, AsyncFunction} = require('./common');
 const $$ = unit_(module);
 
@@ -25,11 +23,12 @@ class TaskStatus {
   //toJSON: -> { type: @constructor.name, name: @name }
 const TS = name => new TaskStatus(name);
 
-const TS_INIT = TS('Init');
-exports.TS_RUNNING = (TS_RUNNING = TS('Running'));
-exports.end = (exports.TS_SUCCESS = (TS_SUCCESS = TS('Success')));
+const TS_INIT = exports.TS_INIT = TS('Init');
+const TS_RUNNING = exports.TS_RUNNING = TS('Running');
+const TS_SUCCESS = exports.end = exports.TS_SUCCESS = TS('Success');
 const TS_FAILURE = TS('Failure');
 const TS_SUSPENDED = TS('Suspended');
+const TS_HALTED = TS('Halted');
 
 const toStatus = function(status) {
   if (!(status instanceof TaskStatus)) {
@@ -65,6 +64,7 @@ class Task extends EventEmitter {
   }
   constructor(init) {
     super();
+    this.id = uuidv1();
     this.init = init || this.init;
     this.rnr = null;
     this._msg = null;
@@ -259,6 +259,13 @@ class Task extends EventEmitter {
 
   fail() {
     return this.status = TS_FAILURE;
+  }
+
+  halt() {
+    if (this.rnr) {
+      this.rnr.halt()
+    }
+    return this.status = TS_HALTED;
   }
 
   broadcast(msg) {}

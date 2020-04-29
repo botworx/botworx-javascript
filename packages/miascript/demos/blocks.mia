@@ -2,27 +2,27 @@
 # Blocks World
 #
 
-Table1 :Table
++ Table1 :Table ::
   isClear True
 
-Block1 :Block
++ Block1 :Block ::
   onTop Table1
 
-Block2 :Block
++ Block2 :Block ::
   onTop Block1
 
-Block3 :Block
++ Block3 :Block ::
   onTop Block2
   isClear True
 
-+ Achieve: stack Block1 on: Block2
-+ Achieve: stack Block2 on: Block3
++ stack Block1 on: Block2
++ stack Block2 on: Block3
 
 sig (impasse)
   where
     ($g :Goal) status Active
   -->
-    * /$g
+    * $g
   !=>
     halt
 
@@ -37,14 +37,12 @@ def (stack $x on: $y -> $g)
     not $x isClear True
   -->
     /clear $x
-  ==>
     return
 
   where
-    not $y isClear True
+    not (Block: $y) isClear True
   -->
     /clear $y
-  ==>
     return
 
   where
@@ -62,7 +60,7 @@ def (clear $x)
     $z != $x
     $z != $y
   -->
-    * /stack $y on: $z
+    * stack $y on: $z
 
 def (- $x onTop $y)
   - $y beneath $x
@@ -70,7 +68,8 @@ def (- $x onTop $y)
 
 def (+ $x onTop $y)
   where
-    (Block: $y) isClear True
+    $y isClear True
+    $y instanceof {Block}
   -->
     - $y isClear True
 

@@ -21,6 +21,7 @@ cr      [\r?\n]+
 "sig"             return 'SIG';
 "not"             return 'NOT';
 "return"          return 'RETURN';
+"halt"            return 'HALT';
 //
 "where"           return 'WHERE';
 "-->"             return 'LONGARROW';
@@ -39,8 +40,9 @@ cr      [\r?\n]+
 //
 "=="              return '==';
 "!="              return '!=';
-"="              return '=';
-"!"              return '!';
+"="               return '=';
+"!"               return '!';
+"instanceof"      return 'instanceof';
 //
 \${id}						return 'VARIABLE';
 {noun}\:            return 'TYPE';
@@ -125,7 +127,7 @@ Line
   ;
 
 Statement
-  : Import | Def | Sig | Where | Return
+  : Import | Def | Sig | Where | Return | Halt
   ;
 
 Action
@@ -263,9 +265,7 @@ Code
 Paragraph
 : Sentence
   {$$ = $1;}
-| ClauseExpr '::' INDENT ExprList OUTDENT
-  {$$ = new yy.Paragraph($1, $4);}
-| Term '::' INDENT ExprList OUTDENT
+| Expression '::' INDENT ExprList OUTDENT
   {$$ = new yy.Paragraph($1, $4);}
 ;
 
@@ -444,7 +444,7 @@ Achieve
   ;
 
 BinaryExpr
-  : ContextExpr | InjectExpr | TypeOfExpr | AssignExpr | EqualExpr | NotEqualExpr
+  : ContextExpr | InjectExpr | TypeOfExpr | AssignExpr | EqualExpr | NotEqualExpr | InstanceOfExpr
   ;
 
 ContextExpr
@@ -477,9 +477,21 @@ NotEqualExpr
     { $$ = new yy.BinaryExpr($1, $3, $2); }
   ;
 
+InstanceOfExpr
+  : Expression 'instanceof' Expression
+    { $$ = new yy.BinaryExpr($1, $3, $2); }
+  ;
+
 Return
   : RETURN Expression
     { $$ = new yy.Return($2); }
   | RETURN
     { $$ = new yy.Return(null); }
+  ;
+
+Halt
+  : HALT Expression
+    { $$ = new yy.Halt($2); }
+  | HALT
+    { $$ = new yy.Halt(null); }
   ;

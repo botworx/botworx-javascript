@@ -7,7 +7,7 @@
 let {$$, unit_, clone} = require('./common');
 $$ = unit_(module, $$);
 
-const {Task, Module, TS_INIT, TS_RUNNING} = require("./task");
+const {Task, Module, TS_INIT, TS_RUNNING, TS_SUCCESS} = require("./task");
 const {_start, _impasse, Message, Propose, Attempt, Assert, Retract, Achieve} = require("../main");
 const {Context} = require('../context');
 
@@ -31,7 +31,7 @@ class Runner extends Task {
 
     if (t instanceof Runner) {
       t.run();
-      this.schedule(this);
+      // this.schedule(this);
       return t;
     }
     //Else ...
@@ -104,9 +104,9 @@ class Runner extends Task {
     let t;
     let status;
     let post;
-    $$.$('@main');
+    $$.$(`@main ${this.id}`);
+    $$.$('eval tasks');
     while ((t = this.queue.shift())) {
-      $$.$('eval tasks');
       $$.$(`Tick:\t(${t.constructor.name}) ${t.msg}`);
       status = t.action();
       if (status === TS_RUNNING) {
@@ -126,7 +126,16 @@ class Runner extends Task {
       this.eval(post);
     }
 
-    if (this.idle() && this.impasse() && !this.scheduled) { this.resolve(); }
+    if (this.idle() && this.impasse() && !this.scheduled) {
+      for (const msg of this.proposals) {
+        for(const m of msg.from.matchRules(msg)) {
+          this.fork(m.to);
+        }
+      }
+      this.proposals = []
+      this.resolve();
+      this.status = TS_SUCCESS
+    }
     return this.status;
   }
 
@@ -140,15 +149,10 @@ class Runner extends Task {
   }
 
   impasse() {
-    $$.$("@impasse");
     if (this.impassed) {
-      for (const msg of this.proposals) {
-        for(const m of msg.from.matchRules(msg)) {
-          this.fork(m.to);
-        }
-      }
       return true; 
     }
+    $$.$(`@impasse ${this.id}`);
     this.impassed = true;
     this.post(new Attempt(new Achieve(null, _impasse, null)));
     /*
@@ -161,10 +165,10 @@ class Runner extends Task {
   }
 
   run(...queue) {
-    this.action()
     for (let task of queue) {
       this.schedule(task);
     }
+    this.action()
     return this;
   }
 }

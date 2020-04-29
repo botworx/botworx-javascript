@@ -4,56 +4,48 @@
     {
       "kind": "Block",
       "nodes": [
-        [
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
-            },
-            "arg": {
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Table1",
-                "type": {
-                  "kind": "Type",
-                  "name": "Table"
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Table1",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Table"
+                  }
                 }
               },
               "verb": {
                 "kind": "Term",
                 "name": "exists"
-              },
-              "obj": {
-                "kind": "Literal",
-                "value": "null"
               }
-            }
-          },
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
             },
-            "arg": {
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Table1",
-                "type": {
-                  "kind": "Type",
-                  "name": "Table"
-                }
+                "kind": "Literal",
+                "value": "$$subject"
               },
               "verb": {
                 "kind": "Term",
@@ -64,58 +56,50 @@
                 "name": "True"
               }
             }
-          }
-        ],
-        [
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
-            },
-            "arg": {
+          ]
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block1",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Block1",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Block"
+                  }
                 }
               },
               "verb": {
                 "kind": "Term",
                 "name": "exists"
-              },
-              "obj": {
-                "kind": "Literal",
-                "value": "null"
               }
-            }
-          },
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
             },
-            "arg": {
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block1",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
-                }
+                "kind": "Literal",
+                "value": "$$subject"
               },
               "verb": {
                 "kind": "Term",
@@ -130,58 +114,50 @@
                 }
               }
             }
-          }
-        ],
-        [
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
-            },
-            "arg": {
+          ]
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block2",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Block2",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Block"
+                  }
                 }
               },
               "verb": {
                 "kind": "Term",
                 "name": "exists"
-              },
-              "obj": {
-                "kind": "Literal",
-                "value": "null"
               }
-            }
-          },
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
             },
-            "arg": {
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block2",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
-                }
+                "kind": "Literal",
+                "value": "$$subject"
               },
               "verb": {
                 "kind": "Term",
@@ -196,58 +172,50 @@
                 }
               }
             }
-          }
-        ],
-        [
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
-            },
-            "arg": {
+          ]
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block3",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Block3",
+                  "type": {
+                    "kind": "Type",
+                    "name": "Block"
+                  }
                 }
               },
               "verb": {
                 "kind": "Term",
                 "name": "exists"
-              },
-              "obj": {
-                "kind": "Literal",
-                "value": "null"
               }
-            }
-          },
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
             },
-            "arg": {
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block3",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
-                }
+                "kind": "Literal",
+                "value": "$$subject"
               },
               "verb": {
                 "kind": "Term",
@@ -261,27 +229,16 @@
                   "name": "Block"
                 }
               }
-            }
-          },
-          {
-            "kind": "Message",
-            "type": {
-              "kind": "Type",
-              "name": "Assert"
             },
-            "arg": {
+            {
               "kind": "Clause",
               "type": {
                 "kind": "Type",
                 "name": "Believe"
               },
               "subj": {
-                "kind": "Term",
-                "name": "Block3",
-                "type": {
-                  "kind": "Type",
-                  "name": "Block"
-                }
+                "kind": "Literal",
+                "value": "$$subject"
               },
               "verb": {
                 "kind": "Term",
@@ -292,8 +249,8 @@
                 "name": "True"
               }
             }
-          }
-        ],
+          ]
+        },
         {
           "kind": "Message",
           "type": {
@@ -487,23 +444,8 @@
                         "kind": "Block",
                         "nodes": [
                           {
-                            "kind": "Clause",
-                            "type": {
-                              "kind": "Type",
-                              "name": "Believe"
-                            },
-                            "subj": {
-                              "kind": "Literal",
-                              "value": "null"
-                            },
-                            "verb": {
-                              "kind": "Term",
-                              "name": "halt"
-                            },
-                            "obj": {
-                              "kind": "Literal",
-                              "value": "null"
-                            }
+                            "kind": "Halt",
+                            "expr": null
                           }
                         ]
                       }
@@ -727,8 +669,7 @@
                           "name": "x",
                           "info": {
                             "name": "x",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         },
                         "verb": {
@@ -777,15 +718,7 @@
                                 "info": null
                               }
                             }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "==>",
-                      "body": {
-                        "kind": "Block",
-                        "nodes": [
+                          },
                           {
                             "kind": "Return",
                             "expr": null
@@ -812,10 +745,13 @@
                         "subj": {
                           "kind": "Variable",
                           "name": "y",
+                          "type": {
+                            "kind": "Type",
+                            "name": "Block"
+                          },
                           "info": {
                             "name": "y",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.on"
                           }
                         },
                         "verb": {
@@ -864,15 +800,7 @@
                                 "info": null
                               }
                             }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "==>",
-                      "body": {
-                        "kind": "Block",
-                        "nodes": [
+                          },
                           {
                             "kind": "Return",
                             "expr": null
@@ -901,8 +829,7 @@
                           "name": "x",
                           "info": {
                             "name": "x",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         },
                         "verb": {
@@ -1066,8 +993,7 @@
                           "name": "x",
                           "info": {
                             "name": "x",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         },
                         "verb": {
@@ -1130,8 +1056,7 @@
                           "name": "x",
                           "info": {
                             "name": "x",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         }
                       }
@@ -1375,18 +1300,9 @@
                         "subj": {
                           "kind": "Variable",
                           "name": "y",
-                          "type": {
-                            "kind": "Type",
-                            "name": "Block"
-                          },
                           "info": {
                             "name": "y",
-                            "value": null,
-                            "type": {
-                              "kind": "Type",
-                              "name": "Block"
-                            },
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         },
                         "verb": {
@@ -1396,6 +1312,24 @@
                         "obj": {
                           "kind": "Term",
                           "name": "True"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "QFilter",
+                      "expr": {
+                        "kind": "instanceof",
+                        "left": {
+                          "kind": "Variable",
+                          "name": "y",
+                          "info": {
+                            "name": "y",
+                            "value": "this.msg.data.obj"
+                          }
+                        },
+                        "right": {
+                          "kind": "Code",
+                          "text": "Block"
                         }
                       }
                     }
@@ -1460,8 +1394,7 @@
                           "name": "x",
                           "info": {
                             "name": "x",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.subj"
                           }
                         },
                         "verb": {
@@ -1473,8 +1406,7 @@
                           "name": "y",
                           "info": {
                             "name": "y",
-                            "value": null,
-                            "qvar": true
+                            "value": "this.msg.data.obj"
                           }
                         }
                       }

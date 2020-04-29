@@ -1,0 +1,16 @@
++ Bob ::
+  likes Fish
+  likes Chips
++ Joe ::
+  likes Fish
+
+sig (start)
+  | this.rnr.ctx
+  where
+    $x likes Fish
+    !$x likes Chips
+  -->
+    | _.$x
+
+sig (impasse)
+  | String(this.rnr.ctx)

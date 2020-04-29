@@ -15,6 +15,7 @@
     "js-yaml": "^3.13.1",
     "json-stringify-safe": "^5.0.1",
     "minimatch": "^3.0.4",
+    "uuid": "^3.4.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {

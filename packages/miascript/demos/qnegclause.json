@@ -1,0 +1,278 @@
+{
+  "kind": "Module",
+  "nodes": [
+    {
+      "kind": "Block",
+      "nodes": [
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Bob"
+                }
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "exists"
+              }
+            },
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Literal",
+                "value": "$$subject"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "likes"
+              },
+              "obj": {
+                "kind": "Term",
+                "name": "Fish"
+              }
+            },
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Literal",
+                "value": "$$subject"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "likes"
+              },
+              "obj": {
+                "kind": "Term",
+                "name": "Chips"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Message",
+          "type": {
+            "kind": "Type",
+            "name": "Assert"
+          },
+          "arg": [
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "=",
+                "left": {
+                  "kind": "Literal",
+                  "value": "$$subject"
+                },
+                "right": {
+                  "kind": "Term",
+                  "name": "Joe"
+                }
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "exists"
+              }
+            },
+            {
+              "kind": "Clause",
+              "type": {
+                "kind": "Type",
+                "name": "Believe"
+              },
+              "subj": {
+                "kind": "Literal",
+                "value": "$$subject"
+              },
+              "verb": {
+                "kind": "Term",
+                "name": "likes"
+              },
+              "obj": {
+                "kind": "Term",
+                "name": "Fish"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Sig",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "start"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Snippet",
+                "text": "this.rnr.ctx"
+              },
+              {
+                "kind": "Query",
+                "lhs": {
+                  "kind": "Lhs",
+                  "nodes": [
+                    {
+                      "kind": "QClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "x",
+                          "info": {
+                            "name": "x",
+                            "value": null,
+                            "qvar": true
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "likes"
+                        },
+                        "obj": {
+                          "kind": "Term",
+                          "name": "Fish"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "QNegClause",
+                      "expr": {
+                        "kind": "Clause",
+                        "type": {
+                          "kind": "Type",
+                          "name": "Believe"
+                        },
+                        "subj": {
+                          "kind": "Variable",
+                          "name": "x",
+                          "info": {
+                            "name": "x",
+                            "value": null,
+                            "qvar": true
+                          }
+                        },
+                        "verb": {
+                          "kind": "Term",
+                          "name": "likes"
+                        },
+                        "obj": {
+                          "kind": "Term",
+                          "name": "Chips"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "rhs": {
+                  "kind": "Rhs",
+                  "nodes": [
+                    {
+                      "kind": "-->",
+                      "body": {
+                        "kind": "Block",
+                        "nodes": [
+                          {
+                            "kind": "Snippet",
+                            "text": "_.$x"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "Sig",
+          "trigger": {
+            "kind": "Trigger",
+            "flavor": {
+              "kind": "Type",
+              "name": "Attempt"
+            },
+            "type": {
+              "kind": "Type",
+              "name": "Achieve"
+            },
+            "subj": {
+              "kind": "Literal",
+              "value": "null"
+            },
+            "verb": {
+              "kind": "Term",
+              "name": "impasse"
+            },
+            "obj": {
+              "kind": "Literal",
+              "value": "null"
+            }
+          },
+          "body": {
+            "kind": "Block",
+            "nodes": [
+              {
+                "kind": "Snippet",
+                "text": "String(this.rnr.ctx)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

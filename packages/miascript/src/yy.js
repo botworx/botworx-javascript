@@ -500,23 +500,6 @@ class ImportStmt extends Statement {
 
 exports.ImportStmt = ImportStmt;
 
-class CallStmt extends Statement {
-  static initClass() {
-    this.node('expr');
-  }
-  constructor(expr) {
-    super('CallStmt');
-    this.expr = expr;
-  }
-
-  toJSON() {
-    return {kind: this.kind, expr: this.expr};
-  }
-}
-CallStmt.initClass();
-
-exports.CallStmt = CallStmt;
-
 //
 class Query extends Statement {
   static initClass() {
@@ -631,3 +614,16 @@ class Return extends Node {
 }
 
 exports.Return = Return;
+
+class Halt extends Node {
+  constructor(expr) {
+    super('Halt');
+    this.expr = expr;
+  }
+
+  toJSON() {
+    return {kind: this.kind, expr: this.expr};
+  }
+}
+
+exports.Halt = Halt;

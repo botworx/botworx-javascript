@@ -1,7 +1,7 @@
 const {AstVisitor} = require('./astvisitor');
 const {
-  _null, _exists, _Achieve, Block, Action, CallStmt, Query, Rhs,
-  Attempt, Assert, Clause, Literal, Paragraph, BinaryExpr
+  _null, _exists, _Achieve, Block, Action, Query, Rhs,
+  Attempt, Assert, Clause, Literal, Paragraph, BinaryExpr, Term, term_
 } = require('./yy');
 
 class Transformer extends AstVisitor {
@@ -12,6 +12,7 @@ class Transformer extends AstVisitor {
       Query: this.visitQuery,
       Rhs: this.visitRhs,
       "-->": this.visitSuccess,
+      "!=>": this.visitTotalFailure,
       Term: this.visitTerm,
       Clause: this.visitClause,
       Sentence: this.visitSentence,
@@ -61,6 +62,11 @@ class Transformer extends AstVisitor {
     return node
   }
 
+  visitTotalFailure(node) {
+    this.visit(node.body);
+    return node
+  }
+
   visitTerm(node) {
     if (this.top(-1) instanceof Block) {
       return new Assert(new Clause(node, _exists, _null));
@@ -69,7 +75,7 @@ class Transformer extends AstVisitor {
   }
 
   visitClause(node) {
-    console.log(node)
+    // console.log(node)
     if (this.top(-1) instanceof Block) {
       if (node.subj === _null) {
         node.type = _Achieve;
@@ -96,12 +102,18 @@ class Transformer extends AstVisitor {
   }
 
   visitParagraph(node) {
+    //console.log(node)
     this.visitNode(node);
     const subj = new Literal('$$subject')
-    if (node.subj.subj === _null) {
-      node.subj.type = _Achieve;
+    let result = null
+    if (node.subj instanceof Clause) {
+      if (node.subj.subj === _null) {
+        node.subj.type = _Achieve;
+      }
+      result = [new BinaryExpr(subj, this.visit(node.subj), '=')]
+    } else if (node.subj instanceof Term) {
+      result = [ new Clause(new BinaryExpr(subj, this.visit(node.subj), '='), term_('exists'))]
     }
-    let result = [new BinaryExpr(subj, this.visit(node.subj), '=')]
     this.subj = subj
     for (let clause of node.list) {
       const subclause = this.visitClause(clause);

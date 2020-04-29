@@ -11,6 +11,12 @@ class Query {
   constructor(ctx){
     this.ctx = ctx;
     this.conds = [];
+    this.success = false;
+    this.failure = false;
+  }
+
+  totalFailure () {
+    return this.state.failure && !this.state.success
   }
 
   add(c) {

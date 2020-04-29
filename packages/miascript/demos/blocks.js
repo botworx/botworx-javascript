@@ -15,19 +15,18 @@ _stack = $_('stack')
 _impasse = $_('impasse')
 _status = $_('status')
 _Active = $_('Active')
-_halt = $_('halt')
 _clear = $_('clear')
 _beneath = $_('beneath')
 module.exports = function() {
-  this.assert(new Believe(_Table1,_exists,null))
-  this.assert(new Believe(_Table1,_isClear,_True))
-  this.assert(new Believe(_Block1,_exists,null))
-  this.assert(new Believe(_Block1,_onTop,_Table1))
-  this.assert(new Believe(_Block2,_exists,null))
-  this.assert(new Believe(_Block2,_onTop,_Block1))
-  this.assert(new Believe(_Block3,_exists,null))
-  this.assert(new Believe(_Block3,_onTop,_Block2))
-  this.assert(new Believe(_Block3,_isClear,_True))
+  this.assert(new Believe($$subject = _Table1,_exists))
+  this.assert(new Believe($$subject,_isClear,_True))
+  this.assert(new Believe($$subject = _Block1,_exists))
+  this.assert(new Believe($$subject,_onTop,_Table1))
+  this.assert(new Believe($$subject = _Block2,_exists))
+  this.assert(new Believe($$subject,_onTop,_Block1))
+  this.assert(new Believe($$subject = _Block3,_exists))
+  this.assert(new Believe($$subject,_onTop,_Block2))
+  this.assert(new Believe($$subject,_isClear,_True))
   this.assert(new Achieve(null,_stack,_Block1,{on: _Block2}))
   this.assert(new Achieve(null,_stack,_Block2,{on: _Block3}))
   this.sig(new Trigger(Attempt,Achieve,null,_impasse,null,__), function*() {
@@ -35,6 +34,9 @@ module.exports = function() {
     $query = this.rnr.ctx.query(Believe,_$g,_status,_Active)
     for (const _ of $query.binders()) {
       this.propose(_.$g)
+    }
+    if (!$query.binders().next()) {
+      yield this.halt(undefined)
     }
   });
   this.def(new Trigger(Assert,Goal,__,__,__,__), function*() {
@@ -49,33 +51,31 @@ module.exports = function() {
     $g = this.msg.data
     $x = this.msg.data.obj
     $y = this.msg.data.on
-    _$x = new Variable('$x')
-    $query = this.rnr.ctx.query(Believe,_$x,_isClear,_True)
+    $query = this.rnr.ctx.query(Believe,$x,_isClear,_True)
     for (const _ of $query.binders()) {
-      yield this.call(null,_clear,_.$x)
+      this.perform(null,_clear,$x)
+      yield this.succeed(undefined)
     }
-    _$y = new Variable('$y')
-    $query = this.rnr.ctx.query(Believe,_$y,_isClear,_True)
+    $query = this.rnr.ctx.query(Believe,$y,_isClear,_True)
     for (const _ of $query.binders()) {
-      yield this.call(null,_clear,_.$y)
+      this.perform(null,_clear,$y)
+      yield this.succeed(undefined)
     }
-    _$x = new Variable('$x')
     _$z = new Variable('$z')
-    $query = this.rnr.ctx.query(Believe,_$x,_onTop,_$z)
+    $query = this.rnr.ctx.query(Believe,$x,_onTop,_$z)
     for (const _ of $query.binders()) {
-      this.retract(new Believe(_.$x,_onTop,_.$z))
+      this.retract(new Believe($x,_onTop,_.$z))
     }
     this.assert(new Believe($x,_onTop,$y))
     this.retract($g)
   });
   this.def(new Trigger(Attempt,Achieve,null,_clear,__,__), function*() {
     $x = this.msg.data.obj
-    _$x = new Variable('$x')
     _$y = new Variable('$y')
     _$z = new Variable('$z')
-    $query = this.rnr.ctx.query(Believe,_$x,_beneath,_$y)
+    $query = this.rnr.ctx.query(Believe,$x,_beneath,_$y)
     .and(Believe,_$z,_isClear,_True)
-    .filter((_) => _.$z != _.$x)
+    .filter((_) => _.$z != $x)
     .filter((_) => _.$z != _.$y)
     for (const _ of $query.binders()) {
       this.propose(new Achieve(null,_stack,_.$y,{on: _.$z}))
@@ -90,16 +90,14 @@ module.exports = function() {
   this.def(new Trigger(Assert,Believe,__,_onTop,__,__), function*() {
     $x = this.msg.data.subj
     $y = this.msg.data.obj
-    _$y = new Variable('$y', (v) => v instanceof Block)
-    $query = this.rnr.ctx.query(Believe,_$y,_isClear,_True)
+    $query = this.rnr.ctx.query(Believe,$y,_isClear,_True)
+    .filter((_) => $y instanceof Block)
     for (const _ of $query.binders()) {
-      this.retract(new Believe(_.$y,_isClear,_True))
+      this.retract(new Believe($y,_isClear,_True))
     }
-    _$x = new Variable('$x')
-    _$y = new Variable('$y')
-    $query = this.rnr.ctx.query(Believe,_$x,_onTop,_$y)
+    $query = this.rnr.ctx.query(Believe,$x,_onTop,$y)
     for (const _ of $query.binders()) {
-      this.assert(new Believe(_.$y,_beneath,_.$x))
+      this.assert(new Believe($y,_beneath,$x))
     }
   });
 }
